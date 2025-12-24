@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerContainer = document.getElementById("site-footer");
   if (!footerContainer) return;
 
-  fetch("components/footer.html")
+  fetch("/components/footer.html")
     .then((res) => {
       if (!res.ok) throw new Error("Footer load failed");
       return res.text();
@@ -20,3 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Footer error:", err);
     });
 });
+
