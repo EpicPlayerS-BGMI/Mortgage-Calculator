@@ -731,22 +731,23 @@ input[type="number"] {
               .scrollIntoView({ behavior: "smooth" });
         }
       }
+function toggleTheme() {
+  const iconLight = document.getElementById("theme-icon-light");
+  const iconDark = document.getElementById("theme-icon-dark");
 
- function toggleTheme() {
-        const iconDark = document.getElementById("theme-toggle-dark-icon");
-        const iconLight = document.getElementById("theme-toggle-light-icon");
-        if (document.documentElement.classList.contains("dark")) {
-          document.documentElement.classList.remove("dark");
-          localStorage.setItem("color-theme", "light");
-          iconLight.classList.add("hidden");
-          iconDark.classList.remove("hidden");
-        } else {
-          document.documentElement.classList.add("dark");
-          localStorage.setItem("color-theme", "dark");
-          iconDark.classList.add("hidden");
-          iconLight.classList.remove("hidden");
-        }
-      }
+  if (document.documentElement.classList.contains("dark")) {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+    iconLight.classList.remove("hidden");
+    iconDark.classList.add("hidden");
+  } else {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    iconDark.classList.remove("hidden");
+    iconLight.classList.add("hidden");
+  }
+}
+
     </script>
     <script type="application/ld+json">
       {
@@ -775,6 +776,7 @@ input[type="number"] {
     <script src="footer.js"></script>
   </body>
 </html>
+
 
 
 
