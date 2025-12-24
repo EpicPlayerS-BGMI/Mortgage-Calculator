@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loan EMI Calculator | Personal, Car & Home Loans | CalcBase</title>
+    <title>
+      Personal Loan EMI Calculator | Calculate Monthly Installments | CalcBase
+    </title>
     <meta
       name="description"
-      content="Accurate Loan EMI Calculator for US & UK professionals. Calculate monthly installments for Mortgage, Auto, and Personal loans with amortization insights."
+      content="Free Personal Loan EMI Calculator. Plan your repayment for weddings, travel, or medical emergencies with accurate monthly installment estimates."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://calcbase.tech/loan-calculator/" />
@@ -15,7 +17,11 @@
       name="keywords"
       content="loan emi calculator, mortgage calculator, auto loan calculator, apr calculator, loan amortization, interest rate calculator"
     />
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../assets/favicon.ico"
+      type="image/x-icon"
+    />
 
     <meta property="og:type" content="website" />
     <meta
@@ -76,6 +82,7 @@
         background: conic-gradient(#4f46e5 var(--p), #e5e7eb 0);
         transition: background 0.5s ease-in-out;
       }
+
       .dark .pie-chart {
         background: conic-gradient(#6366f1 var(--p), #374151 0);
       }
@@ -255,15 +262,14 @@
         <h1
           class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight text-slate-900 dark:text-white"
         >
-          Smart Loan
+          Personal Loan
           <span class="text-indigo-600 dark:text-indigo-400"
             >EMI Calculator</span
           >
         </h1>
         <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-          Take control of your finances. Accurately calculate monthly payments
-          for Personal Loans, Car Loans, and Mortgages with our
-          professional-grade tool.
+          Planning for a wedding, renovation, or medical expense? Calculate your
+          personal loan EMIs instantly and plan your budget better.
         </p>
       </section>
 
@@ -313,7 +319,7 @@
                     id="loanAmount"
                     type="number"
                     inputmode="decimal"
-                    value="25000"
+                    value="10000"
                     class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition font-mono text-lg font-medium"
                     oninput="calculateEMI()"
                   />
@@ -329,7 +335,7 @@
                   <span
                     class="text-sm font-mono text-indigo-600 dark:text-indigo-400 font-bold"
                     id="rate-display"
-                    >8.5%</span
+                    >11%</span
                   >
                 </div>
 
@@ -339,7 +345,7 @@
                   min="1"
                   max="30"
                   step="0.1"
-                  value="8.5"
+                  value="11"
                   class="w-full mb-4 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer dark:bg-slate-700 accent-indigo-600"
                   oninput="syncInput('rate', 'slider')"
                 />
@@ -349,7 +355,7 @@
                     id="rate-number"
                     type="number"
                     step="0.1"
-                    value="8.5"
+                    value="11"
                     class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-indigo-500 outline-none transition font-mono text-lg"
                     oninput="syncInput('rate', 'number')"
                   />
@@ -385,7 +391,7 @@
                   <input
                     id="tenure"
                     type="number"
-                    value="5"
+                    value="3"
                     class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-indigo-500 outline-none transition font-mono text-lg"
                     oninput="calculateEMI()"
                   />
