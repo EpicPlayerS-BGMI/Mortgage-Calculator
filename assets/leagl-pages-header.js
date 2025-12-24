@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const footerContainer = document.getElementById("site-footer");
+  const footerContainer = document.getElementById("site-legal-pages-header");
   if (!footerContainer) return;
 
-  fetch("/components/footer.html")
+  fetch("/components/legal-pages-header.html")
     .then((res) => {
       if (!res.ok) throw new Error("Footer load failed");
       return res.text();
