@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      SIP vs FD Calculator | Compare Returns & Best Investment – CalcBase
+    </title>
+    <meta
+      name="description"
+      content="Compare SIP vs Fixed Deposit returns instantly. Use CalcBase SIP vs FD calculator to find which investment gives better returns over time."
+    />
+    <link
+      rel="canonical"
+      href="https://www.calcbase.tech/sip-vs-fd-calculator/"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="CalcBase" />
+    <meta
+      name="keywords"
+      content="sip vs fd calculator, sip vs fixed deposit, sip or fd which is better, sip calculator india, fd calculator, best investment sip or fd"
+    />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="SIP vs FD Calculator | Best Investment Comparison – CalcBase"
+    />
+    <meta
+      property="og:description"
+      content="Compare SIP vs Fixed Deposit returns and find the best investment option using CalcBase SIP vs FD calculator."
+    />
+    <meta
+      property="og:url"
+      content="https://www.calcbase.tech/sip-vs-fd-calculator/"
+    />
+    <meta
+      property="og:image"
+      content="https://calcbase.tech/assets/og/sip-vs-fd.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="SIP vs FD Calculator | Compare Investment Returns – CalcBase"
+    />
+    <meta
+      name="twitter:description"
+      content="Free SIP vs FD calculator to compare investment returns and choose the best option."
+    />
+    <meta
+      name="twitter:image"
+      content="https://calcbase.tech/assets/og/sip-vs-fd.png"
+    />
+
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/favicon.ico" />
+
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SIP vs FD Calculator",
+        "url": "https://www.calcbase.tech/sip-vs-fd-calculator/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Compare SIP and Fixed Deposit returns to find the best investment option."
+      }
+    </script>
+  </head>
+
+  <body
+    class="bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
+  >
+    <header
+      id="calcpages-header"
+      class="sticky top-0 z-50 sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800"
+    ></header>
+    <!-- Container -->
+    <main class="max-w-5xl mx-auto px-4 py-12">
+      <!-- Heading -->
+      <header class="mb-10 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-3">
+          SIP vs FD Calculator
+        </h1>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          Compare Systematic Investment Plan (SIP) and Fixed Deposit (FD)
+          returns to find the better investment option for your money.
+        </p>
+      </header>
+
+      <!-- Calculator Card -->
+      <section
+        class="bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-6 md:p-8"
+      >
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Inputs -->
+          <div class="space-y-5">
+            <div>
+              <label class="block mb-1 font-medium"
+                >Monthly Investment (₹)</label
+              >
+              <input
+                id="monthly"
+                type="number"
+                value="5000"
+                class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-4 py-2"
+              />
+            </div>
+
+            <div>
+              <label class="block mb-1 font-medium"
+                >Investment Period (Years)</label
+              >
+              <input
+                id="years"
+                type="number"
+                value="10"
+                class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-4 py-2"
+              />
+            </div>
+
+            <div>
+              <label class="block mb-1 font-medium"
+                >Expected SIP Return (%)</label
+              >
+              <input
+                id="sipRate"
+                type="number"
+                value="12"
+                class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-4 py-2"
+              />
+            </div>
+
+            <div>
+              <label class="block mb-1 font-medium">FD Interest Rate (%)</label>
+              <input
+                id="fdRate"
+                type="number"
+                value="6.5"
+                class="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-4 py-2"
+              />
+            </div>
+
+            <button
+              onclick="calculate()"
+              class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg transition"
+            >
+              Calculate Returns
+            </button>
+          </div>
+
+          <!-- Results -->
+          <!-- Results -->
+          <div
+            class="rounded-2xl p-6 space-y-6 bg-gradient-to-br from-indigo-50 to-sky-50 dark:from-slate-800 dark:to-slate-900 shadow-inner"
+          >
+            <h2 class="text-xl font-semibold flex items-center gap-2">
+              📊 Investment Results
+            </h2>
+
+            <!-- Total Invested -->
+            <div
+              class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 transition hover:scale-[1.02] hover:shadow-md"
+            >
+              <p class="text-sm text-slate-500">Total Investment</p>
+              <p id="invested" class="text-2xl font-bold">₹0</p>
+            </div>
+
+            <!-- SIP vs FD Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- SIP Card -->
+              <div
+                class="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-700 transition hover:scale-[1.03]"
+              >
+                <p class="text-sm text-emerald-600 dark:text-emerald-400">
+                  SIP Maturity Value
+                </p>
+                <p
+                  id="sipValue"
+                  class="text-2xl font-bold text-emerald-700 dark:text-emerald-400"
+                >
+                  ₹0
+                </p>
+              </div>
+
+              <!-- FD Card -->
+              <div
+                class="p-4 rounded-xl bg-sky-50 dark:bg-sky-900/20 border border-sky-200 dark:border-sky-700 transition hover:scale-[1.03]"
+              >
+                <p class="text-sm text-sky-600 dark:text-sky-400">
+                  FD Maturity Value
+                </p>
+                <p
+                  id="fdValue"
+                  class="text-2xl font-bold text-sky-700 dark:text-sky-400"
+                >
+                  ₹0
+                </p>
+              </div>
+            </div>
+
+            <!-- Winner Badge -->
+            <div
+              id="winner"
+              class="mt-2 text-center font-semibold text-lg text-indigo-600 dark:text-indigo-400 opacity-0 translate-y-2 transition-all duration-500"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEO Content -->
+      <section
+        class="mt-12 max-w-4xl mx-auto text-slate-600 dark:text-slate-400"
+      >
+        <h2 class="text-2xl font-bold mb-3 text-slate-800 dark:text-slate-200">
+          SIP vs FD – Which is Better?
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 mx-auto">
+          SIP vs FD Calculator helps you compare long-term returns from
+          Systematic Investment Plans (SIP) and Fixed Deposits (FD). Enter your
+          investment amount, duration, and expected returns to see which option
+          suits your financial goals.
+        </p>
+      </section>
+      <section class="mt-14 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4">
+          SIP vs FD – Investment Comparison Explained
+        </h2>
+
+        <p class="mb-4 text-slate-600 dark:text-slate-400">
+          A Systematic Investment Plan (SIP) allows you to invest a fixed amount
+          regularly in mutual funds, benefiting from market growth and
+          compounding. Fixed Deposits (FD), on the other hand, offer guaranteed
+          returns with low risk but limited growth potential.
+        </p>
+
+        <p class="mb-4 text-slate-600 dark:text-slate-400">
+          This SIP vs FD calculator compares both investment options using your
+          input values to estimate maturity amounts. It helps investors
+          understand how market-linked returns differ from fixed interest
+          investments over time.
+        </p>
+      </section>
+      <section class="mt-10 max-w-4xl mx-auto overflow-x-auto">
+        <h3 class="text-xl font-semibold mb-4">SIP vs FD: Key Differences</h3>
+
+        <table
+          class="w-full border border-slate-200 dark:border-slate-700 rounded-lg"
+        >
+          <thead class="bg-slate-100 dark:bg-slate-800">
+            <tr>
+              <th class="p-3 text-left">Feature</th>
+              <th class="p-3 text-left">SIP</th>
+              <th class="p-3 text-left">Fixed Deposit</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+            <tr>
+              <td class="p-3">Risk Level</td>
+              <td class="p-3">Market-linked (Moderate to High)</td>
+              <td class="p-3">Low Risk</td>
+            </tr>
+            <tr>
+              <td class="p-3">Expected Returns</td>
+              <td class="p-3">Higher (Long Term)</td>
+              <td class="p-3">Lower but Stable</td>
+            </tr>
+            <tr>
+              <td class="p-3">Liquidity</td>
+              <td class="p-3">High (subject to market)</td>
+              <td class="p-3">Limited (penalty on early withdrawal)</td>
+            </tr>
+            <tr>
+              <td class="p-3">Best For</td>
+              <td class="p-3">Wealth creation</td>
+              <td class="p-3">Capital protection</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="mt-12 max-w-4xl mx-auto">
+        <h3 class="text-xl font-semibold mb-4">
+          Which Investment Option Is Better for You?
+        </h3>
+
+        <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+          <li>
+            ✔ Choose <strong>SIP</strong> if you want long-term growth and can
+            tolerate market fluctuations.
+          </li>
+          <li>
+            ✔ Choose <strong>FD</strong> if you prefer guaranteed returns with
+            minimal risk.
+          </li>
+          <li>
+            ✔ A balanced portfolio may include both SIP and FD investments.
+          </li>
+        </ul>
+      </section>
+
+      <section id="faq" class="mt-20 max-w-4xl mx-auto">
+        <h2
+          class="text-3xl font-bold text-center mb-10 text-slate-900 dark:text-white"
+        >
+          SIP vs FD – Frequently Asked Questions
+        </h2>
+        <div class="space-y-4">
+          <details
+            class="border border-slate-200 dark:border-slate-700 group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-200 open:shadow-md hover:border-indigo-500 dark:hover:border-indigo-400 focus-within:border-indigo-500 dark:focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-500/30 dark:focus-within:ring-indigo-400/30"
+          >
+            <summary
+              class="flex justify-between items-center p-5 cursor-pointer list-none font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition"
+            >
+              <span>Is SIP better than FD?</span>
+              <span
+                class="transition-transform group-open:rotate-180 text-indigo-500"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </span>
+            </summary>
+            <div
+              class="p-5 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              SIP generally offers higher returns over the long term, while FD
+              provides stable and guaranteed returns.
+            </div>
+          </details>
+
+          <details
+            class="border border-slate-200 dark:border-slate-700 group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-200 open:shadow-md hover:border-indigo-500 dark:hover:border-indigo-400 focus-within:border-indigo-500 dark:focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-500/30 dark:focus-within:ring-indigo-400/30"
+          >
+            <summary
+              class="flex justify-between items-center p-5 cursor-pointer list-none font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition"
+            >
+              <span>Is SIP risky?</span>
+              <span
+                class="transition-transform group-open:rotate-180 text-indigo-500"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </span>
+            </summary>
+            <div
+              class="p-5 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              SIP investments are market-linked and may fluctuate in the short
+              term but tend to perform well over longer periods.
+            </div>
+          </details>
+
+          <details
+            class="border border-slate-200 dark:border-slate-700 group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-200 open:shadow-md hover:border-indigo-500 dark:hover:border-indigo-400 focus-within:border-indigo-500 dark:focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-500/30 dark:focus-within:ring-indigo-400/30"
+          >
+            <summary
+              class="flex justify-between items-center p-5 cursor-pointer list-none font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition"
+            >
+              <span>Can I invest in both SIP and FD?</span>
+              <span
+                class="transition-transform group-open:rotate-180 text-indigo-500"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </span>
+            </summary>
+            <div
+              class="p-5 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              Yes, combining SIP and FD can help balance risk and stability in
+              your portfolio.
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="/assets/common.js" defer></script>
+
+    <!-- Script -->
+    <script>
+      function calculate() {
+        const monthly = Number(document.getElementById("monthly").value);
+        const years = Number(document.getElementById("years").value);
+        const sipRate = Number(document.getElementById("sipRate").value) / 100;
+        const fdRate = Number(document.getElementById("fdRate").value) / 100;
+
+        const months = years * 12;
+        const invested = monthly * months;
+
+        // SIP calculation
+        const r = sipRate / 12;
+        const sipValue =
+          monthly * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
+
+        // FD calculation (lump sum equivalent)
+        const fdValue = invested * Math.pow(1 + fdRate, years);
+
+        document.getElementById("invested").innerText =
+          "₹" + invested.toLocaleString();
+        document.getElementById("sipValue").innerText =
+          "₹" + Math.round(sipValue).toLocaleString();
+        document.getElementById("fdValue").innerText =
+          "₹" + Math.round(fdValue).toLocaleString();
+
+        document.getElementById("winner").innerText =
+          sipValue > fdValue
+            ? "📈 SIP gives higher returns over this period."
+            : "🏦 FD gives higher returns over this period.";
+      }
+
+      calculate();
+
+      const winnerEl = document.getElementById("winner");
+
+      winnerEl.textContent =
+        sipValue > fdValue
+          ? "📈 SIP gives higher returns over this period"
+          : "🏦 FD gives higher returns over this period";
+
+      // animate
+      winnerEl.classList.remove("opacity-0", "translate-y-2");
+      winnerEl.classList.add("opacity-100", "translate-y-0");
+    </script>
+  </body>
+</html>

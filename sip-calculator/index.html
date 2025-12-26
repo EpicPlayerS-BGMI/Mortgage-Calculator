@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      SIP Calculator | Monthly Investment Returns & Growth – CalcBase
+    </title>
+
+    <meta
+      name="description"
+      content="Free SIP Calculator to calculate monthly investment returns, total investment, and future value with compound growth. Suitable for India, USA & UK investors."
+    />
+    <link rel="canonical" href="https://www.calcbase.tech/sip-calculator/" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="CalcBase" />
+
+    <meta
+      name="keywords"
+      content="sip calculator, sip calculator india, systematic investment plan calculator, monthly sip calculator, sip return calculator, mutual fund sip calculator"
+    />
+
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="SIP Calculator | Monthly Investment Returns – CalcBase"
+    />
+    <meta
+      property="og:description"
+      content="Calculate SIP returns, total investment, and future value using CalcBase SIP Calculator with compound growth."
+    />
+    <meta
+      property="og:url"
+      content="https://www.calcbase.tech/sip-calculator/"
+    />
+    <meta
+      property="og:image"
+      content="https://calcbase.tech/assets/og/sip-calculator.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="SIP Calculator | Monthly Investment Returns – CalcBase"
+    />
+    <meta
+      name="twitter:description"
+      content="Free SIP calculator to estimate monthly investment returns and future value with compound growth."
+    />
+    <meta
+      name="twitter:image"
+      content="https://calcbase.tech/assets/og/sip-calculator.png"
+    />
+
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/favicon.ico" />
+
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      @keyframes valuePop {
+        0% {
+          transform: scale(0.95);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .value-animate {
+        animation: valuePop 0.4s ease;
+      }
+
+      input[type="range"] {
+        transition: transform 0.2s ease;
+      }
+
+      input[type="range"]:hover {
+        transform: scaleY(1.15);
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SIP Calculator",
+        "url": "https://www.calcbase.tech/sip-calculator/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "SIP calculator to calculate monthly investment returns, total investment, and future value with compound growth."
+      }
+    </script>
+  </head>
+
+  <body
+    class="bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
+  >
+    <header
+      id="calcpages-header"
+      class="sticky top-0 z-50 sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800"
+    ></header>
+
+    <!-- MAIN -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+      <!-- HERO -->
+      <section class="text-center max-w-3xl mx-auto mb-14">
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4">
+          SIP
+          <span class="text-indigo-600 dark:text-indigo-400"> Calculator </span>
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400">
+          Calculate future value of your monthly investments using Systematic
+          Investment Planning (SIP) for
+          <strong>USA, UK & India</strong>.
+        </p>
+      </section>
+
+      <!-- GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- INPUTS -->
+        <section
+          class="lg:col-span-7 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/50 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.25)] p-6 md:p-8 space-y-6 animate-fadeIn"
+        >
+          <!-- Currency -->
+          <div class="flex bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+            <button
+              onclick="setCurrency('USD')"
+              id="usdBtn"
+              class="flex-1 py-2 rounded-md bg-white dark:bg-slate-800 font-bold"
+            >
+              USD ($)
+            </button>
+            <button
+              onclick="setCurrency('GBP')"
+              id="gbpBtn"
+              class="flex-1 py-2 rounded-md text-slate-500 font-bold"
+            >
+              GBP (£)
+            </button>
+            <button
+              onclick="setCurrency('INR')"
+              id="inrBtn"
+              class="flex-1 py-2 rounded-md text-slate-500 font-bold"
+            >
+              INR (₹)
+            </button>
+          </div>
+
+          <!-- Monthly Investment -->
+          <div>
+            <label class="font-semibold">Monthly Investment</label>
+            <div class="relative mt-2">
+              <span
+                id="currencySymbol"
+                class="absolute left-4 top-3.5 text-slate-400 font-bold"
+                >$</span
+              >
+              <input
+                id="monthly"
+                type="number"
+                value="500"
+                class="w-full pl-10 pr-4 py-3 rounded-xl border dark:bg-slate-900"
+                oninput="calculateSIP()"
+              />
+            </div>
+          </div>
+
+          <!-- Return Rate -->
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="font-semibold">Expected Annual Return (%)</label>
+              <span id="rateLabel" class="font-mono text-indigo-600 font-bold"
+                >12%</span
+              >
+            </div>
+            <input
+              id="rate"
+              type="range"
+              min="1"
+              max="30"
+              step="0.1"
+              value="12"
+              class="w-full accent-indigo-600"
+              oninput="updateRate(this.value)"
+            />
+          </div>
+
+          <!-- Duration -->
+          <div>
+            <label class="font-semibold">Investment Duration (Years)</label>
+            <input
+              id="years"
+              type="number"
+              value="10"
+              class="w-full mt-2 px-4 py-3 rounded-xl border dark:bg-slate-900"
+              oninput="calculateSIP()"
+            />
+          </div>
+        </section>
+
+        <!-- RESULTS -->
+        <aside
+          class="hover:scale-[1.01] transition-transform duration-300 lg:col-span-5 relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-500 to-blue-600 rounded-2xl shadow-2xl p-8 animate-fadeIn text-white"
+        >
+          <div
+            class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full"
+          ></div>
+
+          <p class="uppercase text-xs tracking-widest mb-2">
+            Estimated Future Value
+          </p>
+          <h2 id="futureValue" class="text-4xl md:text-5xl font-extrabold mb-6">
+            $0
+          </h2>
+
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span>Total Investment</span>
+              <span id="totalInvested" class="font-bold">$0</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Total Returns</span>
+              <span id="totalReturns" class="font-bold">$0</span>
+            </div>
+          </div>
+
+          <!-- Simple Bar -->
+          <div class="mt-8">
+            <div class="h-2 bg-white/30 rounded">
+              <div
+                id="bar"
+                class="h-2 bg-white rounded transition-all duration-700 ease-out"
+                style="width: 0%"
+              ></div>
+            </div>
+            <p class="text-xs mt-2 opacity-80">Return Growth Indicator</p>
+          </div>
+        </aside>
+      </div>
+
+      <!-- INFO -->
+      <section class="max-w-4xl mx-auto mt-24" id="guide">
+        <h2 class="text-3xl font-bold mb-6">
+          What Is a SIP (Systematic Investment Plan)?
+        </h2>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          A <strong>Systematic Investment Plan (SIP)</strong> is a disciplined
+          way of investing a fixed amount of money at regular intervals, usually
+          monthly. Instead of investing a large amount at once, SIP allows you
+          to invest smaller amounts consistently over time.
+        </p>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          SIPs are widely used in countries like the
+          <strong>United States, United Kingdom, Canada, and India</strong>
+          as a long-term wealth-building strategy. In the US and UK, SIP is
+          similar to
+          <em>monthly investing</em> or <em>dollar-cost averaging</em>.
+        </p>
+
+        <p class="text-slate-600 dark:text-slate-400">
+          The biggest advantage of SIP investing is the power of
+          <strong>compounding</strong>, where your returns also start earning
+          returns over time.
+        </p>
+      </section>
+      <section class="max-w-4xl mx-auto mt-20">
+        <h2 class="text-3xl font-bold mb-6">How SIP Investment Works</h2>
+
+        <ol
+          class="list-decimal pl-6 space-y-4 text-slate-600 dark:text-slate-400"
+        >
+          <li>
+            You decide a fixed monthly investment amount (for example $500).
+          </li>
+          <li>
+            This amount is invested every month into a mutual fund or index
+            fund.
+          </li>
+          <li>
+            Over time, your money grows through market returns and compounding.
+          </li>
+          <li>
+            Longer investment duration leads to significantly higher wealth
+            creation.
+          </li>
+        </ol>
+
+        <p class="mt-4 text-slate-600 dark:text-slate-400">
+          SIP removes the stress of market timing and helps investors stay
+          consistent, even during market ups and downs.
+        </p>
+      </section>
+      <section class="max-w-4xl mx-auto mt-20">
+        <h2 class="text-3xl font-bold mb-6">
+          SIP Calculation Formula (With Example)
+        </h2>
+
+        <div
+          class="bg-indigo-50 dark:bg-slate-800 border-l-4 border-indigo-500 p-5 rounded-lg mb-6"
+        >
+          <p class="font-mono text-sm text-indigo-700 dark:text-indigo-300">
+            Future Value = P × [ ( (1 + r)<sup>n</sup> − 1 ) / r ] × (1 + r)
+          </p>
+        </div>
+
+        <ul class="space-y-2 text-slate-600 dark:text-slate-400 mb-6">
+          <li><strong>P</strong> = Monthly investment amount</li>
+          <li><strong>r</strong> = Monthly rate of return</li>
+          <li><strong>n</strong> = Total number of months</li>
+        </ul>
+
+        <p class="text-slate-600 dark:text-slate-400">
+          <strong>Example:</strong><br />
+          Monthly Investment: $500<br />
+          Annual Return: 12%<br />
+          Duration: 10 years (120 months)<br /><br />
+          <strong>Estimated Future Value:</strong> ~$116,000
+        </p>
+      </section>
+      <section class="max-w-4xl mx-auto mt-20">
+        <h2 class="text-3xl font-bold mb-6">
+          SIP vs Traditional Savings Account
+        </h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border border-slate-200 dark:border-slate-700">
+            <thead class="bg-slate-100 dark:bg-slate-800">
+              <tr>
+                <th class="p-3 text-left">Feature</th>
+                <th class="p-3 text-left">SIP Investment</th>
+                <th class="p-3 text-left">Savings Account</th>
+              </tr>
+            </thead>
+            <tbody class="text-slate-600 dark:text-slate-400">
+              <tr class="border-t">
+                <td class="p-3">Returns</td>
+                <td class="p-3">8% – 14% (market linked)</td>
+                <td class="p-3">1% – 4%</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Compounding</td>
+                <td class="p-3">High</td>
+                <td class="p-3">Low</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-3">Wealth Creation</td>
+                <td class="p-3">Excellent</td>
+                <td class="p-3">Limited</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="max-w-4xl mx-auto mt-20">
+        <h2 class="text-3xl font-bold mb-6">
+          Common SIP Mistakes You Should Avoid
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-3 text-slate-600 dark:text-slate-400">
+          <li>Stopping SIP during market downturns</li>
+          <li>Choosing unrealistic return expectations</li>
+          <li>Not increasing SIP amount as income grows</li>
+          <li>Investing without long-term goals</li>
+        </ul>
+      </section>
+      <section
+        class="max-w-4xl mx-auto mt-24 p-8 rounded-2xl bg-gradient-to-br from-indigo-900 via-indigo-600 to-blue-900 text-white text-center"
+      >
+        <h2 class="text-3xl font-bold mb-4">
+          Start Your SIP Investment Planning Today
+        </h2>
+        <p class="mb-6">
+          Use our free SIP Calculator to plan your monthly investments and build
+          long-term wealth with confidence.
+        </p>
+        <a
+          href="#monthly"
+          class="inline-block bg-white text-indigo-600 font-semibold px-8 py-3 rounded-lg hover:bg-slate-100 transition"
+        >
+          Calculate SIP Returns
+        </a>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="site-footer"></div>
+    <script src="/assets/common.js"></script>
+
+    <!-- SCRIPT -->
+    <script>
+      let currency = "USD";
+      let symbol = "$";
+      let locale = "en-US";
+
+      function setCurrency(type) {
+        // currency + locale
+        if (type === "USD") {
+          currency = "USD";
+          symbol = "$";
+          locale = "en-US";
+        } else if (type === "GBP") {
+          currency = "GBP";
+          symbol = "£";
+          locale = "en-GB";
+        } else {
+          currency = "INR";
+          symbol = "₹";
+          locale = "en-IN";
+        }
+
+        // update symbol
+        document.getElementById("currencySymbol").innerText = symbol;
+
+        // reset ALL buttons to inactive
+        ["usdBtn", "gbpBtn", "inrBtn"].forEach((id) => {
+          const btn = document.getElementById(id);
+          btn.classList.remove("bg-white", "dark:bg-slate-800");
+          btn.classList.add("text-slate-500", "dark:text-slate-400");
+        });
+
+        // activate clicked button
+        const activeBtn = document.getElementById(type.toLowerCase() + "Btn");
+        activeBtn.classList.add("bg-white", "dark:bg-slate-800");
+        activeBtn.classList.remove("text-slate-500", "dark:text-slate-400");
+
+        calculateSIP();
+      }
+
+      function updateRate(val) {
+        document.getElementById("rateLabel").innerText = val + "%";
+        calculateSIP();
+      }
+
+      function formatMoney(val) {
+        return new Intl.NumberFormat(locale, {
+          style: "currency",
+          currency,
+          maximumFractionDigits: 0,
+        }).format(val);
+      }
+
+      function calculateSIP() {
+        const P = +monthly.value || 0;
+        const r = +rate.value / 12 / 100;
+        const n = (+years.value || 0) * 12;
+
+        if (P === 0 || n === 0) return;
+
+        const FV = P * (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+
+        const invested = P * n;
+        const returns = FV - invested;
+        futureValue.innerText = formatMoney(FV);
+        animateValue(futureValue);
+
+        totalInvested.innerText = formatMoney(invested);
+        totalReturns.innerText = formatMoney(returns);
+
+        const growth = Math.min((returns / FV) * 100, 100);
+        document.getElementById("bar").style.width = growth + "%";
+      }
+
+      function animateValue(el) {
+        el.classList.remove("value-animate");
+        void el.offsetWidth;
+        el.classList.add("value-animate");
+      }
+
+      calculateSIP();
+    </script>
+  </body>
+</html>

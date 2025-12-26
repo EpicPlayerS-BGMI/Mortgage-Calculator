@@ -1,3 +1,22 @@
+// --- Google Analytics Injection ---
+(function () {
+  // 1. Google Tag (gtag.js) script ko dynamically create karna
+  var gaScript = document.createElement("script");
+  gaScript.async = true;
+  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-SXPYPJYBB2";
+  document.head.appendChild(gaScript);
+
+  // 2. Global dataLayer setup
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  window.gtag = gtag; // Ise window object mein daalein taaki access ho sake
+
+  gtag("js", new Date());
+  gtag("config", "G-SXPYPJYBB2");
+})();
+
 const ThemeManager = {
   init() {
     const theme = localStorage.getItem("theme");
