@@ -10,7 +10,19 @@
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://calcbase.tech/" />
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+
+    <link
+      rel="icon"
+      href="/assets/favicon.ico"
+      sizes="any"
+      type="image/x-icon"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/favicon.ico"
+      type="image/x-icon"
+    />
+
     <meta name="author" content="CalcBase" />
     <meta
       name="keywords"
@@ -41,46 +53,9 @@
 
       gtag("config", "G-SXPYPJYBB2");
     </script>
-
-    <style>
-      /* Chrome, Safari, Edge, Opera */
-      input[type="number"]::-webkit-outer-spin-button,
-      input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-
-      /* Firefox */
-      input[type="number"] {
-        -moz-appearance: textfield;
-      }
-    </style>
-
+    <link rel="stylesheet" href="/assets/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji",
-          "Segoe UI Emoji";
-        font-weight: 400;
-        line-height: 1.6;
-      }
-    </style>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-      };
-    </script>
-    <script>
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -95,80 +70,13 @@
   </head>
 
   <body
-    class="bg-gray-50 text-gray-800 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen"
+    class="bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
   >
     <header
-      class="sticky top-0 z-50 sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800"
-    >
-      <div
-        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
-      >
-        <a href="./">
-          <div class="flex items-center gap-3">
-            <div class="bg-indigo-600 p-1 rounded-lg text-white">
-              <!-- <svg
-                     xmlns="http://www.w3.org/2000/svg"
-                     class="h-5 w-5"
-                     viewBox="0 0 20 20"
-                     fill="currentColor"
-                     >
-                     <path
-                       d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-                     />
-                     </svg> -->
-              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg> -->
-              <div
-                class="w-8 h-8 rounded-md bg-indigo-600 text-white text-lg flex items-center justify-center font-bold"
-              >
-                CB
-              </div>
-            </div>
-            <div>
-              <span class="text-xl font-bold tracking-tight">CalcBase</span>
-              <p
-                class="hidden sm:block text-xs text-gray-500 dark:text-gray-400"
-              >
-                Simple & Accurate Financial Calculators
-              </p>
-            </div>
-          </div>
-        </a>
-        <div class="flex items-center gap-4">
-          <nav
-            class="hidden md:flex gap-4 text-sm font-medium text-gray-600 dark:text-gray-300"
-          >
-            <a
-              href="./"
-              class="hover:text-indigo-600 dark:hover:text-indigo-400"
-              >Home</a
-            >
-            <a
-              href="#guide"
-              class="hover:text-indigo-600 dark:hover:text-indigo-400"
-              >Guide</a
-            >
-            <a
-              href="#faq"
-              class="hover:text-indigo-600 dark:hover:text-indigo-400"
-              >FAQ</a
-            >
-          </nav>
-          <div class="flex items-center gap-4">
-            <button
-              onclick="toggleTheme()"
-              id="theme-toggle"
-              class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            >
-              <span id="theme-icon-light" class="hidden">☀️</span>
-              <span id="theme-icon-dark" class="">🌙</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
+      id="calcpages-header"
+      class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800"
+    ></header>
+
     <main class="flex-grow max-w-7xl mx-auto px-4 py-12 w-full">
       <section class="max-w-3xl mb-12 text-center md:text-left">
         <h1
@@ -546,7 +454,7 @@
           </h3>
           <div class="space-y-4">
             <details
-              class="group bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm border dark:border-gray-700"
+              class="border border-slate-200 dark:border-slate-700 group bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm border dark:border-gray-700"
             >
               <summary
                 class="flex justify-between items-center font-medium cursor-pointer list-none text-gray-800 dark:text-gray-200"
@@ -573,7 +481,7 @@
               </p>
             </details>
             <details
-              class="group bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm border dark:border-gray-700"
+              class="border border-slate-200 dark:border-slate-700 group bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm border dark:border-gray-700"
             >
               <summary
                 class="flex justify-between items-center font-medium cursor-pointer list-none text-gray-800 dark:text-gray-200"
@@ -600,7 +508,7 @@
               </p>
             </details>
             <details
-              class="group bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm border dark:border-gray-700"
+              class="border border-slate-200 dark:border-slate-700 group bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm border dark:border-gray-700"
             >
               <summary
                 class="flex justify-between items-center font-medium cursor-pointer list-none text-gray-800 dark:text-gray-200"
@@ -628,7 +536,7 @@
             </details>
           </div>
           <div
-            class="mt-16 p-8 rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 text-white text-center"
+            class="mt-16 p-8 rounded-3xl bg-gradient-to-br from-indigo-900 via-indigo-600 to-blue-900 text-white text-center"
           >
             <h4 class="text-2xl font-bold mb-2">
               Need help or have a suggestion?
@@ -649,7 +557,7 @@
     </main>
     <!-- Footer -->
     <div id="site-footer"></div>
-    <script src="assets/footer.js"></script>
+    <script src="assets/common.js" defer></script>
 
     <script>
       let currentTab = "property";
@@ -740,22 +648,6 @@
             document
               .getElementById("result-box")
               .scrollIntoView({ behavior: "smooth" });
-        }
-      }
-      function toggleTheme() {
-        const iconLight = document.getElementById("theme-icon-light");
-        const iconDark = document.getElementById("theme-icon-dark");
-
-        if (document.documentElement.classList.contains("dark")) {
-          document.documentElement.classList.remove("dark");
-          localStorage.setItem("theme", "light");
-          iconLight.classList.remove("hidden");
-          iconDark.classList.add("hidden");
-        } else {
-          document.documentElement.classList.add("dark");
-          localStorage.setItem("theme", "dark");
-          iconDark.classList.remove("hidden");
-          iconLight.classList.add("hidden");
         }
       }
     </script>

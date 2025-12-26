@@ -13,22 +13,13 @@
     <link rel="canonical" href="https://calcbase.tech/contact/" />
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = { darkMode: "class" };
-    </script>
-    <script>
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
   </head>
 
   <body
-    class="bg-gray-50 text-gray-800 dark:bg-slate-900 dark:text-gray-100 flex flex-col min-h-screen"
+    class="bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
   >
     <div id="site-legal-pages-header"></div>
-    <script src="../assets/leagl-pages-header.js"></script>
+    <script src="/assets/leagl-pages-header.js"></script>
 
     <!-- Main -->
     <main class="max-w-2xl mx-auto px-4 py-16 flex-grow text-center">
@@ -83,6 +74,6 @@
     </main>
     <!-- Footer -->
     <div id="site-footer"></div>
-    <script src="../assets/footer.js"></script>
+    <script src="/assets/common.js"></script>
   </body>
 </html>

@@ -11,24 +11,26 @@
       content="Free Personal Loan EMI Calculator. Plan your repayment for weddings, travel, or medical emergencies with accurate monthly installment estimates."
     />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://calcbase.tech/loan-calculator/" />
+    <link
+      rel="canonical"
+      href="https://calcbase.tech/personal-loan-calculator/"
+    />
     <meta name="author" content="CalcBase" />
     <meta
       name="keywords"
       content="loan emi calculator, mortgage calculator, auto loan calculator, apr calculator, loan amortization, interest rate calculator"
     />
-    <link
-      rel="shortcut icon"
-      href="../assets/favicon.ico"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
 
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
       content="Loan EMI Calculator | Financial Planning Tool"
     />
-    <meta property="og:url" content="https://calcbase.tech/loan-calculator/" />
+    <meta
+      property="og:url"
+      content="https://calcbase.tech/personal-loan-calculator/"
+    />
 
     <meta
       property="og:description"
@@ -44,106 +46,7 @@
       rel="stylesheet"
     />
 
-    <style>
-      body {
-        font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
-          sans-serif;
-      }
-
-      /* Custom Range Input Styling */
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background: #4f46e5;
-        cursor: pointer;
-        margin-top: -8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      }
-
-      input[type="range"]::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 4px;
-        cursor: pointer;
-        background: #e5e7eb;
-        border-radius: 2px;
-      }
-
-      .dark input[type="range"]::-webkit-slider-runnable-track {
-        background: #374151;
-      }
-
-      /* Pie Chart CSS */
-      .pie-chart {
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        background: conic-gradient(#4f46e5 var(--p), #e5e7eb 0);
-        transition: background 0.5s ease-in-out;
-      }
-
-      .dark .pie-chart {
-        background: conic-gradient(#6366f1 var(--p), #374151 0);
-      }
-
-      @media (max-width: 360px) {
-        .pie-chart {
-          width: 120px;
-          height: 120px;
-        }
-      }
-
-      /* Chrome, Safari, Edge, Opera */
-      input[type="number"]::-webkit-outer-spin-button,
-      input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-
-      /* Firefox */
-      input[type="number"] {
-        -moz-appearance: textfield;
-      }
-    </style>
-
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                50: "#eff6ff",
-                100: "#dbeafe",
-                200: "#bfdbfe",
-                300: "#93c5fd",
-                400: "#60a5fa",
-                500: "#3b82f6",
-                600: "#2563eb",
-                700: "#1d4ed8",
-                800: "#1e40af",
-                900: "#1e3a8a",
-                950: "#172554",
-              },
-            },
-          },
-        },
-      };
-    </script>
-
-    <script>
-      // Theme Initialization
-      if (
-        localStorage.getItem("color-theme") === "dark" ||
-        (!("color-theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    </script>
+    <link rel="stylesheet" href="/assets/style.css" />
 
     <script type="application/ld+json">
       {
@@ -182,81 +85,12 @@
   </head>
 
   <body
-    class="bg-gray-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 flex flex-col min-h-screen"
+    class="bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
   >
     <header
+      id="calcpages-header"
       class="sticky top-0 z-50 sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800"
-    >
-      <div
-        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
-      >
-        <a href="./">
-          <div class="flex items-center gap-3">
-            <div class="bg-indigo-600 p-1 rounded-lg text-white">
-              <!-- <svg
-                     xmlns="http://www.w3.org/2000/svg"
-                     class="h-5 w-5"
-                     viewBox="0 0 20 20"
-                     fill="currentColor"
-                     >
-                     <path
-                       d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-                     />
-                     </svg> -->
-              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg> -->
-              <div
-                class="w-8 h-8 rounded-md bg-indigo-600 text-white text-lg flex items-center justify-center font-bold"
-              >
-                CB
-              </div>
-            </div>
-            <div>
-              <span class="text-xl font-bold tracking-tight">CalcBase</span>
-              <p
-                class="hidden sm:block text-xs text-gray-500 dark:text-gray-400"
-              >
-                Simple & Accurate Financial Calculators
-              </p>
-            </div>
-          </div>
-        </a>
-        <div class="flex items-center gap-4">
-          <nav
-            class="hidden md:flex gap-4 text-sm font-medium text-gray-600 dark:text-gray-300"
-          >
-            <a
-              href="./"
-              class="hover:text-indigo-600 dark:hover:text-indigo-400"
-              >Home</a
-            >
-            <a
-              href="#why-use-us"
-              class="hover:text-indigo-600 dark:hover:text-indigo-400"
-              >Guide</a
-            >
-            <a
-              href="#faq"
-              class="hover:text-indigo-600 dark:hover:text-indigo-400"
-              >FAQ</a
-            >
-          </nav>
-          <div class="flex items-center gap-4">
-            <button
-              onclick="toggleTheme()"
-              id="theme-toggle"
-              class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            >
-              <span id="theme-icon-light" class="hidden">☀️</span>
-              <span id="theme-icon-dark" class="">🌙</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
-
+    ></header>
     <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <section class="text-center max-w-3xl mx-auto mb-12">
         <h1
@@ -431,10 +265,7 @@
             class="bg-indigo-600 text-white rounded-2xl shadow-xl shadow-indigo-200 dark:shadow-none p-6 md:p-8 relative overflow-hidden"
           >
             <div
-              class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl"
-            ></div>
-            <div
-              class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-black opacity-10 rounded-full blur-2xl"
+              class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full"
             ></div>
 
             <div class="relative z-10 text-center">
@@ -505,7 +336,7 @@
         </div>
       </div>
 
-      <div class="border-t dark:border-slate-800 pt-16 mt-16">
+      <div class="border-t dark:border-slate-800 pt-16 mt-16" id="guide">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <article class="lg:col-span-2 prose dark:prose-invert max-w-none">
             <h2
@@ -776,7 +607,7 @@
     </main>
     <!-- Footer -->
     <div id="site-footer"></div>
-    <script src="../assets/footer.js"></script>
+    <script src="/assets/common.js"></script>
 
     <script>
       let currencySym = "$";

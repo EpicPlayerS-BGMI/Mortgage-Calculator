@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetch("/components/legal-pages-header.html")
     .then((res) => {
-      if (!res.ok) throw new Error("Footer load failed");
+      if (!res.ok) throw new Error("legal header load failed");
       return res.text();
     })
     .then((html) => {
@@ -17,6 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
     .catch((err) => {
-      console.error("Footer error:", err);
+      console.error("legal header error:", err);
     });
 });
