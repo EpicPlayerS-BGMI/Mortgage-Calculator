@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FD Calculator | Fixed Deposit Maturity & Interest – CalcBase</title>
+
+    <meta
+      name="description"
+      content="Free Fixed Deposit (FD) Calculator to calculate maturity amount, total interest earned, and guaranteed returns using compound interest. Suitable for USA, UK & India."
+    />
+    <link rel="canonical" href="https://calcbase.tech/fd-calculator/" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="CalcBase" />
+
+    <meta
+      name="keywords"
+      content="fd calculator, fixed deposit calculator, fd maturity calculator, fd interest calculator, term deposit calculator"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="FD Calculator | Fixed Deposit Returns – CalcBase"
+    />
+    <meta
+      property="og:description"
+      content="Calculate FD maturity value and interest earned using compound interest with CalcBase FD Calculator."
+    />
+    <meta property="og:url" content="https://calcbase.tech/fd-calculator/" />
+    <meta
+      property="og:image"
+      content="https://calcbase.tech/assets/og/fd-calculator.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="/assets/output.css" />
+
+    <style>
+      @keyframes valuePop {
+        0% {
+          transform: scale(0.95);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .value-animate {
+        animation: valuePop 0.4s ease;
+      }
+
+      input[type="range"] {
+        transition: transform 0.2s ease;
+      }
+
+      input[type="range"]:hover {
+        transform: scaleY(1.15);
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
+  >
+    <header
+      id="calcpages-header"
+      class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800"
+    ></header>
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+      <!-- HERO -->
+      <section class="text-center max-w-3xl mx-auto mb-14">
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4">
+          Fixed Deposit
+          <span class="text-indigo-600 dark:text-indigo-400"> Calculator </span>
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400">
+          Calculate guaranteed FD maturity value using compound interest for
+          <strong>USA, UK & India</strong>.
+        </p>
+      </section>
+
+      <!-- GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- INPUTS -->
+        <section
+          class="lg:col-span-7 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/50 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.25)] p-6 md:p-8 space-y-6"
+        >
+          <!-- Currency -->
+          <div class="flex bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+            <button
+              onclick="setCurrency('USD')"
+              id="usdBtn"
+              class="flex-1 py-2 rounded-md bg-white dark:bg-slate-800 font-bold"
+            >
+              USD ($)
+            </button>
+            <button
+              onclick="setCurrency('GBP')"
+              id="gbpBtn"
+              class="flex-1 py-2 rounded-md text-slate-500 font-bold"
+            >
+              GBP (£)
+            </button>
+            <button
+              onclick="setCurrency('INR')"
+              id="inrBtn"
+              class="flex-1 py-2 rounded-md text-slate-500 font-bold"
+            >
+              INR (₹)
+            </button>
+          </div>
+
+          <!-- Deposit Amount -->
+          <div>
+            <label class="font-semibold">Fixed Deposit Amount</label>
+            <div class="relative mt-2">
+              <span
+                id="currencySymbol"
+                class="absolute left-4 top-3.5 text-slate-400 font-bold"
+                >$</span
+              >
+              <input
+                id="monthly"
+                type="number"
+                value="10000"
+                class="w-full pl-10 pr-4 py-3 rounded-xl border dark:bg-slate-900"
+                oninput="calculateFD()"
+              />
+            </div>
+          </div>
+
+          <!-- Interest Rate -->
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="font-semibold">Annual Interest Rate (%)</label>
+              <span id="rateLabel" class="font-mono text-indigo-600 font-bold"
+                >6%</span
+              >
+            </div>
+            <input
+              id="rate"
+              type="range"
+              min="1"
+              max="15"
+              step="0.1"
+              value="6"
+              class="w-full accent-indigo-600"
+              oninput="updateRate(this.value)"
+            />
+          </div>
+
+          <!-- Duration -->
+          <div>
+            <label class="font-semibold">Deposit Duration (Years)</label>
+            <input
+              id="years"
+              type="number"
+              value="5"
+              class="w-full mt-2 px-4 py-3 rounded-xl border dark:bg-slate-900"
+              oninput="calculateFD()"
+            />
+          </div>
+        </section>
+
+        <!-- RESULTS -->
+        <aside
+          class="lg:col-span-5 relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-500 to-blue-600 rounded-2xl shadow-2xl p-8 text-white"
+        >
+          <div
+            class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full"
+          ></div>
+          <p class="uppercase text-xs tracking-widest mb-2">Maturity Amount</p>
+          <h2 id="futureValue" class="text-4xl md:text-5xl font-extrabold mb-6">
+            $0
+          </h2>
+
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span>Principal Amount</span>
+              <span id="totalInvested" class="font-bold">$0</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Total Interest Earned</span>
+              <span id="totalReturns" class="font-bold">$0</span>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <div class="h-2 bg-white/30 rounded">
+              <div
+                id="bar"
+                class="h-2 bg-white rounded transition-all duration-700"
+                style="width: 0%"
+              ></div>
+            </div>
+            <p class="text-xs mt-2 opacity-80">Interest Growth Indicator</p>
+          </div>
+        </aside>
+      </div>
+
+      <!-- CONTENT -->
+      <section class="max-w-4xl mx-auto mt-24">
+        <h2 class="text-3xl font-bold mb-6">What Is a Fixed Deposit (FD)?</h2>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          A <strong>Fixed Deposit (FD)</strong> is a low-risk investment option
+          offered by banks and financial institutions where an individual
+          deposits a lump sum amount for a fixed tenure at a pre-decided
+          interest rate. Unlike market-linked investments, fixed deposits
+          provide <strong>guaranteed returns</strong>, which makes them one of
+          the safest and most reliable saving instruments available today.
+        </p>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          Fixed deposits are extremely popular in the
+          <strong>United States, United Kingdom, and India</strong>. In the US
+          and UK, they are often referred to as <em>term deposits</em> or
+          <em>time deposits</em>. Investors prefer FDs because the returns are
+          not influenced by stock market volatility, interest rate uncertainty,
+          or economic fluctuations.
+        </p>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          When you invest in an FD, your money is locked for a chosen duration
+          ranging from a few months to several years. During this period, the
+          bank pays interest at a fixed rate, ensuring predictable and stable
+          growth of your savings. This makes fixed deposits ideal for short-term
+          goals, emergency funds, and capital protection.
+        </p>
+
+        <h3 class="text-2xl font-semibold mt-10 mb-4">
+          How Fixed Deposit Investment Works
+        </h3>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          The interest earned on a fixed deposit is calculated using
+          <strong>compound interest</strong> in most cases. Banks generally
+          compound interest quarterly, although some institutions may use
+          monthly or annual compounding depending on the product. Compounding
+          allows interest to be added back to the principal at regular
+          intervals, enabling your money to grow faster over time.
+        </p>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          The longer the investment tenure, the greater the benefit of
+          compounding. Investors who stay invested for multiple years typically
+          earn significantly higher maturity values compared to short-term
+          deposits.
+        </p>
+
+        <h3 class="text-2xl font-semibold mt-10 mb-4">
+          Fixed Deposit Calculation Formula
+        </h3>
+
+        <div
+          class="bg-indigo-50 dark:bg-slate-800 border-l-4 border-indigo-500 p-5 rounded-lg mb-6"
+        >
+          <p class="font-mono text-sm">
+            Maturity Value = P × (1 + r / n)^(n × t)
+          </p>
+        </div>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          In this formula, <strong>P</strong> represents the principal or
+          deposit amount, <strong>r</strong> is the annual interest rate,
+          <strong>n</strong> is the compounding frequency, and
+          <strong>t</strong> is the tenure in years. This FD calculator uses
+          quarterly compounding, which is the most common method used by banks
+          across India as well as internationally.
+        </p>
+
+        <h3 class="text-2xl font-semibold mt-10 mb-4">
+          Benefits of Fixed Deposit Investment
+        </h3>
+
+        <ul
+          class="list-disc pl-6 space-y-2 text-slate-600 dark:text-slate-400 mb-4"
+        >
+          <li>Guaranteed and predictable returns</li>
+          <li>No exposure to stock market risk</li>
+          <li>Suitable for conservative and first-time investors</li>
+          <li>Flexible tenure options ranging from months to years</li>
+          <li>Loan or overdraft facility available against FD</li>
+          <li>Ideal for retirement and capital preservation</li>
+        </ul>
+
+        <p class="text-slate-600 dark:text-slate-400 mb-4">
+          In countries like the US and UK, fixed deposits are often used to park
+          surplus funds safely while earning steady interest. In India, FDs
+          remain one of the most trusted investment options due to their safety
+          and guaranteed maturity value.
+        </p>
+
+        <p class="mt-6 text-slate-600 dark:text-slate-400">
+          Fixed deposits are best suited for investors who prioritize
+          <strong>safety, stability, and assured growth</strong> over high-risk,
+          high-return investments. Use this FD calculator to estimate your
+          maturity amount, total interest earned, and overall returns before
+          making an investment decision.
+        </p>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="/assets/common.js"></script>
+
+    <script>
+      let currency = "USD";
+      let symbol = "$";
+      let locale = "en-US";
+
+      function setCurrency(type) {
+        if (type === "USD") {
+          currency = "USD";
+          symbol = "$";
+          locale = "en-US";
+        } else if (type === "GBP") {
+          currency = "GBP";
+          symbol = "£";
+          locale = "en-GB";
+        } else {
+          currency = "INR";
+          symbol = "₹";
+          locale = "en-IN";
+        }
+
+        document.getElementById("currencySymbol").innerText = symbol;
+
+        ["usdBtn", "gbpBtn", "inrBtn"].forEach((id) => {
+          const btn = document.getElementById(id);
+          btn.classList.remove("bg-white", "dark:bg-slate-800");
+          btn.classList.add("text-slate-500");
+        });
+
+        const activeBtn = document.getElementById(type.toLowerCase() + "Btn");
+        activeBtn.classList.add("bg-white", "dark:bg-slate-800");
+        activeBtn.classList.remove("text-slate-500");
+
+        calculateFD();
+      }
+
+      function updateRate(val) {
+        document.getElementById("rateLabel").innerText = val + "%";
+        calculateFD();
+      }
+
+      function formatMoney(val) {
+        return new Intl.NumberFormat(locale, {
+          style: "currency",
+          currency,
+          maximumFractionDigits: 0,
+        }).format(val);
+      }
+
+      function calculateFD() {
+        const P = +monthly.value || 0;
+        const r = +rate.value / 100;
+        const t = +years.value || 0;
+        const n = 4; // quarterly compounding
+
+        if (!P || !t) return;
+
+        const FV = P * Math.pow(1 + r / n, n * t);
+        const interest = FV - P;
+
+        futureValue.innerText = formatMoney(FV);
+        totalInvested.innerText = formatMoney(P);
+        totalReturns.innerText = formatMoney(interest);
+
+        const growth = Math.min((interest / FV) * 100, 100);
+        document.getElementById("bar").style.width = growth + "%";
+
+        futureValue.classList.remove("value-animate");
+        void futureValue.offsetWidth;
+        futureValue.classList.add("value-animate");
+      }
+
+      calculateFD();
+    </script>
+  </body>
+</html>
