@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | CalcBase</title>
+    <meta name="description" content="The page you are looking for could not be found on CalcBase." />
+    <meta name="robots" content="noindex, noarchive" />
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="/assets/output.css" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+
+  <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+    <header
+      id="calcpages-header"
+      class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
+    ></header>
+
+    <main class="grow max-w-5xl mx-auto px-4 py-16">
+      <section class="text-center max-w-3xl mx-auto mb-10">
+        <div class="badge-pro mb-4 inline-flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          Missing Page
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
+          404
+        </h1>
+        <p class="text-xl text-slate-500 dark:text-slate-400">
+          The page you requested does not exist or may have moved.
+        </p>
+      </section>
+
+      <section class="pro-card p-8 md:p-10 max-w-4xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+          <div>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+              Return to a working CalcBase page
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+              You can head back to the homepage, open one of the main calculators,
+              or browse our finance guides. If you followed an outdated link,
+              please let us know at
+              <a href="mailto:support@calcbase.tech" class="text-indigo-600 hover:underline dark:text-indigo-400">support@calcbase.tech</a>.
+            </p>
+            <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 px-4 py-3 text-sm text-slate-500 dark:text-slate-400">
+              Requested path:
+              <span id="missing-path" class="font-mono text-slate-700 dark:text-slate-200"></span>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <a href="/" class="flex items-center justify-between rounded-2xl border border-slate-200 dark:border-slate-700 px-5 py-4 hover:border-indigo-500 dark:hover:border-indigo-400 transition">
+              <span>
+                <span class="block font-bold text-slate-900 dark:text-white">Mortgage Calculator</span>
+                <span class="block text-sm text-slate-500 dark:text-slate-400">Homepage and core mortgage tool</span>
+              </span>
+              <span class="text-indigo-600 dark:text-indigo-400 font-bold">Open</span>
+            </a>
+            <a href="/personal-loan-calculator/" class="flex items-center justify-between rounded-2xl border border-slate-200 dark:border-slate-700 px-5 py-4 hover:border-indigo-500 dark:hover:border-indigo-400 transition">
+              <span>
+                <span class="block font-bold text-slate-900 dark:text-white">Personal Loan Calculator</span>
+                <span class="block text-sm text-slate-500 dark:text-slate-400">Monthly EMI and interest estimate</span>
+              </span>
+              <span class="text-indigo-600 dark:text-indigo-400 font-bold">Open</span>
+            </a>
+            <a href="/sip-calculator/" class="flex items-center justify-between rounded-2xl border border-slate-200 dark:border-slate-700 px-5 py-4 hover:border-indigo-500 dark:hover:border-indigo-400 transition">
+              <span>
+                <span class="block font-bold text-slate-900 dark:text-white">SIP Calculator</span>
+                <span class="block text-sm text-slate-500 dark:text-slate-400">Investment growth projection</span>
+              </span>
+              <span class="text-indigo-600 dark:text-indigo-400 font-bold">Open</span>
+            </a>
+            <a href="/blogs/" class="flex items-center justify-between rounded-2xl border border-slate-200 dark:border-slate-700 px-5 py-4 hover:border-indigo-500 dark:hover:border-indigo-400 transition">
+              <span>
+                <span class="block font-bold text-slate-900 dark:text-white">Finance Guides</span>
+                <span class="block text-sm text-slate-500 dark:text-slate-400">Articles and explainers</span>
+              </span>
+              <span class="text-indigo-600 dark:text-indigo-400 font-bold">Open</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-6 py-3 font-bold text-white hover:bg-indigo-700 transition">
+            Back to Home
+          </a>
+          <button
+            type="button"
+            onclick="history.length > 1 ? history.back() : window.location.href='/'"
+            class="inline-flex items-center justify-center rounded-xl border border-slate-300 dark:border-slate-600 px-6 py-3 font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+          >
+            Go Back
+          </button>
+        </div>
+
+        <p class="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
+          Redirecting to the homepage in <span id="countdown" class="font-bold text-indigo-600 dark:text-indigo-400">10</span> seconds.
+        </p>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="/assets/common.js" defer></script>
+    <script>
+      const pathEl = document.getElementById("missing-path");
+      if (pathEl) {
+        pathEl.textContent = window.location.pathname || "/";
+      }
+
+      let count = 10;
+      const countEl = document.getElementById("countdown");
+      const interval = setInterval(() => {
+        count -= 1;
+        if (countEl) countEl.textContent = count;
+        if (count <= 0) {
+          clearInterval(interval);
+          window.location.href = "/";
+        }
+      }, 1000);
+
+      document.addEventListener("click", () => clearInterval(interval), {
+        once: true,
+      });
+      document.addEventListener("keydown", () => clearInterval(interval), {
+        once: true,
+      });
+    </script>
+  </body>
+</html>
+
+

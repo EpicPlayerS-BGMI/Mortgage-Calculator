@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8075712336943598"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="preload"
+      href="/assets/output.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link rel="preload" href="/assets/common.js" as="script" />
+    <link
+      rel="preload"
+      href="/components/calcpages-header.html"
+      as="fetch"
+      crossorigin
+    />
+    <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
+
+    <title>
+      SIP Calculator | Monthly Investment Returns & Growth – CalcBase
+    </title>
+
+    <meta
+      name="description"
+      content="Free SIP Calculator to calculate monthly investment returns, total investment, and future value with compound growth. Suitable for India, USA & UK investors."
+    />
+    <link rel="canonical" href="https://calcbase.tech/sip-calculator/" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="CalcBase" />
+
+    <meta
+      name="keywords"
+      content="sip calculator, sip calculator india, systematic investment plan calculator, monthly sip calculator, sip return calculator, mutual fund sip calculator"
+    />
+
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="SIP Calculator | Monthly Investment Returns – CalcBase"
+    />
+    <meta
+      property="og:description"
+      content="Calculate SIP returns, total investment, and future value using CalcBase SIP Calculator with compound growth."
+    />
+    <meta property="og:url" content="https://calcbase.tech/sip-calculator/" />
+    <meta
+      property="og:image"
+      content="https://calcbase.tech/assets/og/sip-calculator.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="SIP Calculator | Monthly Investment Returns – CalcBase"
+    />
+    <meta
+      name="twitter:description"
+      content="Free SIP calculator to estimate monthly investment returns and future value with compound growth."
+    />
+    <meta
+      name="twitter:image"
+      content="https://calcbase.tech/assets/og/sip-calculator.png"
+    />
+
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/favicon.ico" />
+
+    <link rel="stylesheet" href="/assets/style.css" />
+    <noscript>
+      <link rel="stylesheet" href="/assets/output.css" />
+    </noscript>
+
+    <style>
+      @keyframes valuePop {
+        0% {
+          transform: scale(0.95);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .value-animate {
+        animation: valuePop 0.4s ease;
+      }
+
+      input[type="range"] {
+        transition: transform 0.2s ease;
+      }
+
+      input[type="range"]:hover {
+        transform: scaleY(1.15);
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SIP Calculator",
+        "url": "https://calcbase.tech/sip-calculator/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "SIP calculator to calculate monthly investment returns, total investment, and future value with compound growth."
+      }
+    </script>
+  </head>
+
+  <body
+    class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
+  >
+    <header
+      id="calcpages-header"
+      class="sticky top-0 z-50  bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
+    ></header>
+
+    <!-- MAIN -->
+    <main class="max-w-7xl mx-auto px-4 py-12">
+      <!-- HERO -->
+      <section class="text-center max-w-3xl mx-auto mb-14 reveal reveal-up stagger-1">
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4 gradient-text">
+          SIP
+          <span class="text-indigo-600 dark:text-indigo-400"> Calculator </span>
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400">
+          Calculate future value of your monthly investments using Systematic
+          Investment Planning (SIP) for
+          <strong>USA, UK & India</strong>.
+        </p>
+      </section>
+
+      <!-- GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- INPUTS -->
+        <section
+          class="lg:col-span-7 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/50 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.25)] p-6 md:p-8 space-y-6 animate-fadeIn"
+        >
+          <!-- Currency -->
+          <div class="flex bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+            <button
+              onclick="setCurrency('USD')"
+              id="usdBtn"
+              class="flex-1 py-2 rounded-md bg-white dark:bg-slate-800 font-bold"
+            >
+              USD ($)
+            </button>
+            <button
+              onclick="setCurrency('GBP')"
+              id="gbpBtn"
+              class="flex-1 py-2 rounded-md text-slate-500 font-bold"
+            >
+              GBP (£)
+            </button>
+            <button
+              onclick="setCurrency('INR')"
+              id="inrBtn"
+              class="flex-1 py-2 rounded-md text-slate-500 font-bold"
+            >
+              INR (₹)
+            </button>
+          </div>
+
+          <!-- Monthly Investment -->
+          <div>
+            <label class="font-semibold">Monthly Investment</label>
+            <div class="relative mt-2">
+              <span
+                id="currencySymbol"
+                class="absolute left-4 top-3.5 text-slate-400 font-bold"
+                >$</span
+              >
+              <input
+                id="monthly"
+                type="number"
+                value="500"
+                class="w-full pl-10 pr-4 py-3 rounded-xl border dark:bg-slate-900"
+                oninput="calculateSIP()"
+              />
+            </div>
+          </div>
+
+          <!-- Return Rate -->
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="font-semibold">Expected Annual Return (%)</label>
+              <span id="rateLabel" class="font-mono text-indigo-600 font-bold"
+                >12%</span
+              >
+            </div>
+            <input
+              id="rate"
+              type="range"
+              min="1"
+              max="30"
+              step="0.1"
+              value="12"
+              class="w-full accent-indigo-600"
+              oninput="updateRate(this.value)"
+            />
+          </div>
+
+          <!-- Duration -->
+          <div>
+            <label class="font-semibold">Investment Duration (Years)</label>
+            <input
+              id="years"
+              type="number"
+              value="10"
+              class="w-full mt-2 px-4 py-3 rounded-xl border dark:bg-slate-900"
+              oninput="calculateSIP()"
+            />
+          </div>
+          <p
+            id="sip-validation-message"
+            class="hidden rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-300"
+          ></p>
+        </section>
+
+        <!-- RESULTS -->
+        <aside
+          class="hover:scale-[1.01] transition-transform duration-300 lg:col-span-5 relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-500 to-blue-600 rounded-2xl shadow-2xl p-8 animate-fadeIn text-white"
+        >
+          <div
+            class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full"
+          ></div>
+
+          <p class="uppercase text-xs tracking-widest mb-2">
+            Estimated Future Value
+          </p>
+          <h2 id="futureValue" class="text-4xl md:text-5xl font-extrabold mb-6">
+            $0
+          </h2>
+
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span>Total Investment</span>
+              <span id="totalInvested" class="font-bold">$0</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Total Returns</span>
+              <span id="totalReturns" class="font-bold">$0</span>
+            </div>
+          </div>
+
+          <!-- Simple Bar -->
+          <div class="mt-8">
+            <div class="h-2 bg-white/30 rounded">
+              <div
+                id="bar"
+                class="h-2 bg-white rounded transition-all duration-700 ease-out"
+                style="width: 0%"
+              ></div>
+            </div>
+            <p class="text-xs mt-2 opacity-80">Return Growth Indicator</p>
+          </div>
+        </aside>
+      </div>
+
+      <!-- INFO -->
+      <section class="max-w-4xl mx-auto mt-24" id="guide">
+        <article class="pro-card p-7 md:p-10 prose max-w-none dark:prose-invert prose-slate mb-12">
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6">The Ultimate Guide to Systematic Investment Plans (SIP)</h2>
+          
+          <p class="text-lg leading-relaxed mb-6">A <strong>Systematic Investment Plan (SIP)</strong>—frequently known as Dollar-Cost Averaging (DCA) in the United States or Pound-Cost Averaging in the UK—is arguably the single most effective wealth-building tool ever created for the retail investor. Instead of requiring a massive lump sum of capital, a SIP allows you to participate in the growth of global equity markets by investing a small, fixed amount at regular intervals (usually monthly).</p>
+          
+          <p class="text-lg leading-relaxed mb-8">By automating your investments, SIP removes the psychological stress of "timing the market." Whether the stock market is hitting all-time highs or crashing during an economic recession, your SIP continues to buy assets automatically, turning market volatility from a risk into a distinct mathematical advantage.</p>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">1. The Mechanics: Rupee/Dollar Cost Averaging</h3>
+          <p class="leading-relaxed mb-4">The core superpower of a SIP lies in Cost Averaging. When you commit a fixed amount (e.g., $500 per month) to an index fund or mutual fund, you purchase units of that fund at the prevailing Net Asset Value (NAV).</p>
+          <ul class="space-y-2 mb-6">
+            <li><strong>When Markets Are High:</strong> Your $500 buys <em>fewer</em> units because the NAV is expensive.</li>
+            <li><strong>When Markets Crash:</strong> This is where wealth is made. Your $500 automatically buys <em>significantly more</em> units because the assets are effectively on sale.</li>
+          </ul>
+          <p class="leading-relaxed mb-4">Over a 10 or 20-year cycle, this systematic accumulation dramatically lowers your average purchase price per unit compared to someone who attempts to time the market with a lump-sum investment.</p>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">2. The 15-15-15 Rule of Wealth Creation</h3>
+          <p class="leading-relaxed mb-4">Financial advisors frequently cite the "15-15-15 Rule" to demonstrate the raw mathematical power of compound interest in a SIP:</p>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 p-6 rounded-xl my-6">
+            <h4 class="font-bold text-indigo-800 dark:text-indigo-300 mb-2">The Formula</h4>
+            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300">If you invest <strong>15,000</strong> per month, for <strong>15 Years</strong>, at an expected annualized return of <strong>15%</strong>, your total investment of 2.7 Million will grow to a staggering terminal value of approximately <strong>10 Million (1 Crore)</strong>.</p>
+            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300 mt-2">If you merely extend the timeline from 15 years to 20 years, that same monthly contribution explodes to over <strong>22 Million (2.2 Crores)</strong>. This illustrates why <em>time in the market</em> is vastly superior to the amount of capital you start with.</p>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">3. Step-Up SIP: The Ultimate Growth Hack</h3>
+          <p class="leading-relaxed mb-4">A standard SIP is excellent, but a <strong>Step-Up SIP</strong> is how true generational wealth is built. As your career progresses and your salary increases, it is financially irresponsible to keep your investment amount static.</p>
+          <p class="leading-relaxed mb-6">A Step-Up SIP automatically increases your monthly contribution by a fixed percentage (e.g., 10%) every year. If you start with $500/month, year two becomes $550/month, year three becomes $605/month, and so on. This aggressively fights lifestyle inflation, forces discipline, and can literally double your final retirement corpus over a 25-year horizon without feeling like a massive sacrifice in the present.</p>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">4. Tax Efficiency and Goal Planning</h3>
+          <p class="leading-relaxed mb-4">SIPs are naturally tailored to Goal-Based Financial Planning. Instead of investing blindly, map a specific SIP to a specific life milestone.</p>
+          <ul class="space-y-4 mb-6">
+            <li><strong>Retirement Fund:</strong> Requires aggressive equity exposure. Use index funds (S&P 500, Nifty 50) and run the SIP for 20+ years. The compounding curve will cover your retirement entirely.</li>
+            <li><strong>Child's Education:</strong> Requires a 10 to 15-year horizon. A balanced or flexi-cap fund works best here, transitioning to safer debt funds as the tuition deadline approaches.</li>
+            <li><strong>Tax Benefits:</strong> In many jurisdictions, equity investments held for the long term enjoy massive tax advantages. In the US, using an IRA wrapper protects your gains. In the UK, an ISA completely shelters your SIP returns. In India, ELSS (Equity Linked Savings Scheme) mutual funds offer immediate tax deductions on the principal while taxing Long-Term Capital Gains (LTCG) at highly preferential rates.</li>
+          </ul>
+        </article>
+
+        <section id="faq" class="mb-20">
+          <h2 class="mb-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Systematic Investment Plan FAQs</h2>
+          <div class="mx-auto max-w-4xl space-y-4">
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                When is the absolute best time to start a SIP?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                The best time to start a SIP was yesterday. The second best time is today. Because SIP relies on dollar-cost averaging and compounding, the exact entry point into the market is mathematically irrelevant. Waiting for a "market crash" to start a SIP defeats the entire purpose of the instrument.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                What happens if I miss a monthly SIP payment?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                Missing a single payment does not cancel your SIP or incur penalties from the mutual fund house. The auto-debit simply fails for that month, and the system will try again on the next billing cycle. However, your bank may charge you a minor fee for an insufficient funds bounce. You can also pause your SIP manually if you anticipate a cash crunch.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                Are SIP returns guaranteed?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                No. SIPs are market-linked instruments (typically investing in stocks or bonds), meaning your capital is subject to market risk. There are no guaranteed returns like a Fixed Deposit. However, historical data overwhelmingly shows that diversified equity SIPs held for 10+ years have consistently beaten inflation and delivered positive, high-yield returns.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                Can I withdraw my money before the tenure ends?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                Yes, mutual funds are highly liquid. Unless you invested in a tax-saving fund (like an ELSS) which has a strict 3-year lock-in period, you can redeem your units at any time. The money typically hits your bank account within 2-3 business days. Be aware that withdrawing early may trigger an Exit Load (usually 1% if withdrawn before 1 year) and short-term capital gains taxes.
+              </p>
+            </details>
+          </div>
+        </section>
+      </section>
+      <section
+        class="max-w-4xl mx-auto mt-24 p-8 rounded-2xl bg-gradient-to-br from-indigo-900 via-indigo-600 to-blue-900 text-white text-center"
+      >
+        <h2 class="text-3xl font-bold mb-4">
+          Start Your SIP Investment Planning Today
+        </h2>
+        <p class="mb-6">
+          Use our free SIP Calculator to plan your monthly investments and build
+          long-term wealth with confidence.
+        </p>
+        <a
+          href="#monthly"
+          class="inline-block bg-white text-indigo-600 font-semibold px-8 py-3 rounded-lg hover:bg-slate-100 transition"
+        >
+          Calculate SIP Returns
+        </a>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="site-footer"></div>
+    <script src="/assets/common.js"></script>
+    <script src="/assets/calculator-core.js" defer></script>
+
+    <script>
+      /* =========================
+     GLOBAL STATE
+  ========================= */
+      let currency = "USD";
+      let symbol = "$";
+      let locale = "en-US";
+      const activeCurrencyClass =
+        "flex-1 py-2 rounded-md bg-white dark:bg-slate-800 font-bold";
+      const inactiveCurrencyClass =
+        "flex-1 py-2 rounded-md text-slate-500 font-bold dark:text-slate-400";
+
+      /* =========================
+     AUTO DETECT CURRENCY
+     Priority:
+     1. Saved choice
+     2. Browser language
+     3. Default USD
+  ========================= */
+      function detectCurrency() {
+        setCurrency(window.CalcBaseCalculator.detectCurrency());
+      }
+
+      /* =========================
+     SET CURRENCY (UI + LOGIC)
+  ========================= */
+      function setCurrency(type) {
+        const selected = window.CalcBaseCalculator.setCurrencyPreference(type);
+        const config = window.CalcBaseCalculator.getCurrencyConfig(selected);
+        currency = config.code;
+        symbol = config.symbol;
+        locale = config.locale;
+
+        // Update symbol
+        document.getElementById("currencySymbol").innerText = symbol;
+        window.CalcBaseCalculator.applyButtonState(
+          ["usdBtn", "gbpBtn", "inrBtn"],
+          selected.toLowerCase() + "Btn",
+          activeCurrencyClass,
+          inactiveCurrencyClass
+        );
+        calculateSIP();
+      }
+
+      /* =========================
+     RATE SLIDER
+  ========================= */
+      function updateRate(val) {
+        document.getElementById("rateLabel").innerText = val + "%";
+        calculateSIP();
+      }
+
+      /* =========================
+     FORMAT MONEY
+  ========================= */
+      function formatMoney(val) {
+        return new Intl.NumberFormat(locale, {
+          style: "currency",
+          currency,
+          maximumFractionDigits: 0,
+        }).format(Math.round(val));
+      }
+
+      /* =========================
+     SIP CORE LOGIC (CORRECT)
+     FV = P × [((1+r)^n − 1)/r] × (1+r)
+  ========================= */
+      function calculateSIP() {
+        const validator = window.CalcBaseValidation;
+        const monthlyField = validator.readField("monthly", {
+          min: 1,
+          max: 100000000,
+        });
+        const rateField = validator.readField("rate", {
+          min: 0,
+          max: 50,
+          allowZero: true,
+        });
+        const yearsField = validator.readField("years", {
+          min: 1,
+          max: 80,
+        });
+
+        const P = monthlyField.value;
+        const r = rateField.value / 12 / 100;
+        const n = yearsField.value * 12;
+
+        if (!monthlyField.valid || !rateField.valid || !yearsField.valid) {
+          validator.setMessage(
+            "sip-validation-message",
+            "Enter valid values: monthly amount > 0, return between 0% and 50%, and duration between 1 and 80 years."
+          );
+        } else {
+          validator.setMessage("sip-validation-message", "");
+        }
+
+        if (P <= 0 || n <= 0) {
+          futureValue.innerText = formatMoney(0);
+          totalInvested.innerText = formatMoney(0);
+          totalReturns.innerText = formatMoney(0);
+          document.getElementById("bar").style.width = "0%";
+          return;
+        }
+
+        const FV =
+          r === 0 ? P * n : P * (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+
+        const invested = P * n;
+        const returns = FV - invested;
+
+        futureValue.innerText = formatMoney(FV);
+        animateValue(futureValue);
+
+        totalInvested.innerText = formatMoney(invested);
+        totalReturns.innerText = formatMoney(returns);
+
+        const growth = Math.min((returns / FV) * 100, 100);
+        document.getElementById("bar").style.width = growth + "%";
+      }
+
+      /* =========================
+     VALUE ANIMATION
+  ========================= */
+      function animateValue(el) {
+        el.classList.remove("value-animate");
+        void el.offsetWidth;
+        el.classList.add("value-animate");
+      }
+
+      document.addEventListener("calcbase:currencychange", (event) => {
+        const selected = event?.detail?.currency;
+        if (selected && selected !== currency) {
+          setCurrency(selected);
+        }
+      });
+
+      /* =========================
+     INIT
+  ========================= */
+      detectCurrency();
+      calculateSIP();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a SIP?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A SIP (Systematic Investment Plan) is a method of investing a fixed amount regularly to benefit from compounding and rupee cost averaging."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is SIP better than lump sum?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SIP reduces market timing risk and is suitable for long-term investors, while lump sum works better when markets are low."
+            }
+          }
+        ]
+      }
+    </script>
+  </body>
+</html>
+
+

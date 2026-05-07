@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8075712336943598"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="preload"
+      href="/assets/output.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link rel="preload" href="/assets/common.js" as="script" />
+    <link
+      rel="preload"
+      href="/components/calcpages-header.html"
+      as="fetch"
+      crossorigin
+    />
+    <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
+    <title>Investment Calculator | Calculate Future Returns – CalcBase</title>
+    <meta
+      name="description"
+      content="Investment Calculator to estimate future value of lump sum and SIP investments using compound interest. Supports USD, GBP & INR."
+    />
+
+    <link rel="canonical" href="https://calcbase.tech/investment-calculator/" />
+
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Investment Calculator | Calculate Future Returns – CalcBase"
+    />
+    <meta
+      property="og:description"
+      content="Calculate future value of investments with lump sum and monthly SIP using compound interest."
+    />
+    <meta
+      property="og:url"
+      content="https://calcbase.tech/investment-calculator/"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="/assets/style.css" />
+
+    <noscript>
+      <link rel="stylesheet" href="/assets/output.css" />
+    </noscript>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Investment Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "url": "https://calcbase.tech/investment-calculator/"
+      }
+    </script>
+
+    <style>
+      /* Firefox Styles */
+      input[type="range"]::-moz-range-track {
+        width: 100%;
+        height: 6px;
+        cursor: pointer;
+        background: #e2e8f0;
+        border-radius: 999px;
+      }
+      .dark input[type="range"]::-moz-range-track {
+        background: #334155;
+      }
+      input[type="range"]::-moz-range-thumb {
+        height: 24px;
+        width: 24px;
+        border: none;
+        border-radius: 50%;
+        background: #4f46e5;
+        cursor: pointer;
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+        transition: transform 0.1s;
+      }
+      input[type="range"]::-moz-range-thumb:hover {
+        transform: scale(1.1);
+      }
+      /* Custom Range Slider Styling */
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background: #4f46e5;
+        cursor: pointer;
+        margin-top: -10px;
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+        transition: transform 0.1s;
+      }
+      input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.1);
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 6px;
+        cursor: pointer;
+        background: #e2e8f0;
+        border-radius: 999px;
+      }
+      /* Dark mode track */
+      @media (prefers-color-scheme: dark) {
+        input[type="range"]::-webkit-slider-runnable-track {
+          background: #334155;
+        }
+      }
+
+      /* Animation */
+      @keyframes popIn {
+        0% {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .animate-pop {
+        animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+
+      /* Glassmorphism */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .dark .glass-panel {
+        background: rgba(30, 41, 59, 0.7);
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
+  >
+    <header
+      id="calcpages-header"
+      class="sticky top-0 z-50  bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
+    ></header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-10 w-full">
+      <section class="text-center max-w-2xl mx-auto mb-12">
+        <h1
+          class="font-display text-4xl md:text-5xl font-bold mb-4 tracking-tight text-slate-900 dark:text-white"
+        >
+          Watch your money
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-indigo-600"
+            >grow.</span
+          >
+        </h1>
+        <p class="text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+          Estimate the future value of your investments using the power of
+          compound interest.
+        </p>
+      </section>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-20">
+        <section
+          class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 p-6 md:p-8 relative overflow-hidden"
+        >
+          <div class="mb-8">
+            <label
+              class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block"
+              >Currency</label
+            >
+            <div
+              class="inline-flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl"
+            >
+              <button
+                onclick="setCurrency('USD')"
+                id="usdBtn"
+                class="px-6 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm bg-white dark:bg-slate-700 text-slate-900 dark:text-white"
+              >
+                USD
+              </button>
+              <button
+                onclick="setCurrency('GBP')"
+                id="gbpBtn"
+                class="px-6 py-2 rounded-lg text-sm font-semibold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all"
+              >
+                GBP
+              </button>
+              <button
+                onclick="setCurrency('INR')"
+                id="inrBtn"
+                class="px-6 py-2 rounded-lg text-sm font-semibold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all"
+              >
+                INR
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="group">
+                <label
+                  for="initial"
+                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  >Initial Deposit (Lump Sum)</label
+                >
+                <div
+                  class="relative transition-transform duration-200 focus-within:-translate-y-1"
+                >
+                  <div
+                    class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                  >
+                    <span
+                      class="currencySymbol text-slate-400 font-bold text-lg"
+                      >$</span
+                    >
+                  </div>
+                  <input
+                    id="initial"
+                    type="number"
+                    value="5000"
+                    class="block w-full pl-10 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 transition-all font-semibold text-lg"
+                    oninput="calculateInvestment()"
+                  />
+                </div>
+              </div>
+
+              <div class="group">
+                <label
+                  for="monthly"
+                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  >Monthly Contribution</label
+                >
+                <div
+                  class="relative transition-transform duration-200 focus-within:-translate-y-1"
+                >
+                  <div
+                    class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+                  >
+                    <span
+                      class="currencySymbol text-slate-400 font-bold text-lg"
+                      >$</span
+                    >
+                  </div>
+                  <input
+                    id="monthly"
+                    type="number"
+                    value="500"
+                    class="block w-full pl-10 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 transition-all font-semibold text-lg"
+                    oninput="calculateInvestment()"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <label
+                    class="text-sm font-medium text-slate-700 dark:text-slate-300"
+                    >Exp. Return Rate (p.a)</label
+                  >
+                  <span
+                    id="rateLabel"
+                    class="bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 px-2 py-1 rounded text-xs font-bold"
+                    >8%</span
+                  >
+                </div>
+                <input
+                  id="rate"
+                  type="range"
+                  min="1"
+                  max="30"
+                  step="0.1"
+                  value="8"
+                  class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer dark:bg-slate-700"
+                  oninput="updateRate(this.value)"
+                />
+                <div class="flex justify-between text-xs text-slate-400 mt-2">
+                  <span>Conservative (1%)</span>
+                  <span>Aggressive (30%)</span>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-3">
+                  <label
+                    class="text-sm font-medium text-slate-700 dark:text-slate-300"
+                    >Time Period</label
+                  >
+                  <span
+                    id="yearLabel"
+                    class="bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 px-2 py-1 rounded text-xs font-bold"
+                    >10 Years</span
+                  >
+                </div>
+                <input
+                  id="years"
+                  type="range"
+                  min="1"
+                  max="50"
+                  step="1"
+                  value="10"
+                  class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer dark:bg-slate-700"
+                  oninput="updateYear(this.value)"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="lg:col-span-5 lg:sticky lg:top-24">
+          <div
+            class="relative overflow-hidden rounded-3xl shadow-2xl bg-slate-900 text-white p-1"
+          >
+            <div
+              class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-money-600 blur-3xl opacity-30"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-indigo-600 blur-3xl opacity-30"
+            ></div>
+
+            <div
+              class="relative bg-white/10 backdrop-blur-xl rounded-[20px] p-8 border border-white/10 h-full flex flex-col justify-between"
+            >
+              <div>
+                <p
+                  class="text-emerald-200 font-medium text-sm tracking-wider uppercase mb-1"
+                >
+                  Total Future Value
+                </p>
+                <h2
+                  id="totalValue"
+                  class="font-display text-5xl lg:text-5xl font-bold tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-b from-white to-white/80 animate-pop"
+                >
+                  $0
+                </h2>
+
+                <div
+                  class="bg-black/20 rounded-xl p-5 mb-6 border border-white/5"
+                >
+                  <div class="flex justify-between text-xs text-slate-300 mb-2">
+                    <span>Invested</span>
+                    <span>Growth</span>
+                  </div>
+                  <div
+                    class="h-4 w-full bg-white/10 rounded-full overflow-hidden flex"
+                  >
+                    <div
+                      id="barPrincipal"
+                      class="h-full bg-indigo-400 transition-all duration-500"
+                      style="width: 50%"
+                    ></div>
+                    <div
+                      id="barInterest"
+                      class="h-full bg-emerald-400 transition-all duration-500"
+                      style="width: 50%"
+                    ></div>
+                  </div>
+                  <div
+                    class="flex justify-between text-[10px] mt-2 text-slate-400"
+                  >
+                    <div class="flex items-center gap-1">
+                      <div class="w-2 h-2 rounded-full bg-indigo-400"></div>
+                      Your Money
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+                      Wealth Gained
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div
+                  class="flex justify-between items-center border-b border-white/10 pb-3"
+                >
+                  <span class="text-slate-300 text-sm">Total Invested</span>
+                  <span
+                    id="totalInvested"
+                    class="font-bold text-lg text-indigo-100"
+                    >$0</span
+                  >
+                </div>
+                <div class="flex justify-between items-center pb-1">
+                  <span class="text-slate-300 text-sm">Est. Returns</span>
+                  <span
+                    id="totalInterest"
+                    class="font-bold text-lg text-emerald-300"
+                    >$0</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-6 bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 flex gap-3 shadow-sm"
+          >
+            <div
+              class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 flex items-center justify-center"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-sm text-slate-900 dark:text-white">
+                Compounding Effect
+              </h4>
+              <p
+                class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-1"
+              >
+                Notice how the green portion of the bar grows larger as time
+                increases. That is your money working for you.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="max-w-4xl mx-auto mt-20 mb-20 space-y-16" id="guide">
+        <article class="pro-card p-7 md:p-10 prose max-w-none dark:prose-invert prose-slate mb-12">
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6">The Ultimate Guide to Investment Strategies and Compound Interest</h2>
+          
+          <p class="text-lg leading-relaxed mb-6">Investing is the process of allocating capital with the expectation of generating an income or profit over time. Unlike saving, where money is safely stored but loses purchasing power to inflation, investing puts your money to work. Whether you are aiming for early retirement, generational wealth, or simply financial independence, understanding the mechanics of <strong>Compound Interest</strong> is the absolute foundation of all wealth creation.</p>
+          
+          <p class="text-lg leading-relaxed mb-8">Albert Einstein famously apocryphally referred to compound interest as the "eighth wonder of the world," stating, "He who understands it, earns it; he who doesn't, pays it." When you invest, your principal earns interest. In the next period, both your principal <em>and</em> the previously earned interest earn even more interest. Over long time horizons (10-30 years), this creates a massive parabolic growth curve.</p>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">1. The Core Components of Investment Growth</h3>
+          <p class="leading-relaxed mb-4">The future value of any investment is dictated by three unbreakable variables:</p>
+          <ul class="space-y-4 mb-6">
+            <li><strong>Principal (Capital):</strong> The amount of money you invest. While starting with a large lump sum is advantageous, consistently contributing small amounts (via SIP/DCA) is equally effective over time.</li>
+            <li><strong>Rate of Return (Yield):</strong> The annualized percentage your investment grows. A savings account might yield 3%, a bond 5%, and a diversified equity index fund historically yields 8-12%. The higher the yield, the higher the risk.</li>
+            <li><strong>Time (The Multiplier):</strong> This is the most critical variable. Because compounding is an exponential function, the length of time your money remains invested has a far greater impact than the actual amount you invest. A 25-year-old investing $200 a month will often retire richer than a 45-year-old investing $1,000 a month.</li>
+          </ul>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">2. The Rule of 72: Quick Mental Math</h3>
+          <p class="leading-relaxed mb-4">If you want to quickly calculate how long it will take for your investment to double, use the <strong>Rule of 72</strong>.</p>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 p-6 rounded-xl my-6">
+            <h4 class="font-bold text-indigo-800 dark:text-indigo-300 mb-2">How It Works</h4>
+            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300">Divide the number 72 by your expected annual rate of return.<br><br>If you invest in a mutual fund generating <strong>12% annually</strong>: 72 ÷ 12 = <strong>6 Years</strong>. Your capital doubles every six years. A $10,000 investment becomes $20,000 in year 6, $40,000 in year 12, $80,000 in year 18, and $160,000 in year 24.</p>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">3. Asset Allocation Strategies</h3>
+          <p class="leading-relaxed mb-4">You should never put all your eggs in one basket. <strong>Asset Allocation</strong> is the strategy of dividing your investment portfolio across different asset categories to balance risk and reward.</p>
+          <ul class="space-y-4 mb-6">
+            <li><strong>Equities (Stocks):</strong> The engine of growth. Historically, owning shares of robust companies (often via an S&P 500 or Nifty 50 Index Fund) provides the highest inflation-adjusted returns. They are volatile in the short term but highly lucrative in the long term.</li>
+            <li><strong>Fixed Income (Bonds & FDs):</strong> The anchor of stability. When the stock market crashes, bonds usually hold their value or increase. They pay a fixed, reliable interest rate but generally do not outpace high inflation.</li>
+            <li><strong>Real Estate & Commodities:</strong> Physical assets like property or gold act as excellent hedges against inflation. Real estate specifically offers the dual benefit of capital appreciation and monthly rental yield.</li>
+          </ul>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">4. The Cost of Delaying Investment</h3>
+          <p class="leading-relaxed mb-4">The single biggest mistake retail investors make is waiting for the "perfect time" to invest or waiting until they have a higher salary. Consider two investors aiming for retirement at age 60:</p>
+          <p class="leading-relaxed mb-4"><strong>Investor A</strong> starts at age 25, investing $500 a month for just 10 years, and then stops entirely. <strong>Investor B</strong> starts at age 35, investing $500 a month for 25 straight years until age 60.</p>
+          <p class="leading-relaxed mb-4">Assuming a 10% annual return, <strong>Investor A</strong> ends up with significantly more wealth (approx $1.08 Million) than <strong>Investor B</strong> (approx $660k), despite Investor B contributing $90,000 more of their own money out-of-pocket! This perfectly illustrates why the early years of compounding are mathematically irreplaceable.</p>
+        </article>
+
+        <section id="faq" class="mb-20">
+          <h2 class="mb-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Investment Frequently Asked Questions</h2>
+          <div class="mx-auto max-w-4xl space-y-4">
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                What is the difference between Simple and Compound Interest?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                Simple interest is calculated only on the principal amount you originally invested. Compound interest is calculated on the principal amount AND the accumulated interest of previous periods. Over long periods, compound interest drastically outperforms simple interest.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                Is investing in the stock market basically gambling?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                No. Gambling is a zero-sum game based entirely on mathematical probability designed for you to lose. Investing in equities means you are buying fractional ownership in real, revenue-generating companies. While short-term day trading resembles gambling, long-term investing in diversified index funds is historically the most reliable method of wealth creation.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                How often does compounding happen?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                It depends on the financial product. Savings accounts and FDs usually compound daily, monthly, or quarterly. The stock market theoretically compounds continuously as companies reinvest their profits back into their business day after day to drive higher stock valuations.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                Should I pay off debt before investing?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                It depends on the interest rate of the debt. If you have high-interest debt (like credit cards at 18-24%), pay that off immediately—no safe investment yields 24% guaranteed. However, if you have low-interest debt (like a 3% mortgage or student loan), it is usually mathematically better to pay the minimums on the debt and invest your extra cash in the market for a 8-10% return.
+              </p>
+            </details>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="/assets/common.js"></script>
+
+    <script>
+      let currency = "USD";
+      let symbol = "$";
+      let locale = "en-US";
+      const activeCurrencyClass =
+        "px-6 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm bg-white dark:bg-slate-700 text-indigo-600 dark:text-white ring-1 ring-black/5";
+      const inactiveCurrencyClass =
+        "px-6 py-2 rounded-lg text-sm font-semibold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all";
+
+      /* ===============================
+     SET CURRENCY (SINGLE SOURCE)
+     =============================== */
+      function setCurrency(type) {
+        const selected = window.CalcBaseCalculator.setCurrencyPreference(type);
+        const config = window.CalcBaseCalculator.getCurrencyConfig(selected);
+        currency = config.code;
+        symbol = config.symbol;
+        locale = config.locale;
+
+        window.CalcBaseCalculator.applyButtonState(
+          ["usdBtn", "gbpBtn", "inrBtn"],
+          selected.toLowerCase() + "Btn",
+          activeCurrencyClass,
+          inactiveCurrencyClass
+        );
+
+        // Update symbols in UI
+        document.querySelectorAll(".currencySymbol").forEach((el) => {
+          el.innerText = symbol;
+        });
+
+        calculateInvestment();
+      }
+
+      /* ===============================
+     AUTO DETECT USER CURRENCY
+     =============================== */
+      function detectUserCurrency() {
+        setCurrency(window.CalcBaseCalculator.detectCurrency());
+      }
+
+      /* ===============================
+     UI HELPERS
+     =============================== */
+      function updateRate(val) {
+        document.getElementById("rateLabel").innerText = val + "%";
+        calculateInvestment();
+      }
+
+      function updateYear(val) {
+        document.getElementById("yearLabel").innerText = val + " Years";
+        calculateInvestment();
+      }
+
+      function formatMoney(val) {
+        return window.CalcBaseCalculator.formatMoney(val, currency);
+      }
+
+      /* ===============================
+     CORE CALCULATION
+     =============================== */
+      function calculateInvestment() {
+        const initial = Math.abs(
+          +document.getElementById("initial")?.value || 0
+        );
+        const monthly = Math.abs(
+          +document.getElementById("monthly")?.value || 0
+        );
+        const rate = +document.getElementById("rate")?.value || 0;
+        const years = +document.getElementById("years")?.value || 0;
+
+        const r = rate / 100 / 12;
+        const n = years * 12;
+
+        let futureValueLump = 0;
+        let futureValueSIP = 0;
+
+        if (initial > 0) {
+          futureValueLump = initial * Math.pow(1 + r, n);
+        }
+
+        if (monthly > 0 && rate > 0) {
+          futureValueSIP = monthly * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+        } else if (monthly > 0 && rate === 0) {
+          futureValueSIP = monthly * n;
+        }
+
+        const totalValue = futureValueLump + futureValueSIP;
+        const totalInvested = initial + monthly * n;
+        const totalInterest = totalValue - totalInvested;
+
+        let percentPrincipal = 0;
+        let percentInterest = 0;
+
+        if (totalValue > 0) {
+          percentPrincipal = Math.min((totalInvested / totalValue) * 100, 100);
+          percentInterest = Math.max(100 - percentPrincipal, 0);
+        }
+
+        document.getElementById("barPrincipal").style.width =
+          percentPrincipal + "%";
+        document.getElementById("barInterest").style.width =
+          percentInterest + "%";
+
+        updateUI(totalValue, totalInvested, totalInterest);
+      }
+
+      function updateUI(total, invested, interest) {
+        const totalEl = document.getElementById("totalValue");
+
+        totalEl.classList.remove("animate-pop");
+        void totalEl.offsetWidth;
+        totalEl.classList.add("animate-pop");
+
+        totalEl.innerText = formatMoney(total);
+        document.getElementById("totalInvested").innerText =
+          formatMoney(invested);
+        document.getElementById("totalInterest").innerText =
+          formatMoney(interest);
+      }
+
+      document.addEventListener("calcbase:currencychange", (event) => {
+        const selected = event?.detail?.currency;
+        if (selected && selected !== currency) {
+          setCurrency(selected);
+        }
+      });
+
+      /* ===============================
+     INIT
+     =============================== */
+      detectUserCurrency();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is SIP?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SIP stands for Systematic Investment Plan. It allows you to invest a fixed amount regularly (monthly or quarterly) into mutual funds or other investments, helping you benefit from compounding and rupee cost averaging."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this investment calculator account for inflation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, this calculator shows nominal returns. To estimate real returns, subtract the inflation rate from your expected annual return. For example, if returns are 10% and inflation is 4%, use 6%."
+            }
+          }
+        ]
+      }
+    </script>
+  </body>
+</html>
+
+

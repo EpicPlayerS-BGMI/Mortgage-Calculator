@@ -1,0 +1,179 @@
+<footer
+  class="relative  bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
+>
+  <!-- soft divider -->
+  <div
+    class="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-indigo-500/30 to-transparent"
+  ></div>
+
+  <div class="mx-auto px-4 py-12 max-w-7xl">
+    <!-- Main row -->
+    <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 mb-8">
+      <!-- Brand -->
+
+      <div class="text-center md:text-left max-w-sm">
+        <a href="/" class="group">
+          <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
+            <div class="relative">
+              <div class="absolute inset-0 bg-indigo-500 blur-lg opacity-10 group-hover:opacity-30 transition-opacity"></div>
+              <div class="relative bg-linear-to-br from-indigo-600 to-blue-700 p-1.5 rounded-lg text-white shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+            </div>
+            <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">CalcBase</span>
+          </div>
+        </a>
+
+        <p class="text-md text-gray-600 dark:text-gray-400 leading-relaxed">
+          Browser-based financial calculators for India, USA, and UK users.
+        </p>
+
+        <p
+          class="text-[13px] text-gray-500 dark:text-gray-500 mt-3 leading-relaxed"
+        >
+          Independent tool · Inputs stay in your browser · Results are estimates only
+        </p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-4">
+          Quick Links
+        </h4>
+        <!-- Links -->
+
+        <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+          <li>
+            <a
+              href="/personal-loan-calculator/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Personal Loan Calculator
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/car-loan-calculator/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Car Loan Calculator
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/sip-calculator/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              SIP Calculator
+            </a>
+          </li>
+          <li>
+            <a
+              href="/mortgage-calculator/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Mortgage Calculator
+            </a>
+          </li>
+          <li>
+            <a
+              href="/blogs/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Blogs
+            </a>
+          </li>
+          <li>
+            <a
+              href="/sip-vs-fd-calculator/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              SIP vs FD Calculator
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-slate-900 dark:text-white mb-4">Legal</h4>
+        <!-- Links -->
+
+        <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+          <li>
+            <a
+              href="/privacy/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a
+              href="/terms/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Terms & Conditions
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              About Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="/contact/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Contact Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="/disclaimer/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Disclaimer
+            </a>
+          </li>
+          <li>
+            <a
+              href="/methodology/"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Methodology
+            </a>
+          </li>
+          <li>
+            <button
+              type="button"
+              onclick="openConsentPreferences()"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+            >
+              Cookie Settings
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700">
+      <p class="text-sm text-gray-500 dark:text-gray-400 text-center">
+        © <span id="year"></span> CalcBase. All rights reserved.
+      </p>
+      <p class="text-sm text-gray-500 dark:text-gray-400 text-center">
+        CalcBase provides browser-based estimation tools only. Calculations are based on our own standard formulas, and actual lender terms, fees, and eligibility conditions may vary by country and institution.
+      </p>
+      <p class="text-xs text-gray-500 dark:text-gray-400 text-center mt-1">
+        Results are not guaranteed to be 100% accurate and should not be treated as financial advice.
+      </p>
+    </div>
+  </div>
+</footer>
+
+

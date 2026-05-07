@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8075712336943598"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="preload"
+      href="/assets/output.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link rel="preload" href="/assets/common.js" as="script" />
+    <link
+      rel="preload"
+      href="/components/calcpages-header.html"
+      as="fetch"
+      crossorigin
+    />
+    <link rel="preload" href="/components/footer.html" as="fetch" crossorigin />
+
+    <title>FD Calculator | Fixed Deposit Maturity & Interest – CalcBase</title>
+
+    <meta
+      name="description"
+      content="Free Fixed Deposit (FD) Calculator to calculate maturity amount, total interest earned, and guaranteed returns using compound interest. Suitable for USA, UK & India."
+    />
+    <link rel="canonical" href="https://calcbase.tech/fd-calculator/" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="CalcBase" />
+
+    <meta
+      name="keywords"
+      content="fd calculator, fixed deposit calculator, fd maturity calculator, fd interest calculator, term deposit calculator"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="FD Calculator | Fixed Deposit Returns – CalcBase"
+    />
+    <meta
+      property="og:description"
+      content="Calculate FD maturity value and interest earned using compound interest with CalcBase FD Calculator."
+    />
+    <meta property="og:url" content="https://calcbase.tech/fd-calculator/" />
+    <meta
+      property="og:image"
+      content="https://calcbase.tech/assets/og/fd-calculator.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <noscript>
+      <link rel="stylesheet" href="/assets/output.css" />
+    </noscript>
+    <style>
+      @keyframes valuePop {
+        0% {
+          transform: scale(0.95);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .value-animate {
+        animation: valuePop 0.4s ease;
+      }
+
+      input[type="range"] {
+        transition: transform 0.2s ease;
+      }
+
+      input[type="range"]:hover {
+        transform: scaleY(1.15);
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FD Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "url": "https://calcbase.tech/fd-calculator/"
+      }
+    </script>
+  </head>
+
+  <body
+    class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300"
+  >
+    <header
+      id="calcpages-header"
+      class="sticky top-0 z-50  bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
+    ></header>
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+      <section class="text-center max-w-3xl mx-auto mb-14">
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4">
+          Fixed Deposit
+          <span class="text-indigo-600 dark:text-indigo-400"> Calculator </span>
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400">
+          Calculate guaranteed FD maturity value using compound interest for
+          <strong>USA, UK & India</strong>.
+        </p>
+      </section>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <section
+          class="lg:col-span-7 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl border border-slate-200/60 dark:border-slate-700/50 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.25)] p-6 md:p-8 space-y-6"
+        >
+          <div class="flex bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+            <button
+              onclick="setCurrency('USD')"
+              id="usdBtn"
+              class="flex-1 py-2 rounded-md bg-white dark:bg-slate-800 font-bold"
+            >
+              USD ($)
+            </button>
+            <button
+              onclick="setCurrency('GBP')"
+              id="gbpBtn"
+              class="flex-1 py-2 rounded-md text-slate-500 font-bold"
+            >
+              GBP (£)
+            </button>
+            <button
+              onclick="setCurrency('INR')"
+              id="inrBtn"
+              class="flex-1 py-2 rounded-md text-slate-500 font-bold"
+            >
+              INR (₹)
+            </button>
+          </div>
+
+          <div>
+            <label class="font-semibold">Fixed Deposit Amount</label>
+            <div class="relative mt-2">
+              <span
+                id="currencySymbol"
+                class="absolute left-4 top-3.5 text-slate-400 font-bold"
+                >$</span
+              >
+              <input
+                id="monthly"
+                type="number"
+                value="10000"
+                class="w-full pl-10 pr-4 py-3 rounded-xl border dark:bg-slate-900"
+                oninput="calculateFD()"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="font-semibold">Annual Interest Rate (%)</label>
+              <span id="rateLabel" class="font-mono text-indigo-600 font-bold"
+                >6%</span
+              >
+            </div>
+            <input
+              id="rate"
+              type="range"
+              min="1"
+              max="15"
+              step="0.1"
+              value="6"
+              class="w-full accent-indigo-600"
+              oninput="updateRate(this.value)"
+            />
+          </div>
+
+          <div>
+            <label class="font-semibold">Deposit Duration (Years)</label>
+            <input
+              id="years"
+              type="number"
+              value="5"
+              class="w-full mt-2 px-4 py-3 rounded-xl border dark:bg-slate-900"
+              oninput="calculateFD()"
+            />
+          </div>
+        </section>
+
+        <aside
+          class="lg:col-span-5 relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-500 to-blue-600 rounded-2xl shadow-2xl p-8 text-white"
+        >
+          <div
+            class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full"
+          ></div>
+          <p class="uppercase text-xs tracking-widest mb-2">Maturity Amount</p>
+          <h2 id="futureValue" class="text-4xl md:text-5xl font-extrabold mb-6">
+            $0
+          </h2>
+
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span>Principal Amount</span>
+              <span id="totalInvested" class="font-bold">$0</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Total Interest Earned</span>
+              <span id="totalReturns" class="font-bold">$0</span>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <div class="h-2 bg-white/30 rounded">
+              <div
+                id="bar"
+                class="h-2 bg-white rounded transition-all duration-700"
+                style="width: 0%"
+              ></div>
+            </div>
+            <p class="text-xs mt-2 opacity-80">Interest Growth Indicator</p>
+          </div>
+        </aside>
+      </div>
+
+      <section class="max-w-4xl mx-auto mt-24" id="guide">
+        <article class="pro-card p-7 md:p-10 prose max-w-none dark:prose-invert prose-slate mb-12">
+          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6">The Complete Guide to Fixed and Term Deposits</h2>
+          
+          <p class="text-lg leading-relaxed mb-6">A <strong>Fixed Deposit (FD)</strong>—also known as a Term Deposit in the UK and Australia, or a Certificate of Deposit (CD) in the US—is one of the most secure financial instruments available. By depositing a lump sum of money for a predetermined tenure, you lock in a guaranteed interest rate that is immune to market volatility.</p>
+          
+          <p class="text-lg leading-relaxed mb-8">Unlike stocks, mutual funds, or real estate, an FD guarantees that your principal is 100% safe (often insured up to a certain amount by government bodies like the FDIC in the US or DICGC in India). This guide will help you understand how to maximize your FD returns, the power of compounding, and strategies like the "FD Laddering" technique.</p>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">1. Simple Interest vs. Compound Interest</h3>
+          <p class="leading-relaxed mb-4">When you open a Fixed Deposit, you typically have two payout options:</p>
+          <ul class="space-y-2 mb-6">
+            <li><strong>Non-Cumulative (Simple Interest):</strong> The interest earned is paid out to your bank account monthly, quarterly, or annually. This is ideal for retirees seeking a regular income stream.</li>
+            <li><strong>Cumulative (Compound Interest):</strong> The interest earned is reinvested into the FD. The next time interest is calculated, it is calculated on the <em>Principal + Previously Earned Interest</em>. This is what our calculator uses, and it is the best way to grow your wealth.</li>
+          </ul>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">2. The "FD Laddering" Strategy</h3>
+          <p class="leading-relaxed mb-4">One of the biggest drawbacks of an FD is that your money is locked up. If interest rates rise while your money is locked in a 5-year FD, you miss out on the higher rates. If you break the FD early, you pay a penalty.</p>
+          <div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 p-6 rounded-xl my-6">
+            <h4 class="font-bold text-emerald-800 dark:text-emerald-300 mb-2">The Laddering Solution</h4>
+            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300">Instead of putting $50,000 into a single 5-year FD, split it into five $10,000 FDs with tenures of 1, 2, 3, 4, and 5 years. <br><br>When the 1-year FD matures, reinvest it for 5 years. When the 2-year FD matures, reinvest it for 5 years. Eventually, you will have a 5-year FD maturing <em>every single year</em>, giving you liquidity and allowing you to capture rising interest rates without penalties.</p>
+          </div>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">3. Taxation on Fixed Deposits</h3>
+          <p class="leading-relaxed mb-4">It is crucial to understand that FD interest is generally fully taxable at your marginal income tax rate.</p>
+          <ul class="space-y-4 mb-6">
+            <li><strong>USA (CDs):</strong> Interest is taxed as ordinary income at the federal and state levels. You will receive a Form 1099-INT at the end of the year.</li>
+            <li><strong>UK (Term Deposits):</strong> Interest counts toward your Personal Savings Allowance (£1,000 for basic rate taxpayers). Anything above that is taxed.</li>
+            <li><strong>India (FDs):</strong> Banks deduct TDS (Tax Deducted at Source) at 10% if the interest exceeds ₹40,000 (₹50,000 for senior citizens). If your total income is below the taxable limit, you can submit Form 15G/15H to prevent this deduction.</li>
+          </ul>
+          
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">4. Premature Withdrawals and Penalties</h3>
+          <p class="leading-relaxed mb-4">Life is unpredictable. If you have a medical emergency, you can break your FD before maturity. However, banks will penalize you. Usually, they will lower the interest rate to match the rate that was applicable for the period the FD actually ran, and then deduct an additional 0.5% to 1.0% as a penalty fee.</p>
+          <p class="leading-relaxed mb-4">Alternatively, you can take a <strong>Loan Against FD</strong>. Most banks will lend you up to 90% of your FD amount, charging an interest rate that is 1% to 2% higher than your FD earning rate. This allows you to get emergency cash without breaking the deposit and losing your compounding benefits.</p>
+        </article>
+
+        <section id="faq" class="mb-20">
+          <h2 class="mb-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Fixed Deposit Frequently Asked Questions</h2>
+          <div class="mx-auto max-w-4xl space-y-4">
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                Are Fixed Deposits 100% risk-free?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                No investment is entirely risk-free. While FDs have virtually zero <strong>market risk</strong> (you won't lose money if the stock market crashes), they are highly vulnerable to <strong>inflation risk</strong>. If your FD earns 5% after taxes but inflation is 6%, your purchasing power is technically decreasing.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                What is the difference between FD and RD?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                A Fixed Deposit (FD) requires a single, lump-sum deposit at the beginning. A Recurring Deposit (RD) allows you to deposit a fixed amount every month. Both offer guaranteed returns and similar interest rates, but FDs yield slightly higher absolute returns because the entire principal compounds from day one.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                What happens if the bank goes bankrupt?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                In most developed financial systems, your deposits are insured by the government. In the USA, the FDIC insures up to $250,000 per depositor per bank. In the UK, the FSCS covers up to £85,000. In India, the DICGC insures up to ₹5,00,000 (inclusive of principal and interest). If your deposit exceeds these limits, it is safer to spread it across multiple banks.
+              </p>
+            </details>
+  
+            <details class="pro-card p-5 group transition-all">
+              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+                Can NRIs open Fixed Deposits in India?
+                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
+                Yes. Non-Resident Indians (NRIs) can open NRO, NRE, or FCNR fixed deposits. NRE and FCNR deposits are highly attractive because the interest earned is completely tax-free in India, and the funds are fully repatriable to their home country.
+              </p>
+            </details>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="/assets/common.js"></script>
+
+    <script>
+      const monthly = document.getElementById("monthly");
+      const rate = document.getElementById("rate");
+      const years = document.getElementById("years");
+      const futureValue = document.getElementById("futureValue");
+      const totalInvested = document.getElementById("totalInvested");
+      const totalReturns = document.getElementById("totalReturns");
+
+      let currency = "USD";
+      let symbol = "$";
+      let locale = "en-US";
+      const activeCurrencyClass =
+        "flex-1 py-2 rounded-md bg-white dark:bg-slate-800 font-bold";
+      const inactiveCurrencyClass =
+        "flex-1 py-2 rounded-md text-slate-500 font-bold";
+
+      function setCurrency(type) {
+        const selected = window.CalcBaseCalculator.setCurrencyPreference(type);
+        const config = window.CalcBaseCalculator.getCurrencyConfig(selected);
+        currency = config.code;
+        symbol = config.symbol;
+        locale = config.locale;
+
+        document.getElementById("currencySymbol").innerText = symbol;
+        window.CalcBaseCalculator.applyButtonState(
+          ["usdBtn", "gbpBtn", "inrBtn"],
+          selected.toLowerCase() + "Btn",
+          activeCurrencyClass,
+          inactiveCurrencyClass
+        );
+
+        calculateFD();
+      }
+
+      function updateRate(val) {
+        document.getElementById("rateLabel").innerText = val + "%";
+        calculateFD();
+      }
+
+      function formatMoney(val) {
+        return new Intl.NumberFormat(locale, {
+          style: "currency",
+          currency,
+          maximumFractionDigits: 0,
+        }).format(val);
+      }
+
+      function calculateFD() {
+        const P = +monthly.value || 0;
+        const r = +rate.value / 100;
+        const t = +years.value || 0;
+        const n = 4; // quarterly compounding
+
+        if (!P || !t) {
+          futureValue.innerText = formatMoney(0);
+          totalInvested.innerText = formatMoney(0);
+          totalReturns.innerText = formatMoney(0);
+          document.getElementById("bar").style.width = "0%";
+          return;
+        }
+
+        const FV = P * Math.pow(1 + r / n, n * t);
+        const interest = FV - P;
+
+        futureValue.innerText = formatMoney(FV);
+        totalInvested.innerText = formatMoney(P);
+        totalReturns.innerText = formatMoney(interest);
+
+        const growth = Math.min((interest / FV) * 100, 100);
+        document.getElementById("bar").style.width = growth + "%";
+
+        futureValue.classList.remove("value-animate");
+        void futureValue.offsetWidth;
+        futureValue.classList.add("value-animate");
+      }
+
+      document.addEventListener("calcbase:currencychange", (event) => {
+        const selected = event?.detail?.currency;
+        if (selected && selected !== currency) {
+          setCurrency(selected);
+        }
+      });
+
+      calculateFD();
+
+      (function detectDefaultCurrency() {
+        setCurrency(window.CalcBaseCalculator.detectCurrency());
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a Fixed Deposit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Fixed Deposit is a low-risk investment where money is deposited for a fixed period at a guaranteed interest rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is FD maturity calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "FD maturity is calculated using compound interest: P × (1 + r/n)^(n×t)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is FD a safe investment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, fixed deposits provide guaranteed returns and are considered one of the safest investment options."
+            }
+          }
+        ]
+      }
+    </script>
+  </body>
+</html>
+
+
