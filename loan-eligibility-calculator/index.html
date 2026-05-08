@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -12,7 +12,10 @@
       rel="preload"
       href="/assets/output.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <link rel="preload" href="/assets/common.js" as="script" />
     <link
@@ -164,7 +167,7 @@
   >
     <header
       id="calcpages-header"
-      class="top-0 z-50 sticky  bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
+      class="top-0 z-50 sticky bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
     ></header>
 
     <main class="flex-grow max-w-6xl mx-auto px-4 py-10 w-full">
@@ -450,84 +453,228 @@
         </aside>
       </div>
 
-      <section class="max-w-4xl mx-auto mt-20 mb-20 space-y-16" id="guide">
-        <article class="pro-card p-7 md:p-10 prose max-w-none dark:prose-invert prose-slate mb-12">
-          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6">The Definitive Guide to Loan Eligibility and FOIR</h2>
-          
-          <p class="text-lg leading-relaxed mb-6">Applying for a large loan—whether it’s a mortgage for your dream home, a car loan, or a substantial personal loan—is one of the most significant financial moves you can make. However, many applicants are shocked when their loan application is rejected or approved for a much smaller amount than they requested. This discrepancy almost always comes down to a fundamental misunderstanding of how banks calculate <strong>Loan Eligibility</strong>.</p>
-          
-          <p class="text-lg leading-relaxed mb-8">Banks do not lend money based solely on how much you earn; they lend based on how much you can comfortably repay without defaulting. To determine this risk, financial institutions use sophisticated underwriting algorithms. This calculator mimics those exact algorithms, giving you a professional-grade estimate of your borrowing capacity before you ever submit an application.</p>
-          
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">1. The Golden Rule of Lending: FOIR</h3>
-          <p class="leading-relaxed mb-4">The single most important metric in loan eligibility is the <strong>Fixed Obligation to Income Ratio (FOIR)</strong>, sometimes referred to as the Debt-to-Income (DTI) ratio. FOIR calculates what percentage of your monthly income is already committed to fixed expenses.</p>
+      <section class="max-w-7xl mx-auto mt-20 mb-20 space-y-16" id="guide">
+        <article
+          class="pro-card p-7 md:p-10 prose max-w-none dark:prose-invert prose-slate mb-12"
+        >
+          <h2
+            class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6"
+          >
+            The Definitive Guide to Loan Eligibility and FOIR
+          </h2>
+
+          <p class="text-lg leading-relaxed mb-6">
+            Applying for a large loan—whether it’s a mortgage for your dream
+            home, a car loan, or a substantial personal loan—is one of the most
+            significant financial moves you can make. However, many applicants
+            are shocked when their loan application is rejected or approved for
+            a much smaller amount than they requested. This discrepancy almost
+            always comes down to a fundamental misunderstanding of how banks
+            calculate <strong>Loan Eligibility</strong>.
+          </p>
+
+          <p class="text-lg leading-relaxed mb-8">
+            Banks do not lend money based solely on how much you earn; they lend
+            based on how much you can comfortably repay without defaulting. To
+            determine this risk, financial institutions use sophisticated
+            underwriting algorithms. This calculator mimics those exact
+            algorithms, giving you a professional-grade estimate of your
+            borrowing capacity before you ever submit an application.
+          </p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            1. The Golden Rule of Lending: FOIR
+          </h3>
+          <p class="leading-relaxed mb-4">
+            The single most important metric in loan eligibility is the
+            <strong>Fixed Obligation to Income Ratio (FOIR)</strong>, sometimes
+            referred to as the Debt-to-Income (DTI) ratio. FOIR calculates what
+            percentage of your monthly income is already committed to fixed
+            expenses.
+          </p>
           <ul class="space-y-4 mb-6">
-            <li><strong>The 50% Threshold:</strong> As a global standard, banks assume that you need at least 50% of your net monthly income to cover basic living expenses (groceries, rent, utilities, medical emergencies).</li>
-            <li><strong>The Surplus:</strong> The remaining 50% is considered your "Net Available Monthly Surplus." This is the absolute maximum amount the bank believes you can safely allocate towards paying debts.</li>
+            <li>
+              <strong>The 50% Threshold:</strong> As a global standard, banks
+              assume that you need at least 50% of your net monthly income to
+              cover basic living expenses (groceries, rent, utilities, medical
+              emergencies).
+            </li>
+            <li>
+              <strong>The Surplus:</strong> The remaining 50% is considered your
+              "Net Available Monthly Surplus." This is the absolute maximum
+              amount the bank believes you can safely allocate towards paying
+              debts.
+            </li>
           </ul>
-          
-          <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-6 rounded-xl my-6">
-            <h4 class="font-bold text-blue-800 dark:text-blue-300 mb-2">Calculating Your Limit</h4>
-            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300">If your net monthly salary is <strong>$6,000</strong>, the bank caps your total allowable debt payments at 50%, which is <strong>$3,000</strong>. <br><br>If you already pay a $500 car loan EMI and a $300 minimum credit card payment, your existing debts total $800. The bank will subtract this from your $3,000 limit, leaving you with <strong>$2,200</strong>. This $2,200 is your maximum affordable EMI for the new loan.</p>
+
+          <div
+            class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-6 rounded-xl my-6"
+          >
+            <h4 class="font-bold text-blue-800 dark:text-blue-300 mb-2">
+              Calculating Your Limit
+            </h4>
+            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300">
+              If your net monthly salary is <strong>$6,000</strong>, the bank
+              caps your total allowable debt payments at 50%, which is
+              <strong>$3,000</strong>. <br /><br />If you already pay a $500 car
+              loan EMI and a $300 minimum credit card payment, your existing
+              debts total $800. The bank will subtract this from your $3,000
+              limit, leaving you with <strong>$2,200</strong>. This $2,200 is
+              your maximum affordable EMI for the new loan.
+            </p>
           </div>
-          
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">2. The Four Pillars of Loan Approval</h3>
-          <p class="leading-relaxed mb-4">While FOIR determines the maximum EMI, the actual total loan amount is influenced by four main pillars:</p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            2. The Four Pillars of Loan Approval
+          </h3>
+          <p class="leading-relaxed mb-4">
+            While FOIR determines the maximum EMI, the actual total loan amount
+            is influenced by four main pillars:
+          </p>
           <ul class="space-y-4 mb-6">
-            <li><strong>1. Credit Score (CIBIL/FICO):</strong> Your credit score is your financial reputation. A score above 750 tells the bank you are highly reliable. Not only does this increase the probability of approval, but it directly lowers the interest rate offered to you, which in turn increases the total principal amount you are eligible to borrow.</li>
-            <li><strong>2. Loan Tenure and Age:</strong> A longer repayment period (tenure) reduces your monthly EMI, which mathematically allows you to borrow a larger total amount. However, banks cap the tenure based on your retirement age. A 25-year-old can easily secure a 30-year mortgage. A 50-year-old will likely be restricted to a 10-15 year tenure, drastically reducing their loan eligibility.</li>
-            <li><strong>3. Employment Stability:</strong> Banks assign different risk weights to different professions. Salaried employees working for Fortune 500 companies or government sectors are considered low-risk and often receive higher eligibility multipliers. Self-employed individuals or freelancers are viewed as higher risk due to variable income, and banks usually calculate their eligibility based on average net profit over the last 2-3 years.</li>
-            <li><strong>4. Existing Debt Obligations:</strong> Every active loan—including "Buy Now, Pay Later" (BNPL) schemes and high credit card balances—eats directly into your FOIR limit.</li>
+            <li>
+              <strong>1. Credit Score (CIBIL/FICO):</strong> Your credit score
+              is your financial reputation. A score above 750 tells the bank you
+              are highly reliable. Not only does this increase the probability
+              of approval, but it directly lowers the interest rate offered to
+              you, which in turn increases the total principal amount you are
+              eligible to borrow.
+            </li>
+            <li>
+              <strong>2. Loan Tenure and Age:</strong> A longer repayment period
+              (tenure) reduces your monthly EMI, which mathematically allows you
+              to borrow a larger total amount. However, banks cap the tenure
+              based on your retirement age. A 25-year-old can easily secure a
+              30-year mortgage. A 50-year-old will likely be restricted to a
+              10-15 year tenure, drastically reducing their loan eligibility.
+            </li>
+            <li>
+              <strong>3. Employment Stability:</strong> Banks assign different
+              risk weights to different professions. Salaried employees working
+              for Fortune 500 companies or government sectors are considered
+              low-risk and often receive higher eligibility multipliers.
+              Self-employed individuals or freelancers are viewed as higher risk
+              due to variable income, and banks usually calculate their
+              eligibility based on average net profit over the last 2-3 years.
+            </li>
+            <li>
+              <strong>4. Existing Debt Obligations:</strong> Every active
+              loan—including "Buy Now, Pay Later" (BNPL) schemes and high credit
+              card balances—eats directly into your FOIR limit.
+            </li>
           </ul>
-          
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">3. Pro-Strategies to Maximize Your Eligibility</h3>
-          <p class="leading-relaxed mb-4">If the calculator shows a lower amount than you need to purchase your home or car, do not panic. Use these proven financial strategies to instantly boost your borrowing capacity:</p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            3. Pro-Strategies to Maximize Your Eligibility
+          </h3>
+          <p class="leading-relaxed mb-4">
+            If the calculator shows a lower amount than you need to purchase
+            your home or car, do not panic. Use these proven financial
+            strategies to instantly boost your borrowing capacity:
+          </p>
           <ul class="space-y-4 mb-6">
-            <li><strong>Add a Co-Applicant:</strong> This is the most powerful strategy. By adding an earning spouse, sibling, or parent as a co-applicant, the bank combines your gross incomes. If you earn $5,000 and your spouse earns $4,000, your FOIR is now calculated on $9,000, nearly doubling your loan eligibility overnight.</li>
-            <li><strong>Consolidate and Close Short-Term Debt:</strong> Pay off small personal loans or completely clear your credit card debt before applying for a mortgage. Eliminating a $300 monthly car EMI frees up $300 in FOIR capacity, which translates to tens of thousands of dollars in additional mortgage eligibility.</li>
-            <li><strong>Opt for a Step-Up EMI Plan:</strong> Some banks offer specialized loans where the EMI is lower in the initial years and increases over time as your salary supposedly increases. This artificially lowers your starting FOIR, allowing you to borrow a higher initial principal.</li>
+            <li>
+              <strong>Add a Co-Applicant:</strong> This is the most powerful
+              strategy. By adding an earning spouse, sibling, or parent as a
+              co-applicant, the bank combines your gross incomes. If you earn
+              $5,000 and your spouse earns $4,000, your FOIR is now calculated
+              on $9,000, nearly doubling your loan eligibility overnight.
+            </li>
+            <li>
+              <strong>Consolidate and Close Short-Term Debt:</strong> Pay off
+              small personal loans or completely clear your credit card debt
+              before applying for a mortgage. Eliminating a $300 monthly car EMI
+              frees up $300 in FOIR capacity, which translates to tens of
+              thousands of dollars in additional mortgage eligibility.
+            </li>
+            <li>
+              <strong>Opt for a Step-Up EMI Plan:</strong> Some banks offer
+              specialized loans where the EMI is lower in the initial years and
+              increases over time as your salary supposedly increases. This
+              artificially lowers your starting FOIR, allowing you to borrow a
+              higher initial principal.
+            </li>
           </ul>
         </article>
 
         <section id="faq" class="mb-20">
-          <h2 class="mb-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Loan Eligibility FAQs</h2>
+          <h2
+            class="mb-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+          >
+            Loan Eligibility FAQs
+          </h2>
           <div class="mx-auto max-w-4xl space-y-4">
             <details class="pro-card p-5 group transition-all">
-              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+              <summary
+                class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+              >
                 Does a higher salary guarantee a larger loan?
-                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
               </summary>
-              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                Not necessarily. Even with a massive salary, if your existing debts (credit cards, expensive car loans, multiple personal loans) consume more than 50% of your income, your FOIR is maxed out, and your new loan eligibility will be remarkably low or rejected entirely.
+              <p
+                class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+              >
+                Not necessarily. Even with a massive salary, if your existing
+                debts (credit cards, expensive car loans, multiple personal
+                loans) consume more than 50% of your income, your FOIR is maxed
+                out, and your new loan eligibility will be remarkably low or
+                rejected entirely.
               </p>
             </details>
-  
+
             <details class="pro-card p-5 group transition-all">
-              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+              <summary
+                class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+              >
                 How does my credit score affect eligibility?
-                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
               </summary>
-              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                While FOIR calculates how much you *can* pay, your credit score tells the bank if you *will* pay. A low score (below 650) suggests a history of default or late payments. The bank will mitigate this risk by either rejecting the application, reducing the loan amount, or charging a punitive interest rate.
+              <p
+                class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+              >
+                While FOIR calculates how much you *can* pay, your credit score
+                tells the bank if you *will* pay. A low score (below 650)
+                suggests a history of default or late payments. The bank will
+                mitigate this risk by either rejecting the application, reducing
+                the loan amount, or charging a punitive interest rate.
               </p>
             </details>
-  
+
             <details class="pro-card p-5 group transition-all">
-              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+              <summary
+                class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+              >
                 Does this calculator work for Self-Employed users?
-                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
               </summary>
-              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                Yes, but the input metric changes slightly. Instead of entering your gross revenue, self-employed individuals should enter their "Net Monthly Profit" (or average monthly taxable income as declared on their tax returns over the last 2-3 years) into the Income field.
+              <p
+                class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+              >
+                Yes, but the input metric changes slightly. Instead of entering
+                your gross revenue, self-employed individuals should enter their
+                "Net Monthly Profit" (or average monthly taxable income as
+                declared on their tax returns over the last 2-3 years) into the
+                Income field.
               </p>
             </details>
-  
+
             <details class="pro-card p-5 group transition-all">
-              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+              <summary
+                class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+              >
                 Why did the bank offer me less than the calculator?
-                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
               </summary>
-              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                This calculator provides an aggressive, best-case scenario based on standard 50% FOIR rules. Individual banks have proprietary risk models. They may reduce eligibility based on the specific property type, your employer's categorization, geographic location, or sudden changes in macroeconomic interest rates.
+              <p
+                class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+              >
+                This calculator provides an aggressive, best-case scenario based
+                on standard 50% FOIR rules. Individual banks have proprietary
+                risk models. They may reduce eligibility based on the specific
+                property type, your employer's categorization, geographic
+                location, or sudden changes in macroeconomic interest rates.
               </p>
             </details>
           </div>
@@ -561,7 +708,7 @@
           ["usdBtn", "gbpBtn", "inrBtn"],
           selected.toLowerCase() + "Btn",
           activeCurrencyClass,
-          inactiveCurrencyClass
+          inactiveCurrencyClass,
         );
 
         calculateEligibility();
@@ -620,12 +767,10 @@
         const existingPercent = Math.min((existingEMI / income) * 100, 100);
         const capacityPercent = Math.min((maxAffordableEMI / income) * 100, 50);
 
-        document.getElementById(
-          "barExisting"
-        ).style.width = `${existingPercent}%`;
-        document.getElementById(
-          "barCapacity"
-        ).style.width = `${capacityPercent}%`;
+        document.getElementById("barExisting").style.width =
+          `${existingPercent}%`;
+        document.getElementById("barCapacity").style.width =
+          `${capacityPercent}%`;
 
         if (maxAffordableEMI <= 0 || years === 0) {
           updateUI(0, 0, 0);
@@ -716,5 +861,3 @@
     </script>
   </body>
 </html>
-
-

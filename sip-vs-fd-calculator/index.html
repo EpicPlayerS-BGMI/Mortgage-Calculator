@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -13,7 +13,10 @@
       rel="preload"
       href="/assets/output.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <link rel="preload" href="/assets/common.js" as="script" />
     <link
@@ -102,25 +105,26 @@
   >
     <header
       id="calcpages-header"
-      class="sticky top-0 z-50  bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
+      class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
     ></header>
     <!-- Container -->
     <main class="max-w-7xl mx-auto px-4 py-12">
       <!-- Heading -->
       <header class="mb-12 text-center md:text-left">
         <div class="badge-pro mb-3">Comparison Tool</div>
-        <h1 class="text-3xl md:text-6xl font-extrabold mb-4 tracking-tight text-slate-900 dark:text-white">
+        <h1
+          class="text-3xl md:text-6xl font-extrabold mb-4 tracking-tight text-slate-900 dark:text-white"
+        >
           SIP vs FD Analytics
         </h1>
         <p class="text-xl text-slate-500 dark:text-slate-400 max-w-3xl">
-          Quantitative comparison between Systematic Investment Plans and Fixed Deposits. Calculate expected yield, risk premium, and terminal value.
+          Quantitative comparison between Systematic Investment Plans and Fixed
+          Deposits. Calculate expected yield, risk premium, and terminal value.
         </p>
       </header>
 
       <!-- Calculator Card -->
-      <section
-        class="pro-card p-6 md:p-10 relative overflow-hidden"
-      >
+      <section class="pro-card p-6 md:p-10 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-1 bg-indigo-600"></div>
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Inputs -->
@@ -198,7 +202,9 @@
               />
             </div>
 
-            <p class="rounded-xl border border-dashed border-slate-300 dark:border-slate-700 px-4 py-3 text-sm text-slate-500 dark:text-slate-400">
+            <p
+              class="rounded-xl border border-dashed border-slate-300 dark:border-slate-700 px-4 py-3 text-sm text-slate-500 dark:text-slate-400"
+            >
               Results update automatically as you edit the investment inputs.
             </p>
           </div>
@@ -267,89 +273,243 @@
       </section>
 
       <!-- SEO Content -->
-      <section class="mt-16 max-w-4xl mx-auto" id="guide">
-        <article class="pro-card p-7 md:p-10 prose max-w-none dark:prose-invert prose-slate mb-12">
-          <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6">SIP vs FD: The Ultimate Wealth Creation Battle</h2>
-          
-          <p class="text-lg leading-relaxed mb-6">When it comes to building a financial safety net and generating long-term wealth, investors invariably face the classic dilemma: Should I put my money in a <strong>Systematic Investment Plan (SIP)</strong> or a <strong>Fixed Deposit (FD)</strong>? While both are foundational to personal finance, they serve entirely different purposes, carry different risk profiles, and yield vastly different mathematical outcomes over time.</p>
-          
-          <p class="text-lg leading-relaxed mb-8">This comprehensive guide dismantles the "SIP vs FD" debate. We will explore how inflation erodes FD returns, why market volatility is actually a SIP investor's best friend, and how to allocate your capital using the <em>Core-Satellite Portfolio</em> approach.</p>
-          
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">1. Understanding the Core Mechanics</h3>
-          <p class="leading-relaxed mb-4">Before comparing returns, it is essential to understand how the underlying assets work.</p>
+      <section class="mt-16 max-w-7xl mx-auto" id="guide">
+        <article
+          class="pro-card p-7 md:p-10 prose max-w-none dark:prose-invert prose-slate mb-12"
+        >
+          <h2
+            class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6"
+          >
+            SIP vs FD: The Ultimate Wealth Creation Battle
+          </h2>
+
+          <p class="text-lg leading-relaxed mb-6">
+            When it comes to building a financial safety net and generating
+            long-term wealth, investors invariably face the classic dilemma:
+            Should I put my money in a
+            <strong>Systematic Investment Plan (SIP)</strong> or a
+            <strong>Fixed Deposit (FD)</strong>? While both are foundational to
+            personal finance, they serve entirely different purposes, carry
+            different risk profiles, and yield vastly different mathematical
+            outcomes over time.
+          </p>
+
+          <p class="text-lg leading-relaxed mb-8">
+            This comprehensive guide dismantles the "SIP vs FD" debate. We will
+            explore how inflation erodes FD returns, why market volatility is
+            actually a SIP investor's best friend, and how to allocate your
+            capital using the <em>Core-Satellite Portfolio</em> approach.
+          </p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            1. Understanding the Core Mechanics
+          </h3>
+          <p class="leading-relaxed mb-4">
+            Before comparing returns, it is essential to understand how the
+            underlying assets work.
+          </p>
           <ul class="space-y-4 mb-6">
-            <li><strong>Fixed Deposits (Debt):</strong> When you open an FD, you are essentially lending money to a bank. The bank uses your money to issue loans to others and guarantees you a fixed interest rate in return. The risk is virtually zero, but the returns are limited to the agreed-upon rate, regardless of how much profit the bank makes.</li>
-            <li><strong>SIP (Equity):</strong> A SIP is a method of investing in Mutual Funds or Index Funds. When you invest via SIP, you are buying fractional ownership (units) in hundreds of companies. Your returns are directly linked to the performance of these companies. While there is no "guarantee," historical data proves that equity ownership consistently outperforms debt over a 10+ year horizon.</li>
+            <li>
+              <strong>Fixed Deposits (Debt):</strong> When you open an FD, you
+              are essentially lending money to a bank. The bank uses your money
+              to issue loans to others and guarantees you a fixed interest rate
+              in return. The risk is virtually zero, but the returns are limited
+              to the agreed-upon rate, regardless of how much profit the bank
+              makes.
+            </li>
+            <li>
+              <strong>SIP (Equity):</strong> A SIP is a method of investing in
+              Mutual Funds or Index Funds. When you invest via SIP, you are
+              buying fractional ownership (units) in hundreds of companies. Your
+              returns are directly linked to the performance of these companies.
+              While there is no "guarantee," historical data proves that equity
+              ownership consistently outperforms debt over a 10+ year horizon.
+            </li>
           </ul>
-          
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">2. The Silent Wealth Killer: Inflation</h3>
-          <p class="leading-relaxed mb-4">The single biggest mistake conservative investors make is looking at the <em>absolute return</em> of an FD instead of the <em>real rate of return</em>. The real rate of return is your interest rate minus inflation.</p>
-          <div class="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 p-6 rounded-xl my-6">
-            <h4 class="font-bold text-rose-800 dark:text-rose-300 mb-2">The FD Illusion</h4>
-            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300">Assume your FD offers a <strong>6.5%</strong> annual interest rate. Assume the inflation rate (the rate at which living costs rise) is <strong>5.5%</strong>.<br><br>Before taxes, your real return is only <strong>1.0%</strong>. If you fall into a 30% tax bracket, your post-tax FD return drops to 4.55%. In this scenario, your real return is <strong>negative (-0.95%)</strong>. You are safely losing purchasing power every single year.</p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            2. The Silent Wealth Killer: Inflation
+          </h3>
+          <p class="leading-relaxed mb-4">
+            The single biggest mistake conservative investors make is looking at
+            the <em>absolute return</em> of an FD instead of the
+            <em>real rate of return</em>. The real rate of return is your
+            interest rate minus inflation.
+          </p>
+          <div
+            class="bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800 p-6 rounded-xl my-6"
+          >
+            <h4 class="font-bold text-rose-800 dark:text-rose-300 mb-2">
+              The FD Illusion
+            </h4>
+            <p class="text-sm md:text-base text-slate-700 dark:text-slate-300">
+              Assume your FD offers a <strong>6.5%</strong> annual interest
+              rate. Assume the inflation rate (the rate at which living costs
+              rise) is <strong>5.5%</strong>.<br /><br />Before taxes, your real
+              return is only <strong>1.0%</strong>. If you fall into a 30% tax
+              bracket, your post-tax FD return drops to 4.55%. In this scenario,
+              your real return is <strong>negative (-0.95%)</strong>. You are
+              safely losing purchasing power every single year.
+            </p>
           </div>
-          <p class="leading-relaxed mb-6">Equity SIPs, which historically average 10% to 12% in mature markets (and up to 15% in emerging markets), are the only mathematically sound way to consistently beat inflation and taxes over decades.</p>
-          
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">3. Why Volatility Helps SIP Investors</h3>
-          <p class="leading-relaxed mb-4">FD investors hate volatility. SIP investors should love it. This is due to <strong>Rupee/Dollar Cost Averaging</strong>.</p>
-          <p class="leading-relaxed mb-4">When you invest a fixed amount every month (e.g., $500), you buy fewer units when the stock market is high. But when the market crashes—the exact moment most people panic—your $500 automatically buys <em>more</em> units at a discounted price. Over 10 or 20 years, these accumulated "discounted units" multiply rapidly when the market inevitably recovers, supercharging your overall returns.</p>
-          
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">4. Tax Efficiency Comparison</h3>
-          <p class="leading-relaxed mb-4">Taxes drastically alter the SIP vs FD comparison. In most tax jurisdictions globally:</p>
+          <p class="leading-relaxed mb-6">
+            Equity SIPs, which historically average 10% to 12% in mature markets
+            (and up to 15% in emerging markets), are the only mathematically
+            sound way to consistently beat inflation and taxes over decades.
+          </p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            3. Why Volatility Helps SIP Investors
+          </h3>
+          <p class="leading-relaxed mb-4">
+            FD investors hate volatility. SIP investors should love it. This is
+            due to <strong>Rupee/Dollar Cost Averaging</strong>.
+          </p>
+          <p class="leading-relaxed mb-4">
+            When you invest a fixed amount every month (e.g., $500), you buy
+            fewer units when the stock market is high. But when the market
+            crashes—the exact moment most people panic—your $500 automatically
+            buys <em>more</em> units at a discounted price. Over 10 or 20 years,
+            these accumulated "discounted units" multiply rapidly when the
+            market inevitably recovers, supercharging your overall returns.
+          </p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            4. Tax Efficiency Comparison
+          </h3>
+          <p class="leading-relaxed mb-4">
+            Taxes drastically alter the SIP vs FD comparison. In most tax
+            jurisdictions globally:
+          </p>
           <ul class="space-y-4 mb-6">
-            <li><strong>FD Taxation:</strong> The interest you earn is added to your total income and taxed according to your income tax slab. If you are a high earner, the government will take a massive cut of your FD interest every single year.</li>
-            <li><strong>SIP Taxation:</strong> Equity investments enjoy favorable tax treatment. You are only taxed when you sell (realize the gain). Furthermore, Long-Term Capital Gains (LTCG) taxes are significantly lower than standard income tax rates. In many countries, holding an equity mutual fund for more than a year drops the tax rate to 10% or 15%, and sometimes includes tax-free allowances.</li>
+            <li>
+              <strong>FD Taxation:</strong> The interest you earn is added to
+              your total income and taxed according to your income tax slab. If
+              you are a high earner, the government will take a massive cut of
+              your FD interest every single year.
+            </li>
+            <li>
+              <strong>SIP Taxation:</strong> Equity investments enjoy favorable
+              tax treatment. You are only taxed when you sell (realize the
+              gain). Furthermore, Long-Term Capital Gains (LTCG) taxes are
+              significantly lower than standard income tax rates. In many
+              countries, holding an equity mutual fund for more than a year
+              drops the tax rate to 10% or 15%, and sometimes includes tax-free
+              allowances.
+            </li>
           </ul>
-          
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4">5. The Ultimate Strategy: Asset Allocation</h3>
-          <p class="leading-relaxed mb-4">You shouldn't pick one or the other. You need both. Financial planners use the <strong>Core-Satellite Approach</strong>:</p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            5. The Ultimate Strategy: Asset Allocation
+          </h3>
+          <p class="leading-relaxed mb-4">
+            You shouldn't pick one or the other. You need both. Financial
+            planners use the <strong>Core-Satellite Approach</strong>:
+          </p>
           <ul class="space-y-2 mb-6">
-            <li><strong>Emergency Fund (FD):</strong> Keep 6 months of living expenses in an FD. This money is not for wealth creation; it is for capital protection and immediate liquidity in case of job loss or medical emergencies.</li>
-            <li><strong>Short-Term Goals (FD):</strong> If you need to buy a car or pay tuition in the next 1-3 years, use an FD. The stock market is too unpredictable in the short term.</li>
-            <li><strong>Wealth Creation (SIP):</strong> For any money you do not need for the next 5 to 20+ years (retirement, children's long-term education, generational wealth), aggressive equity SIPs are mandatory.</li>
+            <li>
+              <strong>Emergency Fund (FD):</strong> Keep 6 months of living
+              expenses in an FD. This money is not for wealth creation; it is
+              for capital protection and immediate liquidity in case of job loss
+              or medical emergencies.
+            </li>
+            <li>
+              <strong>Short-Term Goals (FD):</strong> If you need to buy a car
+              or pay tuition in the next 1-3 years, use an FD. The stock market
+              is too unpredictable in the short term.
+            </li>
+            <li>
+              <strong>Wealth Creation (SIP):</strong> For any money you do not
+              need for the next 5 to 20+ years (retirement, children's long-term
+              education, generational wealth), aggressive equity SIPs are
+              mandatory.
+            </li>
           </ul>
         </article>
 
         <section id="faq" class="mb-20">
-          <h2 class="mb-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">SIP vs FD FAQs</h2>
+          <h2
+            class="mb-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+          >
+            Frequently Asked Questions
+          </h2>
           <div class="mx-auto max-w-4xl space-y-4">
             <details class="pro-card p-5 group transition-all">
-              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+              <summary
+                class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+              >
                 Can a SIP result in a loss?
-                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
               </summary>
-              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                Yes, in the short term. If you start a SIP and the stock market crashes in year 2, your portfolio value will be negative. However, historical data across global markets shows that the probability of loss approaches zero if you hold a diversified equity SIP for a continuous period of 7 to 10 years or more.
+              <p
+                class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+              >
+                Yes, in the short term. If you start a SIP and the stock market
+                crashes in year 2, your portfolio value will be negative.
+                However, historical data across global markets shows that the
+                probability of loss approaches zero if you hold a diversified
+                equity SIP for a continuous period of 7 to 10 years or more.
               </p>
             </details>
-  
+
             <details class="pro-card p-5 group transition-all">
-              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+              <summary
+                class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+              >
                 Are FDs safer than SIPs?
-                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
               </summary>
-              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                In terms of capital preservation, yes. Your FD principal is guaranteed and usually insured by the government up to a certain limit. SIPs have no such guarantees. However, FDs are highly vulnerable to inflation risk, meaning your "safe" money will buy fewer goods in the future.
+              <p
+                class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+              >
+                In terms of capital preservation, yes. Your FD principal is
+                guaranteed and usually insured by the government up to a certain
+                limit. SIPs have no such guarantees. However, FDs are highly
+                vulnerable to inflation risk, meaning your "safe" money will buy
+                fewer goods in the future.
               </p>
             </details>
-  
+
             <details class="pro-card p-5 group transition-all">
-              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+              <summary
+                class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+              >
                 Why does the calculator assume a lump-sum for FD?
-                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
               </summary>
-              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                To provide a standardized mathematical comparison of terminal value. A true "monthly FD" is technically a Recurring Deposit (RD). Our calculator compares the total SIP capital injected over the timeline against what that same total capital would yield if it were compounding at the fixed FD rate.
+              <p
+                class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+              >
+                To provide a standardized mathematical comparison of terminal
+                value. A true "monthly FD" is technically a Recurring Deposit
+                (RD). Our calculator compares the total SIP capital injected
+                over the timeline against what that same total capital would
+                yield if it were compounding at the fixed FD rate.
               </p>
             </details>
-  
+
             <details class="pro-card p-5 group transition-all">
-              <summary class="cursor-pointer list-none font-bold flex justify-between items-center text-lg">
+              <summary
+                class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+              >
                 Which is better for retirement planning?
-                <span class="text-indigo-500 group-open:rotate-180 transition-transform">↓</span>
               </summary>
-              <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4">
-                An Equity SIP is vastly superior for the <em>accumulation phase</em> (when you are young and saving for retirement) because you need compound growth that significantly beats inflation. An FD is superior for the <em>distribution phase</em> (when you are already retired and need guaranteed monthly payouts without risking your capital).
+              <p
+                class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+              >
+                An Equity SIP is vastly superior for the
+                <em>accumulation phase</em> (when you are young and saving for
+                retirement) because you need compound growth that significantly
+                beats inflation. An FD is superior for the
+                <em>distribution phase</em> (when you are already retired and
+                need guaranteed monthly payouts without risking your capital).
               </p>
             </details>
           </div>
@@ -376,13 +536,16 @@
           ["usdBtn", "gbpBtn", "inrBtn"],
           currency.toLowerCase() + "Btn",
           activeCurrencyClass,
-          inactiveCurrencyClass
+          inactiveCurrencyClass,
         );
         calculate();
       }
 
       function formatMoney(value) {
-        return window.CalcBaseCalculator.formatMoney(Math.round(value), currency);
+        return window.CalcBaseCalculator.formatMoney(
+          Math.round(value),
+          currency,
+        );
       }
 
       function calculate() {
@@ -432,7 +595,7 @@
 
       window.CalcBaseCalculator.bindAutoUpdate(
         ["#monthly", "#years", "#sipRate", "#fdRate"],
-        calculate
+        calculate,
       );
 
       document.addEventListener("calcbase:currencychange", (event) => {
@@ -446,5 +609,3 @@
     </script>
   </body>
 </html>
-
-
