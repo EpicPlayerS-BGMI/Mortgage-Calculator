@@ -183,17 +183,23 @@
           <!-- Monthly Investment -->
           <div>
             <label class="font-semibold">Monthly Investment</label>
-            <div class="relative mt-2">
-              <span
-                id="currencySymbol"
-                class="absolute left-4 top-3.5 text-slate-400 font-bold"
-                >$</span
+            <div
+              class="relative transition-transform duration-200 focus-within:-translate-y-1 mt-2"
+            >
+              <div
+                class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
               >
+                <span
+                  id="currencySymbol"
+                  class="text-slate-400 font-bold text-lg"
+                  >$</span
+                >
+              </div>
               <input
                 id="monthly"
                 type="number"
                 value="500"
-                class="w-full pl-10 pr-4 py-3 rounded-xl border dark:bg-slate-900"
+                class="block w-full pl-10 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 transition-all font-semibold text-lg"
                 oninput="calculateSIP()"
               />
             </div>

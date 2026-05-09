@@ -205,6 +205,25 @@ body.blog-page main > * {
   box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
+.symbol-input-field {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 1rem 1rem 1rem 2.5rem;
+  transition: all 0.15s ease;
+}
+
+.dark .symbol-input-field {
+  background-color: #070d24;
+  border-color: #1e293b;
+}
+
+.symbol-input-field:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
 /* ================================
    Utility Classes (Modern Enterprise)
 ================================ */
@@ -227,12 +246,6 @@ body.blog-page main > * {
 
 .dark img {
   filter: brightness(0.9) contrast(1.1);
-}
-
-.input-field:focus {
-  outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
 }
 
 /* Removing flashy animations redundant for pro tools */
@@ -681,6 +694,13 @@ main :where(p, li) {
   font-family:
     "Inter", "Segoe UI Symbol", "Noto Sans", "Arial Unicode MS", system-ui,
     sans-serif !important;
+}
+
+/* Currency symbol positioning - prevent overlap with input */
+:is(.sym, .currencySymbol, #currencySymbol, #currency-symbol) {
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
 }
 
 .custom-select {

@@ -211,14 +211,14 @@
                   >
                   <div class="relative">
                     <span
-                      class="sym absolute left-4 top-3.5 font-bold text-gray-400"
+                      class="sym absolute left-4 top-4 font-bold text-gray-400 pointer-events-none"
                       >$</span
                     >
                     <input
                       id="homePrice"
                       type="number"
                       value="350000"
-                      class="input-field w-full pl-10 font-mono text-lg"
+                      class="symbol-input-field w-full pl-10 pr-4 font-mono block py-4 border-none rounded-xl focus:ring-2 focus:ring-brand-500 transition-all"
                     />
                   </div>
                 </div>
@@ -230,14 +230,14 @@
                   >
                   <div class="relative">
                     <span
-                      class="sym absolute left-4 top-3.5 font-bold text-gray-400"
+                      class="sym absolute left-4 top-4 font-bold text-gray-400 pointer-events-none"
                       >$</span
                     >
                     <input
                       id="downPayment"
                       type="number"
                       value="70000"
-                      class="input-field w-full pl-10 font-mono text-lg"
+                      class="symbol-input-field w-full pl-10 pr-4 font-mono block py-4 border-none rounded-xl focus:ring-2 focus:ring-brand-500 transition-all"
                     />
                   </div>
                 </div>
@@ -252,7 +252,7 @@
               >
               <div class="relative">
                 <span
-                  class="sym absolute left-4 top-3.5 font-bold text-gray-400"
+                  class="sym absolute left-4 top-3.5 font-bold text-gray-400 pointer-events-none"
                   >$</span
                 >
                 <input
@@ -297,7 +297,7 @@
         </div>
 
         <div
-          class="relative min-h-[460px] flex flex-col items-center justify-center"
+          class="relative min-h-115 flex flex-col items-center justify-center"
         >
           <div id="result-placeholder" class="text-center p-8 max-w-sm">
             <h2
@@ -316,7 +316,7 @@
 
           <div id="result-box" class="hidden w-full animate-fade-in">
             <div
-              class="p-10 md:p-12 bg-linear-to-br from-indigo-600 to-violet-700 rounded-4xl border border-indigo-500/20 text-center shadow-2xl shadow-indigo-500/20 relative overflow-hidden"
+              class="mx-auto max-w-2xl min-h-110 flex flex-col justify-between p-8 md:p-10 bg-linear-to-br from-indigo-600 to-violet-700 rounded-4xl border border-indigo-500/20 text-center shadow-2xl shadow-indigo-500/20 relative overflow-hidden"
             >
               <div class="relative z-10">
                 <span
@@ -328,9 +328,9 @@
                   class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter"
                 ></div>
                 <div
-                  class="grid grid-cols-2 gap-6 text-left border-t border-white/10 pt-8"
+                  class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left border-t border-white/10 pt-8"
                 >
-                  <div>
+                  <div class="rounded-3xl bg-white/10 p-5">
                     <p
                       class="text-[10px] font-black text-indigo-100 uppercase tracking-widest mb-2 opacity-60"
                     >
@@ -341,7 +341,7 @@
                       class="font-bold text-xl md:text-2xl text-white"
                     ></p>
                   </div>
-                  <div class="text-right">
+                  <div class="rounded-3xl bg-white/10 p-5 text-right">
                     <p
                       class="text-[10px] font-black text-indigo-100 uppercase tracking-widest mb-2 opacity-60"
                     >
