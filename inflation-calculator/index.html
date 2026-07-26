@@ -8,15 +8,6 @@
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8075712336943598"
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="preload"
-      href="/assets/output.css"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
     <link rel="preload" href="/assets/common.js" as="script" />
     <link
       rel="preload"
@@ -68,16 +59,14 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/output.css" />
     <link rel="stylesheet" href="/assets/style.css" />
-    <noscript>
-      <link rel="stylesheet" href="/assets/output.css" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
 
     <style>
       /* Custom Range Slider Styling */
@@ -107,11 +96,9 @@
         background: #e2e8f0;
         border-radius: 999px;
       }
-      /* Dark mode track */
-      @media (prefers-color-scheme: dark) {
-        input[type="range"]::-webkit-slider-runnable-track {
-          background: #334155;
-        }
+      /* Dark mode track (class-based, matches site theme toggle) */
+      .dark input[type="range"]::-webkit-slider-runnable-track {
+        background: #334155;
       }
 
       /* Animation */

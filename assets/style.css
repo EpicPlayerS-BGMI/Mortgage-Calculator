@@ -697,10 +697,33 @@ main :where(p, li) {
 }
 
 /* Currency symbol positioning - prevent overlap with input */
-:is(.sym, .currencySymbol, #currencySymbol, #currency-symbol) {
+:is(.sym, .currencySymbol, #currencySymbol, #currency-symbol, .currency-symbol) {
   pointer-events: none;
   user-select: none;
   z-index: 1;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group .currency-symbol,
+.input-group .currencySymbol,
+.input-group .sym,
+.input-group #currency-symbol {
+  position: absolute;
+  inset-block: 0;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.input-group .currency-input,
+.input-group input[type="number"],
+.input-group input[type="text"] {
+  padding-left: 2.5rem;
 }
 
 .custom-select {

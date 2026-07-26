@@ -539,10 +539,14 @@ const CalculatorUiManager = {
   },
 
   standardizeCurrencyInputs(main) {
-    const symbolSelectors = ".sym, .currencySymbol, #currency-symbol";
-    main.querySelectorAll(symbolSelectors).forEach((symbolEl) => {
-      const container = symbolEl.closest(".relative");
-      if (!container) return;
+    // Only normalize true input prefixes (symbol inside .absolute next to an input).
+    // Do not touch decorative/result .currencySymbol text nodes — that breaks layouts.
+    main.querySelectorAll(".sym, .currencySymbol, #currency-symbol").forEach((symbolEl) => {
+      const absoluteWrap = symbolEl.closest(".absolute");
+      if (!absoluteWrap) return;
+
+      const container = absoluteWrap.parentElement;
+      if (!container || !container.classList.contains("relative")) return;
 
       const input = container.querySelector(
         "input[type='number'], input[type='text'], input:not([type])"
@@ -550,16 +554,6 @@ const CalculatorUiManager = {
       if (!input) return;
 
       container.classList.add("input-group");
-
-      // Move symbol as direct child so one global CSS pattern works everywhere.
-      const originalParent = symbolEl.parentElement;
-      if (originalParent !== container) {
-        container.insertBefore(symbolEl, container.firstChild);
-        if (originalParent && !originalParent.textContent.trim() && originalParent.children.length === 0) {
-          originalParent.remove();
-        }
-      }
-
       symbolEl.classList.add("currency-symbol");
       input.classList.add("currency-input");
       input.setAttribute("inputmode", "decimal");
