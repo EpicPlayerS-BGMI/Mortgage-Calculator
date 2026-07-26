@@ -1,4 +1,11 @@
 {
+  "name": "calcbase",
+  "private": true,
+  "scripts": {
+    "css": "npx @tailwindcss/cli -i ./assets/input.css -o ./assets/output.css",
+    "css:watch": "npx @tailwindcss/cli -i ./assets/input.css -o ./assets/output.css --watch",
+    "build:css": "npx @tailwindcss/cli -i ./assets/input.css -o ./assets/output.css --minify"
+  },
   "dependencies": {
     "@tailwindcss/cli": "^4.2.1",
     "tailwindcss": "^4.2.1"

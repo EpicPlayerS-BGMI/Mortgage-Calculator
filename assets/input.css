@@ -1,2 +1,8 @@
 @import "tailwindcss";
+
+/* Scan HTML/JS so utility classes in pages are included in output.css */
+@source "../**/*.{html,js}";
+@source not "../node_modules";
+@source not "../scripts";
+
 @custom-variant dark (&:where(.dark, .dark *));
