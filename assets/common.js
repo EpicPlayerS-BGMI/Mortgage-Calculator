@@ -101,21 +101,23 @@ const ConsentManager = {
         <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div class="max-w-3xl">
             <p class="text-xs font-bold uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">
-              Cookie And Analytics Settings
+              Cookie Preferences
             </p>
             <h2 class="mt-1 text-lg font-bold text-slate-900 dark:text-white">
-              Keep financial inputs in your browser
+              Privacy choices for CalcBase
             </h2>
             <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
               CalcBase stores theme, currency, and consent preferences on your device.
-              With your permission, we also load Google Analytics to improve content.
-              Some pages may display Google-served ads. You can continue with essential
-              preferences only, or allow analytics too.
+              Calculator inputs stay in your browser. We use Google AdSense to keep
+              tools free, and with your permission we also load Google Analytics to
+              improve content. You can continue with essential preferences only, or
+              allow analytics as well.
             </p>
             <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
-              See
+              See our
               <a href="/privacy/" class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400">Privacy Policy</a>
-              for details.
+              for AdSense, cookies, and opt-out options. Manage ads at
+              <a href="https://www.google.com/settings/ads" class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400" rel="noopener noreferrer" target="_blank">Google Ads Settings</a>.
             </p>
           </div>
           <div class="flex flex-col gap-2 sm:flex-row">
@@ -503,168 +505,8 @@ const CurrencyUiSync = {
   },
 };
 
-const ContentQualityManager = {
-  minWords: 2000,
-
-  shouldEnhance(pathname) {
-    const isCalculator = pathname.includes("-calculator/");
-    const isBlogArticle =
-      pathname.startsWith("/blogs/") &&
-      pathname !== "/blogs/" &&
-      pathname !== "/blogs/index.html";
-    return isCalculator || isBlogArticle;
-  },
-
-  countWords(node) {
-    if (!node) return 0;
-    const text = (node.innerText || "")
-      .replace(/\s+/g, " ")
-      .trim();
-    if (!text) return 0;
-    return text.split(" ").length;
-  },
-
-  normalizeTitle(pathname) {
-    const clean = pathname
-      .replace(/\/index\.html$/, "")
-      .replace(/^\/+|\/+$/g, "")
-      .split("/")
-      .pop()
-      ?.replace(/-/g, " ");
-    if (!clean) return "financial planning";
-    return clean.replace(/\b\w/g, (char) => char.toUpperCase());
-  },
-
-  buildSection(topic) {
-    return `
-      <section id="auto-longform-content" class="pro-card mt-12 p-6 md:p-10">
-        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">
-          Practical ${topic} Guide for India, USA, and UK
-        </h2>
-        <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">
-          This extended section is built for real users who want to make better money decisions, not just run one quick calculation.
-          A strong calculator page should explain trade-offs, common mistakes, and practical country-level differences.
-          The goal is simple: help you reduce expensive errors and make choices you can sustain over years, not just weeks.
-        </p>
-
-        <h3 class="mt-8 text-xl font-bold text-slate-900 dark:text-white">How experienced borrowers and investors use calculators</h3>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          People with better outcomes rarely use one scenario. They compare at least three scenarios: a conservative case, a realistic case, and a stress case.
-          For example, if you are evaluating a loan, test current rate, current rate plus one percent, and a shorter tenure option.
-          If you are evaluating investments, test expected return, lower return, and inflation-adjusted return.
-          This helps you avoid emotional decisions and reveals whether your plan is resilient when markets or rates move against you.
-        </p>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          Another advanced habit is to work backward from cash flow safety. Instead of asking "what is the maximum amount I can take?",
-          ask "what monthly amount still leaves room for emergency savings, insurance, and family goals?".
-          This shift in thinking protects your long-term stability and improves decision quality in every country.
-        </p>
-
-        <h3 class="mt-8 text-xl font-bold text-slate-900 dark:text-white">India, USA, UK: what changes in practical decision-making</h3>
-        <div class="mt-4 overflow-x-auto">
-          <table class="min-w-full border border-slate-200 dark:border-slate-700 text-sm">
-            <thead class="bg-slate-100 dark:bg-slate-800">
-              <tr>
-                <th class="px-3 py-2 text-left">Country</th>
-                <th class="px-3 py-2 text-left">What users usually miss</th>
-                <th class="px-3 py-2 text-left">Practical action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-t border-slate-200 dark:border-slate-700">
-                <td class="px-3 py-2 font-semibold">India</td>
-                <td class="px-3 py-2">People focus on EMI but ignore tenure impact and rising lifestyle costs.</td>
-                <td class="px-3 py-2">Stress-test EMI, keep emergency fund, and use annual part-prepayment strategy.</td>
-              </tr>
-              <tr class="border-t border-slate-200 dark:border-slate-700">
-                <td class="px-3 py-2 font-semibold">USA</td>
-                <td class="px-3 py-2">Principal and interest are checked, but taxes and insurance are underestimated.</td>
-                <td class="px-3 py-2">Evaluate full housing cost including tax, insurance, HOA, and maintenance reserve.</td>
-              </tr>
-              <tr class="border-t border-slate-200 dark:border-slate-700">
-                <td class="px-3 py-2 font-semibold">UK</td>
-                <td class="px-3 py-2">Short fixed-rate period is treated like permanent certainty.</td>
-                <td class="px-3 py-2">Model post-fix rate change and prepare remortgage timeline before reset window.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 class="mt-8 text-xl font-bold text-slate-900 dark:text-white">Experience-based checklist before final decision</h3>
-        <ul class="mt-4 space-y-2 text-slate-600 dark:text-slate-400">
-          <li>Confirm your monthly target after accounting for rent, food, transport, healthcare, and insurance.</li>
-          <li>Keep at least 4-6 months of essential expenses as emergency reserve before major commitments.</li>
-          <li>Run worst-case scenario where rate increases by 1 percent and income growth is delayed.</li>
-          <li>Compare short tenure and long tenure to understand interest trade-off clearly.</li>
-          <li>Plan annual review dates to re-check affordability, refinance options, or contribution increases.</li>
-          <li>Document assumptions so that future decisions are data-driven, not memory-driven.</li>
-        </ul>
-
-        <h3 class="mt-8 text-xl font-bold text-slate-900 dark:text-white">Common mistakes that make results look good but fail in real life</h3>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          A frequent mistake is using ideal inputs only. If you use only best-case interest rate, perfect return, and no unexpected expenses,
-          your output will always look attractive but will not match reality.
-          Another mistake is ignoring timing. Two users with similar numbers can end up with very different outcomes depending on whether they start early,
-          prepay early, or delay corrections for years.
-        </p>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          Many users also compare products without aligning assumptions. Example: comparing one option with fees included versus another without fees.
-          Always normalize inputs before comparison. The quality of your decision depends more on consistent assumptions than on any one formula.
-        </p>
-
-        <h3 class="mt-8 text-xl font-bold text-slate-900 dark:text-white">Scenario planning examples you can reuse</h3>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          Scenario 1: Conservative plan. You choose slightly lower amount, shorter tenure, and keep yearly prepayment buffer.
-          Monthly burden looks higher at first, but total interest and long-term risk reduce sharply.
-        </p>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          Scenario 2: Balanced plan. You optimize for stable monthly cash flow with moderate tenure and strict annual review.
-          This works well for families with variable school, healthcare, or relocation expenses.
-        </p>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          Scenario 3: Aggressive growth plan. You keep flexibility in early years, then increase contributions when income rises.
-          This can work for professionals with performance-linked bonuses, but only when emergency reserves are already strong.
-        </p>
-
-        <h3 class="mt-8 text-xl font-bold text-slate-900 dark:text-white">How to keep your plan human and realistic</h3>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          Financial plans fail when they are too strict for real life. A plan that assumes perfect discipline every month is usually not sustainable.
-          Build a structure that survives festivals, travel, medical costs, school admissions, and job changes.
-          It is better to follow a practical plan for ten years than a perfect plan for three months.
-        </p>
-        <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
-          If you track only one metric, track cash-flow comfort after commitments. This single number often predicts whether your strategy can survive stress.
-          Revisit this page and rerun inputs whenever your salary, rates, or life priorities change.
-          Consistent recalibration is what separates users who stay confident from users who stay confused.
-        </p>
-      </section>
-    `;
-  },
-
-  init() {
-    const pathname = window.location.pathname || "/";
-    if (!this.shouldEnhance(pathname)) return;
-
-    const main = document.querySelector("main");
-    if (!main || document.getElementById("auto-longform-content")) return;
-
-    const wordCount = this.countWords(main);
-    if (wordCount >= this.minWords) return;
-
-    const topic = this.normalizeTitle(pathname);
-    const mountBefore = main.querySelector("#faq, [data-faq-section]");
-    const wrapper = document.createElement("div");
-    wrapper.innerHTML = this.buildSection(topic);
-    const section = wrapper.firstElementChild;
-    if (!section) return;
-
-    if (mountBefore) {
-      main.insertBefore(section, mountBefore);
-    } else {
-      main.appendChild(section);
-    }
-  },
-};
+/* ContentQualityManager removed: AdSense reviewers need unique static HTML content,
+   not identical JavaScript-injected filler across calculator and blog pages. */
 
 const CalculatorUiManager = {
   shouldApply(pathname) {
@@ -743,6 +585,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   FaqManager.init();
   CurrencyUiSync.init();
-  ContentQualityManager.init();
   CalculatorUiManager.init();
 });

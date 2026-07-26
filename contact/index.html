@@ -66,7 +66,8 @@
               </div>
               <a href="mailto:support@calcbase.tech" class="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">support@calcbase.tech</a>
             </div>
-            <p class="text-sm text-slate-500 dark:text-slate-400">Use email for support, corrections, partnerships, or feature suggestions.</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Operated by CalcBase founder Shivam. Use email for support, corrections, partnerships, privacy requests, or feature suggestions.</p>
+            <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Website: <a href="https://calcbase.tech/" class="text-indigo-600 dark:text-indigo-400 hover:underline">https://calcbase.tech</a></p>
           </div>
 
           <div class="pro-card p-6">
@@ -95,34 +96,50 @@
               Use this form to send support requests, correction notes, or business inquiries. The form opens your default email app with your details prefilled.
             </p>
             <form
-              action="mailto:support@calcbase.tech"
-              method="post"
-              enctype="text/plain"
+              action="https://formsubmit.co/support@calcbase.tech"
+              method="POST"
               class="space-y-4"
             >
+              <input type="hidden" name="_subject" value="CalcBase contact form message" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_next" value="https://calcbase.tech/contact/?sent=1" />
+              <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <div>
                 <label for="name" class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Full Name</label>
-                <input id="name" name="Name" type="text" required class="input-field w-full" />
+                <input id="name" name="name" type="text" required class="input-field w-full" autocomplete="name" />
               </div>
               <div>
                 <label for="email" class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Email Address</label>
-                <input id="email" name="Email" type="email" required class="input-field w-full" />
+                <input id="email" name="email" type="email" required class="input-field w-full" autocomplete="email" />
               </div>
               <div>
                 <label for="subject" class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Subject</label>
-                <input id="subject" name="Subject" type="text" required class="input-field w-full" />
+                <input id="subject" name="subject" type="text" required class="input-field w-full" />
               </div>
               <div>
                 <label for="message" class="block text-sm font-semibold mb-2 text-slate-700 dark:text-slate-300">Message</label>
-                <textarea id="message" name="Message" rows="5" required class="input-field w-full"></textarea>
+                <textarea id="message" name="message" rows="5" required class="input-field w-full"></textarea>
               </div>
               <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-6 py-3 font-bold text-white transition hover:bg-indigo-700">
                 Send Message
               </button>
             </form>
-            <p class="mt-4 text-xs text-slate-500 dark:text-slate-400">
-              You can also email us directly at <a href="mailto:support@calcbase.tech" class="text-indigo-600 dark:text-indigo-400 hover:underline">support@calcbase.tech</a>.
+            <p id="contact-sent" class="mt-4 hidden rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-200">
+              Thanks — your message was submitted. We will reply as soon as possible.
             </p>
+            <p class="mt-4 text-xs text-slate-500 dark:text-slate-400">
+              Prefer email? Write directly to
+              <a href="mailto:support@calcbase.tech" class="text-indigo-600 dark:text-indigo-400 hover:underline">support@calcbase.tech</a>.
+              First FormSubmit delivery may ask you to confirm the inbox once.
+            </p>
+            <script>
+              if (new URLSearchParams(window.location.search).get("sent") === "1") {
+                document.addEventListener("DOMContentLoaded", () => {
+                  document.getElementById("contact-sent")?.classList.remove("hidden");
+                });
+              }
+            </script>
           </section>
 
           <section class="pro-card p-8">
