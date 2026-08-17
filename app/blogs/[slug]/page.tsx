@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ArticleExample } from "@/components/article-example";
+import { AuthorBio } from "@/components/author-bio";
 import { HtmlContent } from "@/components/html-content";
 import { JsonLd } from "@/components/json-ld";
 import { getBlogMeta, getBlogSlugs, readHtml, sanitizeHtml } from "@/lib/content";
@@ -34,6 +36,8 @@ export default async function BlogPostPage({ params }: Props) {
       <JsonLd data={articleJsonLd(meta, slug)} />
       <main className="mx-auto w-full max-w-4xl px-4 py-12">
         <HtmlContent html={sanitizeHtml(readHtml(`blogs/${slug}.html`))} />
+        <ArticleExample slug={slug} />
+        <AuthorBio />
       </main>
     </>
   );

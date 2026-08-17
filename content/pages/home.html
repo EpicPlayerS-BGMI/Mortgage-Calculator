@@ -344,6 +344,29 @@
     </section>
 
     <section class="mb-20">
+      <article class="pro-card p-7 md:p-8">
+        <h2 class="text-2xl font-bold mb-4 text-slate-900 dark:text-white">How CalcBase actually calculates (so you can audit us)</h2>
+        <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400 mb-4">
+          Reviewers and readers should be able to reproduce our numbers. We do not scrape bank APIs.
+          Every tool on this site is a published formula running in your browser:
+        </p>
+        <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+          <li><strong class="text-slate-800 dark:text-slate-200">EMI, mortgage, personal loan, car loan:</strong> reducing-balance EMI = P × r × (1+r)^n / ((1+r)^n − 1), with r = annual rate / 12 / 100.</li>
+          <li><strong class="text-slate-800 dark:text-slate-200">SIP:</strong> future value of an annuity due, monthly compounding. The rate you type is an assumption, not a market guarantee.</li>
+          <li><strong class="text-slate-800 dark:text-slate-200">FD:</strong> quarterly compounding, hold-to-maturity. Premature-break penalties are not modelled.</li>
+          <li><strong class="text-slate-800 dark:text-slate-200">Inflation:</strong> amount × (1 + i)^years for future cost; the reverse for purchasing power.</li>
+          <li><strong class="text-slate-800 dark:text-slate-200">Eligibility:</strong> max EMI = 50% of income minus existing EMIs, then reverse-solve principal. That is a FOIR planning cap, not a bank sanction.</li>
+        </ul>
+        <p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+          If a lender’s quote disagrees with the calculator, the usual reasons are fees, a flat-rate advertisement,
+          insurance bundled into principal, or a different compounding convention. The
+          <a href="/methodology/" class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400">methodology page</a>
+          lists those limits in plain language.
+        </p>
+      </article>
+    </section>
+
+    <section class="mb-20">
       <h2 class="mb-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-4xl">
         Country Focus: India vs USA vs UK
       </h2>
@@ -552,11 +575,22 @@
         </details>
         <details class="pro-card p-5">
           <summary class="cursor-pointer list-none font-bold">
-            Are these calculator results official bank offers?
+            Why is my bank EMI different from CalcBase?
           </summary>
           <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-            No. Results are educational estimates based on standard formulas. Always validate final figures with
-            your lender because exact pricing, fees, and taxes can differ.
+            Banks often add processing fees, GST, credit-life insurance, or use a flat-rate pitch.
+            CalcBase shows reducing-balance principal and interest only. Rebuild the loan here using
+            the financed amount (after down payment), then add fees on paper.
+          </p>
+        </details>
+        <details class="pro-card p-5">
+          <summary class="cursor-pointer list-none font-bold">
+            Who writes CalcBase and how do you make money?
+          </summary>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            CalcBase is independently run by founder Shivam from India. There is no lender behind the
+            tools and we do not sell loan leads. The site is free; if advertising is approved, ads may
+            appear so the calculators can stay free. See About and Privacy for details.
           </p>
         </details>
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BLOG_MEDIA, CALCULATOR_OG, DEFAULT_OG_IMAGE } from "@/lib/blog-media";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import type { PageMeta } from "@/lib/content";
 
@@ -10,20 +11,34 @@ function flattenJsonLd(data: unknown): object[] {
   return typeof data === "object" ? [data as object] : [];
 }
 
+function resolveOgImage(meta: PageMeta) {
+  const current = meta.ogImage || meta.twitterImage || "";
+  if (current && !current.includes("/assets/og/")) return current;
+
+  const url = meta.canonical || "";
+  const blogSlug = url.match(/\/blogs\/([^/]+)/)?.[1];
+  if (blogSlug && BLOG_MEDIA[blogSlug]) return `${SITE_URL}${BLOG_MEDIA[blogSlug].image}`;
+
+  const calcSlug = url.match(/https:\/\/calcbase\.tech\/([^/]+)\/?$/)?.[1];
+  if (calcSlug && CALCULATOR_OG[calcSlug]) return `${SITE_URL}${CALCULATOR_OG[calcSlug]}`;
+
+  return `${SITE_URL}${DEFAULT_OG_IMAGE}`;
+}
+
 export function buildMetadata(meta: PageMeta): Metadata {
   const title = meta.title || SITE_NAME;
   const description = meta.description || "";
   const canonical = meta.canonical || SITE_URL;
   const ogTitle = meta.ogTitle || title;
   const ogDescription = meta.ogDescription || description;
-  const ogImage = meta.ogImage || `${SITE_URL}/assets/og/mortgage.png`;
+  const ogImage = resolveOgImage(meta);
   const robots = meta.robots || "index, follow";
 
   return {
     title,
     description,
     keywords: meta.keywords || undefined,
-    authors: [{ name: SITE_NAME }],
+    authors: [{ name: "Shivam" }, { name: SITE_NAME }],
     robots,
     alternates: {
       canonical,
@@ -40,7 +55,7 @@ export function buildMetadata(meta: PageMeta): Metadata {
       card: "summary_large_image",
       title: meta.twitterTitle || ogTitle,
       description: meta.twitterDescription || ogDescription,
-      images: [meta.twitterImage || ogImage],
+      images: [meta.twitterImage && !meta.twitterImage.includes("/assets/og/") ? meta.twitterImage : ogImage],
     },
   };
 }
@@ -56,7 +71,9 @@ export function articleJsonLd(meta: PageMeta, slug: string) {
     headline: meta.title,
     description: meta.description,
     url: meta.canonical || `${SITE_URL}/blogs/${slug}/`,
-    image: meta.ogImage,
+    image: meta.ogImage && !meta.ogImage.includes("/assets/og/")
+      ? meta.ogImage
+      : `${SITE_URL}${BLOG_MEDIA[slug]?.image || DEFAULT_OG_IMAGE}`,
     author: {
       "@type": "Person",
       name: "Shivam",
