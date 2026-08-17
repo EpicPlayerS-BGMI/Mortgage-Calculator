@@ -50,7 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body
-        className="flex min-h-full flex-col bg-slate-50 text-slate-800 antialiased transition-colors duration-300 dark:bg-slate-900 dark:text-slate-200"
+        className="flex min-h-full flex-col bg-slate-50 text-slate-800 antialiased dark:bg-slate-900 dark:text-slate-200"
         suppressHydrationWarning
       >
         <Script

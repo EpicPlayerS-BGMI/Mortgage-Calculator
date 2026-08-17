@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+import type { MouseEvent } from "react";
+import { flushSync } from "react-dom";
 import { ChevronDown, Menu, Moon, Sun, Users } from "lucide-react";
 import { useCurrency } from "@/components/currency-provider";
 import { Button } from "@/components/ui/button";
@@ -79,8 +81,54 @@ function CurrencySelect({
   );
 }
 
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
+
+  function applyTheme(next: "light" | "dark") {
+    document.documentElement.classList.toggle("dark", next === "dark");
+    setTheme(next);
+  }
+
+  function toggleTheme(event: MouseEvent<HTMLButtonElement>) {
+    const next = resolvedTheme === "dark" ? "light" : "dark";
+    const root = document as Document & {
+      startViewTransition?: (update: () => void) => { ready: Promise<void> };
+    };
+
+    if (!root.startViewTransition || prefersReducedMotion()) {
+      applyTheme(next);
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX || rect.left + rect.width / 2;
+    const y = event.clientY || rect.top + rect.height / 2;
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y),
+    );
+
+    const transition = root.startViewTransition(() => {
+      flushSync(() => applyTheme(next));
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`],
+        },
+        {
+          duration: 560,
+          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+    });
+  }
 
   return (
     <Button
@@ -88,7 +136,7 @@ function ThemeToggle() {
       variant="ghost"
       size="icon"
       aria-label="Toggle dark mode"
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      onClick={toggleTheme}
       className="h-10 w-10 rounded-xl bg-slate-100 hover:bg-indigo-100 dark:bg-slate-800 dark:hover:bg-indigo-900/40"
     >
       <Sun className="hidden size-4 dark:block" />
