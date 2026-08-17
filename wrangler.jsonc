@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "calcbase",
+  "name": "mortgage-calculator",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-17",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -14,7 +14,7 @@
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "calcbase",
+      "service": "mortgage-calculator",
     },
   ],
 }
