@@ -1,0 +1,28 @@
+{
+  "title": "About CalcBase | Mission, Creator Story, and Why We Built It",
+  "description": "Learn the CalcBase mission, who created the platform, and why it exists. Discover how we provide clear financial calculators for India, USA, and UK users.",
+  "keywords": "",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/about/",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CalcBase",
+      "url": "https://calcbase.tech",
+      "description": "CalcBase is a browser-based financial calculator platform for loans, mortgages, savings, and investment planning.",
+      "areaServed": [
+        "India",
+        "United States",
+        "United Kingdom"
+      ]
+    }
+  ]
+}

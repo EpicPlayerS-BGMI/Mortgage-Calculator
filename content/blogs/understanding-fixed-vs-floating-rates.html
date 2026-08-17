@@ -1,0 +1,207 @@
+<nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex flex-wrap items-center gap-1 text-sm text-slate-500 dark:text-slate-400">
+          <li><a href="/" class="hover:text-indigo-600 dark:hover:text-indigo-400">Home</a></li>
+          <li class="opacity-50">/</li>
+          <li><a href="/blogs/" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blogs</a></li>
+          <li class="opacity-50">/</li>
+          <li class="text-slate-700 dark:text-slate-300 font-medium">Understanding Fixed vs Floating Rates</li>
+        </ol>
+      </nav>
+
+      <div class="mb-6 text-sm text-slate-500 dark:text-slate-400">
+        <span>By Shivam, CalcBase</span> &middot; <span>June 18, 2026</span> &middot; <span>12 min read</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white leading-tight uppercase tracking-tight">
+        Understanding Fixed vs Floating Interest Rates
+      </h1>
+
+      <div class="pro-card mb-10 rounded-2xl border border-indigo-100 dark:border-slate-700 bg-gradient-to-r from-indigo-50 via-white to-slate-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 px-6 py-8">
+        <p class="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-2">Home loans · Rate structures</p>
+        <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl">Payment certainty versus potential savings—how fixed, floating, and hybrid loan rates behave when benchmarks move, with EMI math you can rerun yourself.</p>
+      </div>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Two Promises Lenders Make About Interest</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>A fixed rate locks your contractual interest for a defined period—sometimes the entire term (common for US 15- and 30-year fixed mortgages), sometimes a shorter initial window (common for UK fixes and some Indian fixed products). A floating or variable rate moves with a benchmark plus a spread, so your EMI, tenure, or both can change when policy rates and bank funding costs shift.</p>
+          <p>Neither structure is morally superior. Fixed rates buy budgeting certainty and protect you if rates spike. Floating rates can cost less when the rate cycle eases, but they transfer timing risk to you. Hybrids—fixed for three years then floating, or ARMs with caps—mix both stories and need two calculations, not one.</p>
+          <p>Stress both paths with the <a href="/mortgage-calculator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Mortgage Calculator</a> and <a href="/emi-calculator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">EMI Calculator</a>, and keep the payment inside a sensible cap via the <a href="/loan-eligibility-calculator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Loan Eligibility Calculator</a>.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">How Floating Resets Show Up in Your EMI</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Suppose an Indian home loan of ₹60 lakh at 8.5% floating for 20 years. Starting EMI is about ₹52,070. If the benchmark rises and your rate becomes 9.5%, two bank behaviours are common: raise the EMI to roughly ₹55,950, or keep EMI near ₹52,070 and extend tenure (subject to age limits). Your household feels either a cash squeeze or a longer debt shadow.</p>
+          <p>If rates later fall to 8.0%, the mirror image appears—EMI drops or tenure shortens. Floating borrowers should decide in advance which lever they prefer when the bank offers a choice, and whether they will prepay during high-rate years to blunt the damage.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Scenario Table: Fixed Certainty vs Floating Paths</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>$300,000 loan, 30-year amortisation. Fixed path stays at 6.4%. Floating path starts at 6.1% and is stressed at year 3.</p>
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700">
+            <table class="min-w-full text-left text-base">
+              <thead class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+                <tr>
+                  <th class="px-4 py-3 font-semibold">Path</th>
+                  <th class="px-4 py-3 font-semibold">Years 1–3 rate</th>
+                  <th class="px-4 py-3 font-semibold">Years 1–3 P&amp;I</th>
+                  <th class="px-4 py-3 font-semibold">After reset</th>
+                  <th class="px-4 py-3 font-semibold">New P&amp;I (approx.)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-700 bg-white dark:bg-slate-900/40">
+                <tr>
+                  <td class="px-4 py-3">30-year fixed</td>
+                  <td class="px-4 py-3">6.40%</td>
+                  <td class="px-4 py-3">$1,880</td>
+                  <td class="px-4 py-3">Still 6.40%</td>
+                  <td class="px-4 py-3">$1,880</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3">Floating / ARM-like</td>
+                  <td class="px-4 py-3">6.10%</td>
+                  <td class="px-4 py-3">$1,819</td>
+                  <td class="px-4 py-3">7.60% stress</td>
+                  <td class="px-4 py-3">≈ $2,120*</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3">Floating / ARM-like</td>
+                  <td class="px-4 py-3">6.10%</td>
+                  <td class="px-4 py-3">$1,819</td>
+                  <td class="px-4 py-3">5.40% ease</td>
+                  <td class="px-4 py-3">≈ $1,680*</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-base">*Recalculated on remaining balance and term for education; product caps and margins change real outcomes.</p>
+          <p>The floating path saves about $60 monthly at the start versus this fixed quote. A sharp reset can erase years of that saving in a single revision letter. If your budget has no spare $300, fixed or a capped hybrid may be the rational choice even when floating looks cheaper on day one.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">UK Fixes: The Remortgage Calendar Matters</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Many UK borrowers fix for two or five years, then face a higher follow-on SVR/reversion rate unless they remortgage. The “fixed versus floating” choice is really “fixed versus future product unknown.” Diary the remortgage window six months early, compute payment on a stressed reversion rate, and keep credit files clean so you can move.</p>
+          <p>Example: £250,000 at 4.5% fixed on a 25-year term pays about £1,390. If you drift onto a 7.8% reversion on a remaining ~£220,000 over 22 years, payment can jump toward £1,800+. The initial fixed deal was never the full story.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Break Costs, Caps, and Fine Print</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Fixed loans may charge prepayment or break costs if you exit early—especially in some UK and Canadian-style products; US conforming fixed loans usually allow prepayment without penalty, but always read the note. Floating loans may include reset frequency rules, floors, ceilings, and margins that do not fall as fast as the headline repo rate.</p>
+          <p>Indian “fixed” home loans are sometimes fixed only for an initial period or include clauses that differ from a US 30-year fixed. Read whether the rate is truly locked and what happens afterward. Marketing language is not the contract.</p>
+          <p>Before you sign, calculate the break-even on any fee charged to “convert” floating to fixed later. If conversion costs one percent of principal, you need enough monthly saving—and enough remaining months—to recover it. Fees that looked small at sanction loom large when the cycle turns.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Choosing with a Household Stress Test</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Write down today’s EMI and an EMI at +1% and +2% rates. If +2% breaks groceries or school fees, you cannot casually take uncapped floating exposure. If you have surplus income, an emergency fund, and job stability, floating or a short fix can be reasonable—especially if you plan aggressive prepayments.</p>
+          <p>Dual-income households should model a temporary single-income year. Rate type interacts with income risk; certainty elsewhere lets you take more rate risk, and vice versa.</p>
+          <p>Keep the stress worksheet even after sanction. When a reset arrives, you already know whether the new EMI fits or whether prepayment and expense cuts must start immediately. Surprise is expensive; rehearsal is cheap.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Hybrid Strategies People Actually Use</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Some borrowers split loans into fixed and floating tranches where lenders allow. Others fix while rates are volatile, then refinance to floating when cuts arrive—accepting refinance costs. Others stay floating but park a “rate shock reserve” equal to six months of the +2% EMI difference. The reserve turns abstract risk into funded preparedness.</p>
+          <p>Another practical hybrid: keep the mortgage floating if that is the market norm (as in much of India) but fix your household budget as if the rate were already 1.5–2% higher. Route the difference into prepayments or a reserve. If rates never rise, you finish early; if they do, the payment shock is already funded in habit if not in contract.</p>
+          <p>US borrowers sometimes blend a 30-year fixed with a smaller HELOC for flexibility—useful only with iron discipline, because variable HELOC rates can spike and tempt lifestyle draws against home equity. Treat any variable second lien with the same stress test as a floating first mortgage.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Communication Scripts When the Reset Letter Arrives</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Ask three questions in writing: (1) What benchmark and spread produced the new rate? (2) Will EMI rise, tenure extend, or do I have a choice? (3) What is the exact next reset date and any cap that applies? Then recompute affordability before you accept an auto-debit increase you have not modelled.</p>
+          <p>If tenure extension would push the loan past your planned retirement age, say so and request EMI adjustment options or a part-prepayment plan. Passivity is how floating loans quietly become 27-year obligations you never intended.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Benchmarks, Spreads, and Why Your Rate Lags the News</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Floating loans are usually expressed as benchmark + spread. When the central bank cuts policy rates, headlines cheer, yet your EMI might not move for weeks or months—and the cut that reaches you may be smaller than the headline if your spread is wide or your reset calendar is infrequent. Conversely, banks may reprice upward faster in a tightening cycle. Read the reset frequency, the exact benchmark name, and whether your loan is linked to an external published rate or an internal prime variant.</p>
+          <p>Fixed-rate borrowers watching those same headlines sometimes feel “stuck.” That feeling is the price of certainty. If cuts arrive and you have a low-friction refinance path with modest fees, running the break-even maths (upfront cost ÷ monthly saving) tells you whether switching is rational. If break-even sits beyond how long you will keep the loan, staying put can still be right.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Worked Household Decision: Dual Income, One Variable</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Priya and Dev evaluate a ₹70 lakh loan. Fixed-style quote for an initial period: 9.0% EMI ≈ ₹63,000. Floating quote: 8.4% EMI ≈ ₹60,200. Their combined take-home is ₹2.1 lakh, so both EMIs “fit.” But Dev’s industry is cyclical. They model a year with only Priya’s ₹1.1 lakh income. At that point, ₹63,000 is tight; ₹60,200 plus a +2% floating shock toward ₹68,000+ is dangerous.</p>
+          <p>They choose the slightly higher fixed path for five years, fund a three-month EMI reserve, and plan to revisit structure at year five when careers and rates may look different. The “right” answer was not the lowest day-one EMI—it was the structure that survived their single-income stress test.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Caps, Floors, and Negative Amortisation Warnings</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Some ARMs advertise teaser rates with periodic and lifetime caps. Caps are helpful only if you simulate the maximum reachable rate. A 2/1/5 style cap structure (illustrative US-style language) can still deliver a payment that blows up a thin budget. Floors can stop you from enjoying deep cuts. Rare products with payment options can even allow negative amortisation—balance rising despite payments—which is a different risk class entirely and should be approached with extreme caution and full document reading.</p>
+          <p>If you cannot explain your cap, floor, margin, and next reset date in one paragraph, you are not ready to sign a floating or hybrid contract. Ask the lender to write those four facts in the offer letter summary.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Rate-Structure Mistakes Expensive to Unwind</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Watch for these decision errors when offers look similar:</p>
+          <ul class="list-disc pl-6 space-y-3">
+            <li>Picking floating solely because the day-one EMI is slightly lower, with no shock budget.</li>
+            <li>Assuming an Indian “fixed” loan behaves like a US 30-year fixed without reading the period length.</li>
+            <li>Ignoring UK remortgage timing and discovering the reversion rate only when the letter arrives.</li>
+            <li>Refinancing repeatedly for tiny savings while paying fees that erase the benefit.</li>
+            <li>Forgetting that tenure extension after a floating reset can push the loan past retirement age.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">Are floating rates always lower at the start?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">Often they are priced lower to compensate you for risk, but not always. Compare full offers including fees, not folklore.</p>
+          </details>
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">What is an interest-rate cap on an ARM?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">Caps limit how far the rate can move at each reset and over the life of the loan. They reduce—but do not eliminate—payment shock. Model the maximum capped rate, not only the teaser.</p>
+          </details>
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">Should I convert floating to fixed when rates rise?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">Sometimes, if you need certainty and the conversion cost makes sense. Converting after rates have already jumped can lock in the pain. Run numbers for remaining tenure.</p>
+          </details>
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">Does prepayment help more on floating loans?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">Prepayment reduces principal on both types. On floating loans it also shrinks the base that future higher rates apply to, which is valuable in a rising cycle.</p>
+          </details>
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">Is a longer fix always safer in the UK?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">Longer fixes increase payment certainty but can carry higher rates or steeper early-repayment charges. Match fix length to how long you will keep the property and mortgage.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Rate Comparison Disclaimer</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Scenarios here simplify product rules for learning. Benchmarks, margins, caps, and break costs differ by lender and country. Use CalcBase tools for illustrations, then confirm details in the loan agreement or with a regulated adviser.</p>
+        </div>
+      </section>
+
+      <section class="mt-20 p-12 rounded-[2rem] bg-indigo-50 dark:bg-slate-800/50 border border-indigo-100 dark:border-slate-700 text-center">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Model the Payment at +2% Before You Choose</h2>
+        <p class="text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto">If the stressed EMI still fits, floating may be tolerable. If it does not, price certainty may be worth a higher starting rate.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/mortgage-calculator/" class="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-500 transition shadow-lg">Mortgage Calculator</a>
+          <a href="/loan-eligibility-calculator/" class="px-8 py-4 bg-white dark:bg-slate-700 text-slate-900 dark:text-white font-bold rounded-xl border border-slate-200 dark:border-slate-600 hover:bg-slate-50 transition">Eligibility Calculator</a>
+        </div>
+      </section>

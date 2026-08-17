@@ -1,0 +1,24 @@
+{
+  "title": "Privacy Policy | CalcBase Cookies, AdSense, and Data Handling",
+  "description": "Read the CalcBase Privacy Policy covering browser-based calculator inputs, cookies, Google AdSense, analytics, advertising partners, and your privacy choices.",
+  "keywords": "",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/privacy/",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "CalcBase Privacy Policy",
+      "url": "https://calcbase.tech/privacy/",
+      "dateModified": "2026-07-26",
+      "description": "Privacy policy explaining cookies, Google AdSense, analytics, and data handling on CalcBase."
+    }
+  ]
+}

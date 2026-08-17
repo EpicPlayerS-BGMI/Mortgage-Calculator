@@ -1,0 +1,62 @@
+{
+  "title": "Inflation Calculator | Purchasing Power & Future Cost – CalcBase",
+  "description": "Inflation Calculator to estimate future cost of living, purchasing power loss, and the long-term impact of inflation in USA, UK & India.",
+  "keywords": "inflation calculator, purchasing power calculator, future cost calculator, inflation impact calculator",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/inflation-calculator/",
+  "ogTitle": "Inflation Calculator | Purchasing Power & Future Cost – CalcBase",
+  "ogDescription": "Calculate how inflation affects your purchasing power and future expenses over time.",
+  "ogImage": "https://calcbase.tech/assets/og/inflation-calculator.png",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Inflation Calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "url": "https://calcbase.tech/inflation-calculator/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is inflation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inflation is the rate at which the general price level of goods and services rises, reducing the purchasing power of money over time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does inflation affect purchasing power?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As inflation increases, the same amount of money buys fewer goods and services, reducing its real value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is future cost calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Future cost is calculated using compound inflation: Present Cost × (1 + inflation rate)^years."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is inflation always bad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Moderate inflation is normal in growing economies, but high inflation erodes savings and purchasing power."
+          }
+        }
+      ]
+    }
+  ]
+}

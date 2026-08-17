@@ -1,0 +1,508 @@
+<section class="mb-12 text-center md:text-left">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+        >
+          EMI Calculator (India, USA, UK)
+        </h1>
+        <p class="mt-4 max-w-3xl text-lg text-slate-600 dark:text-slate-400">
+          Estimate monthly EMI, total interest, and total repayment in one place
+          using a consistent CalcBase calculator design built for INR, USD, and
+          GBP users.
+        </p>
+      </section>
+
+      <section class="mb-20 grid grid-cols-1 gap-8 lg:grid-cols-12">
+        <article class="pro-card p-6 md:p-8 lg:col-span-7">
+          <div class="mb-6 flex items-center justify-between">
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400"
+            >
+              Currency
+            </p>
+            <div
+              class="flex rounded-xl border border-slate-200 bg-slate-100 p-1 dark:border-slate-700 dark:bg-slate-800"
+            >
+              <button
+                id="btn-usd"
+                type="button"
+                class="rounded-lg px-4 py-2 text-xs font-bold"
+              >
+                USD
+              </button>
+              <button
+                id="btn-gbp"
+                type="button"
+                class="rounded-lg px-4 py-2 text-xs font-bold"
+              >
+                GBP
+              </button>
+              <button
+                id="btn-inr"
+                type="button"
+                class="rounded-lg px-4 py-2 text-xs font-bold"
+              >
+                INR
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div>
+              <label
+                for="calc-amount"
+                class="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
+              >
+                Loan Amount
+              </label>
+              <div class="relative">
+                <span
+                  class="sym absolute left-4 top-4 font-bold text-gray-400 pointer-events-none"
+                  >$</span
+                >
+                <input
+                  id="calc-amount"
+                  type="number"
+                  value="250000"
+                  class="symbol-input-field w-full pl-10 pr-4 font-mono block py-4 border-none rounded-xl focus:ring-2 focus:ring-brand-500 transition-all"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="calc-rate"
+                class="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
+              >
+                Interest Rate (% per annum)
+              </label>
+              <input
+                id="calc-rate"
+                type="number"
+                step="0.1"
+                value="8.5"
+                class="input-field w-full text-lg font-mono"
+              />
+            </div>
+
+            <div>
+              <label
+                for="calc-tenure"
+                class="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
+              >
+                Tenure (Months)
+              </label>
+              <input
+                id="calc-tenure"
+                type="number"
+                value="240"
+                class="input-field w-full text-lg font-mono"
+              />
+            </div>
+
+            <p
+              id="calc-validation-message"
+              class="hidden rounded-xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-300"
+            ></p>
+          </div>
+        </article>
+
+        <aside class="lg:col-span-5">
+          <div
+            class="min-h-140 rounded-3xl bg-linear-to-br from-indigo-600 to-violet-700 p-7 text-white shadow-2xl flex flex-col justify-between"
+          >
+            <div>
+              <p
+                class="text-xs font-black uppercase tracking-[0.2em] text-indigo-100"
+              >
+                Monthly EMI
+              </p>
+              <p
+                id="result-monthly"
+                class="mt-3 text-5xl font-black tracking-tight"
+              >
+                $0
+              </p>
+            </div>
+
+            <div
+              class="mt-8 rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-sm"
+            >
+              <div class="mb-5 flex items-center justify-center">
+                <div
+                  class="flex h-28 w-28 items-center justify-center rounded-full bg-indigo-500/40"
+                >
+                  <div
+                    id="result-chart"
+                    class="h-20 w-20 rounded-full bg-white/40"
+                  ></div>
+                </div>
+              </div>
+              <div class="space-y-3 text-sm">
+                <div
+                  class="flex items-center justify-between border-b border-white/10 pb-2"
+                >
+                  <span>Total Interest</span>
+                  <strong id="result-interest">$0</strong>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>Total Payment</span>
+                  <strong id="result-total" class="text-base">$0</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="content-guide" class="mb-20">
+        <article
+          class="pro-card p-7 md:p-10 prose max-w-none dark:prose-invert prose-slate"
+        >
+          <h2
+            class="text-3xl font-extrabold text-slate-900 dark:text-white mb-6"
+          >
+            The Complete Guide to Understanding and Optimizing Your EMI
+          </h2>
+
+          <p class="text-lg leading-relaxed mb-6">
+            When you take out a loan—whether it is a mortgage for a new home, a
+            car loan, or a personal loan for emergencies—your lender calculates
+            an <strong>Equated Monthly Installment (EMI)</strong>. Most
+            borrowers simply look at this final number and ask, "Can I afford
+            this every month?" However, relying solely on monthly affordability
+            is the most common financial mistake borrowers make. To truly master
+            your finances, you need to look under the hood of your EMI.
+          </p>
+
+          <p class="text-lg leading-relaxed mb-8">
+            This comprehensive guide breaks down the mathematics of EMI, how
+            amortization schedules silently drain your wealth through
+            front-loaded interest, and the exact strategies you can use to save
+            thousands in the USA, UK, and India.
+          </p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            1. The Anatomy of an EMI (Amortization Explained)
+          </h3>
+          <p class="leading-relaxed mb-4">
+            Every EMI payment is split into two distinct components:
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li>
+              <strong>The Interest Component:</strong> The fee the bank charges
+              you for borrowing their money.
+            </li>
+            <li>
+              <strong>The Principal Component:</strong> The portion that
+              actually reduces your outstanding loan balance.
+            </li>
+          </ul>
+
+          <p class="leading-relaxed mb-4">
+            Banks use a system called <strong>Amortization</strong>. Under this
+            system, your EMI remains fixed every month, but the
+            <em>ratio</em> of interest to principal changes dramatically over
+            time. In the first few years of a long-term loan (like a 30-year
+            mortgage), up to 70-80% of your EMI goes strictly toward paying
+            interest. Your actual loan balance barely moves.
+          </p>
+
+          <div
+            class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 p-6 rounded-xl my-8"
+          >
+            <h4 class="font-bold text-indigo-800 dark:text-indigo-300 mb-2">
+              The EMI Formula
+            </h4>
+            <p
+              class="font-mono text-sm md:text-base text-slate-700 dark:text-slate-300 mb-2"
+            >
+              E = P × r × (1 + r)^n / ((1 + r)^n - 1)
+            </p>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Where <strong>E</strong> is EMI, <strong>P</strong> is Principal
+              Loan Amount, <strong>r</strong> is the monthly interest rate
+              (annual rate divided by 12), and <strong>n</strong> is the loan
+              tenure in months.
+            </p>
+          </div>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            2. The "Tenure Trap" – Why Lower EMIs Are Dangerous
+          </h3>
+          <p class="leading-relaxed mb-4">
+            When applying for a loan, a bank representative will often try to
+            "help" you by extending your loan tenure (e.g., from 15 years to 20
+            or 30 years). This lowers your monthly EMI, making the loan feel
+            more affordable. This is known as the <em>Tenure Trap</em>.
+          </p>
+
+          <p class="leading-relaxed mb-6">
+            While a lower EMI frees up immediate monthly cash flow, it
+            drastically inflates the <strong>Total Interest Payable</strong>.
+            Extending a $250,000 loan at 7% from 15 years to 30 years drops the
+            EMI by about $600/month. However, you end up paying roughly $180,000
+            <em>more</em> in interest over the life of the loan. Always select
+            the shortest loan tenure you can comfortably afford while
+            maintaining an emergency fund.
+          </p>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            3. Regional Differences: EMI in India vs. USA vs. UK
+          </h3>
+          <p class="leading-relaxed mb-4">
+            While the core mathematical formula for calculating an EMI is
+            identical globally, the structure of loans and how banks apply
+            interest varies wildly by country:
+          </p>
+
+          <div class="overflow-x-auto my-6">
+            <table
+              class="w-full text-sm border-collapse border border-slate-200 dark:border-slate-700"
+            >
+              <thead class="bg-slate-100 dark:bg-slate-800">
+                <tr>
+                  <th
+                    class="p-3 text-left border border-slate-200 dark:border-slate-700"
+                  >
+                    Country
+                  </th>
+                  <th
+                    class="p-3 text-left border border-slate-200 dark:border-slate-700"
+                  >
+                    Common Loan Structure
+                  </th>
+                  <th
+                    class="p-3 text-left border border-slate-200 dark:border-slate-700"
+                  >
+                    Crucial Advice
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    class="p-3 font-semibold border border-slate-200 dark:border-slate-700"
+                  >
+                    India
+                  </td>
+                  <td class="p-3 border border-slate-200 dark:border-slate-700">
+                    Floating rate loans linked to RBI Repo Rate are standard for
+                    home loans. As rates rise, banks automatically extend your
+                    tenure to keep EMI fixed.
+                  </td>
+                  <td class="p-3 border border-slate-200 dark:border-slate-700">
+                    Aggressive part-prepayments are highly recommended. A 5%
+                    annual prepayment can cut a 20-year loan down to just 12
+                    years.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="p-3 font-semibold border border-slate-200 dark:border-slate-700"
+                  >
+                    USA
+                  </td>
+                  <td class="p-3 border border-slate-200 dark:border-slate-700">
+                    15-year and 30-year Fixed-Rate Mortgages rule the market.
+                    Your P&I (Principal & Interest) EMI never changes for the
+                    life of the loan.
+                  </td>
+                  <td class="p-3 border border-slate-200 dark:border-slate-700">
+                    Do not forget to add Property Taxes and Insurance (PMI) to
+                    your P&I calculation. The "true EMI" (PITI) is much higher
+                    than just the loan EMI.
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    class="p-3 font-semibold border border-slate-200 dark:border-slate-700"
+                  >
+                    UK
+                  </td>
+                  <td class="p-3 border border-slate-200 dark:border-slate-700">
+                    Fixed for 2 to 5 years, followed by a shift to the lender's
+                    Standard Variable Rate (SVR), which is often much higher.
+                  </td>
+                  <td class="p-3 border border-slate-200 dark:border-slate-700">
+                    You must be prepared to "remortgage" every 2-5 years before
+                    the fixed period ends to avoid massive EMI spikes.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3
+            class="text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4"
+          >
+            4. Strategic Prepayments: The Ultimate Financial Hack
+          </h3>
+          <p class="leading-relaxed mb-4">
+            Because loans are front-loaded with interest, any extra money you
+            pay toward your loan in the early years goes
+            <em>100% toward the principal balance</em>. This skips months or
+            even years of future interest payments.
+          </p>
+          <ul class="space-y-2 mb-6">
+            <li>
+              <strong>The 13-Month Trick:</strong> Pay half your EMI every two
+              weeks instead of a full EMI once a month. Over a year, you will
+              make 26 half-payments (equal to 13 full months). This single extra
+              payment a year can shave 4-5 years off a 30-year loan.
+            </li>
+            <li>
+              <strong>Annual Bonus Dump:</strong> Commit 50% of any annual work
+              bonus or tax refund directly to your loan principal.
+            </li>
+            <li>
+              <strong>Refinancing:</strong> If market interest rates drop by 1%
+              or more compared to your current rate, refinancing your loan can
+              substantially lower your EMI.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="faq" class="mb-20">
+        <h2
+          class="my-8 text-center text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+        >
+          Frequently Asked Questions
+        </h2>
+        <div class="mx-auto max-w-4xl space-y-4">
+          <details class="pro-card p-5 group transition-all">
+            <summary
+              class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+            >
+              What exactly does an EMI calculator do?
+            </summary>
+            <p
+              class="text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+            >
+              An EMI calculator uses the standard banking amortization formula
+              to process three variables: Loan Principal, Annual Interest Rate,
+              and Loan Tenure. It instantly provides the fixed monthly payment
+              required to clear the debt down to zero, while separating exactly
+              how much of your total payment is going toward bank profit
+              (interest).
+            </p>
+          </details>
+
+          <details class="pro-card p-5 group transition-all">
+            <summary
+              class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+            >
+              Why is the interest portion so high in the first few years?
+            </summary>
+            <p
+              class="text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+            >
+              Interest is always calculated on the <em>outstanding balance</em>.
+              In month one, your outstanding balance is at its absolute highest,
+              meaning the interest generated that month is also at its peak. As
+              you slowly chip away at the principal, the balance drops, and
+              therefore the interest generated in subsequent months slowly
+              decreases.
+            </p>
+          </details>
+
+          <details class="pro-card p-5 group transition-all">
+            <summary
+              class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+            >
+              Are processing fees, taxes, and insurance included in this EMI?
+            </summary>
+            <p
+              class="text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+            >
+              No. Standard EMI calculators calculate the raw "Principal and
+              Interest" (P&I). Depending on your loan type and country, you may
+              need to pay an upfront processing fee (usually 1-2% of the loan
+              amount). For mortgages, you must also budget for property taxes,
+              homeowners insurance, and PMI, which are often bundled into your
+              final monthly bank draft but are not part of the core loan EMI.
+            </p>
+          </details>
+
+          <details class="pro-card p-5 group transition-all">
+            <summary
+              class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+            >
+              Does checking my EMI on CalcBase impact my credit score?
+            </summary>
+            <p
+              class="text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+            >
+              Absolutely not. Using our calculators is entirely anonymous and
+              runs locally in your browser. It does not trigger a "hard pull" or
+              "soft pull" on your credit file (like FICO in the USA or CIBIL in
+              India). Your credit score is only impacted when you officially
+              submit a loan application to a registered financial institution.
+            </p>
+          </details>
+
+          <details class="pro-card p-5 group transition-all">
+            <summary
+              class="cursor-pointer list-none font-bold flex justify-between items-center text-lg"
+            >
+              Is it better to invest my extra cash or prepay my loan?
+            </summary>
+            <p
+              class="text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-4"
+            >
+              This is the ultimate financial debate. Mathematically, you compare
+              the after-tax interest rate of your loan against the expected
+              after-tax return of an investment. If your loan charges 12%
+              interest, paying it off is a guaranteed, risk-free 12% return on
+              your money. If your loan is a low 4% mortgage, you might be better
+              off investing the cash in an index fund yielding 8-10%. However,
+              the psychological peace of mind of being debt-free cannot be
+              modeled in a spreadsheet.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <div
+          class="rounded-2xl border border-slate-200 bg-white p-6 text-center dark:border-slate-700 dark:bg-slate-800"
+        >
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">
+            Explore More Calculators
+          </h2>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
+            Continue with
+            <a
+              href="/personal-loan-calculator/"
+              class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400"
+              >Personal Loan Calculator</a
+            >,
+            <a
+              href="/mortgage-calculator/"
+              class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400"
+              >Mortgage Calculator</a
+            >,
+            <a
+              href="/car-loan-calculator/"
+              class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400"
+              >Car Loan Calculator</a
+            >,
+            <a
+              href="/loan-eligibility-calculator/"
+              class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400"
+              >Loan Eligibility Calculator</a
+            >, and
+            <a
+              href="/sip-calculator/"
+              class="font-semibold text-indigo-600 hover:underline dark:text-indigo-400"
+              >SIP Calculator</a
+            >.
+          </p>
+        </div>
+      </section>

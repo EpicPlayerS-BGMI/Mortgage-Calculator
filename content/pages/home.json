@@ -1,0 +1,79 @@
+{
+  "title": "CalcBase – Free Financial Calculators (EMI, SIP, Loan)",
+  "description": "CalcBase is a content-rich financial planning website with free EMI, personal loan, and home loan calculators for INR, USD, and GBP users in India, USA, and UK.",
+  "keywords": "free financial calculators india usa uk, emi calculator, home loan calculator, personal loan calculator, loan interest calculator, financial planning guide",
+  "robots": "index, follow, max-snippet:-1, max-image-preview:large",
+  "canonical": "https://calcbase.tech/",
+  "ogTitle": "CalcBase – Free Financial Calculators (EMI, SIP, Loan) | CalcBase",
+  "ogDescription": "Explore free EMI, home loan, and personal loan calculators with a complete financial planning guide for India, USA, and UK users.",
+  "ogImage": "https://calcbase.tech/assets/og/mortgage.png",
+  "ogType": "website",
+  "twitterTitle": "CalcBase – Free Financial Calculators (EMI, SIP, Loan) | CalcBase",
+  "twitterDescription": "Free financial calculators plus a complete guide to EMI, loans, and smarter planning.",
+  "twitterImage": "https://calcbase.tech/assets/og/mortgage.png",
+  "jsonLd": [
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CalcBase",
+        "url": "https://calcbase.tech/",
+        "logo": "https://calcbase.tech/assets/favicon.ico",
+        "email": "support@calcbase.tech",
+        "founder": {
+          "@type": "Person",
+          "name": "Shivam"
+        },
+        "areaServed": [
+          "India",
+          "United States",
+          "United Kingdom"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "support@calcbase.tech",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CalcBase",
+        "url": "https://calcbase.tech/"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is EMI and how is it calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "EMI stands for Equated Monthly Installment. It is calculated from principal, monthly interest rate, and total number of months using the reducing balance formula."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which country should I choose in calculators: India, USA, or UK?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Choose based on the currency and lending context you need. CalcBase supports INR for India, USD for USA, and GBP for UK."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I reduce total loan interest?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Increase down payment, improve credit profile for lower rates, select shorter tenure when affordable, and make periodic prepayments."
+            }
+          }
+        ]
+      }
+    ]
+  ]
+}

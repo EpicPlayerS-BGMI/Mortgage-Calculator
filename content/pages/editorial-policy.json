@@ -1,0 +1,24 @@
+{
+  "title": "Editorial Policy | How CalcBase Creates Finance Content",
+  "description": "Read how CalcBase researches, writes, reviews, and updates financial calculator guides for readers in India, the USA, and the UK.",
+  "keywords": "",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/editorial-policy/",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "CalcBase Editorial Policy",
+      "url": "https://calcbase.tech/editorial-policy/",
+      "dateModified": "2026-08-08",
+      "description": "Editorial standards for CalcBase finance articles, calculators, corrections, and advertising disclosures."
+    }
+  ]
+}

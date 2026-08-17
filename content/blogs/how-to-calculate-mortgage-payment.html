@@ -1,0 +1,204 @@
+<nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex flex-wrap items-center gap-1 text-sm text-slate-500 dark:text-slate-400">
+          <li><a href="/" class="hover:text-indigo-600 dark:hover:text-indigo-400">Home</a></li>
+          <li class="opacity-50">/</li>
+          <li><a href="/blogs/" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blogs</a></li>
+          <li class="opacity-50">/</li>
+          <li class="text-slate-700 dark:text-slate-300 font-medium">How to Calculate Mortgage Payment Manually</li>
+        </ol>
+      </nav>
+
+      <div class="mb-6 text-sm text-slate-500 dark:text-slate-400">
+        <span>By Shivam, CalcBase</span> &middot; <span>January 14, 2026</span> &middot; <span>11 min read</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white leading-tight uppercase tracking-tight">
+        How to Calculate Mortgage Payment Manually
+      </h1>
+
+      <div class="pro-card mb-10 rounded-2xl border border-indigo-100 dark:border-slate-700 bg-gradient-to-r from-indigo-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 px-6 py-8">
+        <p class="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-2">Home loans · Amortisation maths</p>
+        <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl">A practical walkthrough of the fixed-rate payment formula, month-one interest splits, and how taxes or escrow turn P&amp;I into a true housing bill.</p>
+      </div>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">What a Lender Quote Actually Represents</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Most homebuyers see a monthly number on a sanction letter or loan estimate and treat it as a black box. That number is usually the level payment that pays interest first and slowly clears principal so the balance hits zero on the final due date. Understanding how that figure is built lets you challenge odd fees, compare two offers with different terms, and spot when a quote mixes principal-and-interest with insurance or tax escrow.</p>
+          <p>Manual calculation will not replace a bank’s legal disclosure, but it gives you an independent check within a few rupees, dollars, or pounds of rounding. When the gap is large, something else is in the payment—points financed into the loan, mortgage insurance, or a different day-count convention. When the gap is tiny, you can trust your intuition about what happens if the rate rises half a percent or you shorten the term by five years.</p>
+          <p>This guide starts from the standard amortising formula used for fixed-rate mortgages and Indian fixed-EMI illustrations, then layers real-world costs that sit outside the formula. You can verify every scenario with the <a href="/mortgage-calculator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Mortgage Calculator</a> or the more general <a href="/emi-calculator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">EMI Calculator</a> as you read.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">The Fixed-Rate Formula, Variable by Variable</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>For a loan that amortises with equal monthly payments at a constant rate, the payment <em>M</em> is:</p>
+          <p class="font-mono text-base md:text-lg bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-800 dark:text-slate-200">M = P × [ r(1+r)<sup>n</sup> ] ÷ [ (1+r)<sup>n</sup> − 1 ]</p>
+          <p><strong class="text-slate-800 dark:text-slate-200">P</strong> is the principal you borrow after the down payment. <strong class="text-slate-800 dark:text-slate-200">r</strong> is the monthly interest rate, usually the annual nominal rate divided by 12 for educational and most retail illustrations. <strong class="text-slate-800 dark:text-slate-200">n</strong> is the number of monthly payments—360 for a 30-year loan, 240 for 20 years, 180 for 15 years.</p>
+          <p>If the annual rate is zero, the formula collapses to a simple principal divided by months. For any positive rate, early payments are mostly interest because the unpaid balance is still large. Later payments flip toward principal. That tilt is why an extra principal payment in year one saves more total interest than the same extra payment in year twenty.</p>
+          <p>Banks may quote APR, EIR, or “reducing balance” marketing lines that look different from the contractual nominal rate. For manual maths, always use the rate that applies to the outstanding principal for the payment period you are modelling, then reconcile to the APR separately when you compare offers.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Worked Example: $320,000 at 6.25% for 30 Years</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Take a US-style fixed mortgage of $320,000 at 6.25% for 30 years. Monthly rate r = 0.0625 ÷ 12 = 0.00520833… and n = 360. Plugging into the formula produces a principal-and-interest payment of roughly <strong class="text-slate-800 dark:text-slate-200">$1,970</strong> (about $1,969.80 before bank rounding).</p>
+          <p>Month one interest equals 320,000 × 0.00520833 ≈ $1,666.67. Subtract that from the payment and only about $303.13 reduces principal. The new balance is about $319,696.87. Month two interest is slightly lower, so a few more dollars go to principal. Repeat that logic 360 times and the loan clears—unless you add taxes and insurance on top, which never reduce the balance.</p>
+          <p>If the same borrower chose a 15-year term at the same 6.25%, n becomes 180 and the payment jumps to roughly $2,744. The household pays more each month but far less interest over the life of the loan. That trade-off is the core of term selection; the formula makes it visible before you sign.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Worked Example: ₹45 Lakh Home Loan in India</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Consider a ₹45,00,000 home loan at 8.40% for 20 years. Here r = 0.084 ÷ 12 = 0.007 and n = 240. The EMI lands near <strong class="text-slate-800 dark:text-slate-200">₹38,760</strong>. First-month interest is 45,00,000 × 0.007 = ₹31,500, so principal repaid in month one is only about ₹7,260.</p>
+          <p>Indian home loans are often floating. The EMI you calculate today is a snapshot at today’s reset rate. When the benchmark moves, the bank may raise EMI, extend tenure, or offer a choice. Recalculate with the new r and the remaining n (or the remaining balance with a fixed EMI) so you know which outcome your budget can absorb.</p>
+          <p>Processing fees, stamp duty on the loan agreement, and CERSAI charges are usually paid upfront or deducted from disbursement; they do not appear inside the EMI formula unless the lender capitalises them into P. Always confirm whether your sanctioned “loan amount” already includes such add-ons.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Rate and Term Sensitivity Table</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Holding principal at $300,000, compare monthly P&amp;I across rates and terms. Figures are rounded educational estimates—use a calculator for sanction-level precision.</p>
+          <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700">
+            <table class="min-w-full text-left text-base">
+              <thead class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+                <tr>
+                  <th class="px-4 py-3 font-semibold">Annual rate</th>
+                  <th class="px-4 py-3 font-semibold">15-year P&amp;I</th>
+                  <th class="px-4 py-3 font-semibold">20-year P&amp;I</th>
+                  <th class="px-4 py-3 font-semibold">30-year P&amp;I</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-700 bg-white dark:bg-slate-900/40">
+                <tr>
+                  <td class="px-4 py-3">5.50%</td>
+                  <td class="px-4 py-3">$2,451</td>
+                  <td class="px-4 py-3">$2,064</td>
+                  <td class="px-4 py-3">$1,703</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3">6.00%</td>
+                  <td class="px-4 py-3">$2,532</td>
+                  <td class="px-4 py-3">$2,149</td>
+                  <td class="px-4 py-3">$1,799</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3">6.50%</td>
+                  <td class="px-4 py-3">$2,613</td>
+                  <td class="px-4 py-3">$2,237</td>
+                  <td class="px-4 py-3">$1,896</td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-3">7.00%</td>
+                  <td class="px-4 py-3">$2,696</td>
+                  <td class="px-4 py-3">$2,326</td>
+                  <td class="px-4 py-3">$1,996</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>On a $300,000 balance, moving from 6.00% to 6.50% on a 30-year loan adds roughly $97 per month—about $35,000 of extra interest if the loan runs full term. Shortening from 30 to 20 years at 6.00% raises the payment by about $350 but can cut total interest by well over $100,000. Run your own principal through the same grid before choosing comfort versus speed.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Beyond P&amp;I: Taxes, Insurance, and Escrow</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>US lenders often collect property taxes and homeowners insurance into an escrow account and add that to the monthly bill. PMI may apply when the down payment is thin. The amortisation formula never produces those lines; you add them after you compute M. A $1,970 P&amp;I payment can become a $2,450 housing payment once escrow is included.</p>
+          <p>In India, municipal property tax and society maintenance are usually paid separately from the EMI. Borrowers who only stress-test the EMI underestimate cash outflow. Budget a monthly reserve even if nothing is escrowed. In the UK, the initial fixed-rate mortgage payment is typically capital-and-interest only; ground rent, service charges, and buildings insurance still need a separate line in the household plan.</p>
+          <p>When comparing two loans, force both quotes onto the same definition: P&amp;I only, or P&amp;I plus the same tax and insurance assumptions. Mixing definitions is the fastest way to pick the wrong “cheaper” offer.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">UK Remortgage Reality Check</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Many UK borrowers fix for two or five years, then face a higher follow-on rate unless they remortgage. Manual maths for the initial deal is still useful, but you should also compute payment at a stressed reversion rate on the expected balance at the end of the fix. Example: £280,000 at 4.40% for a five-year fix on a 25-year remaining term produces a payment near £1,540. If the balance after five years is about £242,000 and the reversion rate is 7.5% on the remaining 20 years, the new payment can jump toward £1,950—before any remortgage product is secured.</p>
+          <p>Build that second scenario into affordability so the first deal is not judged in isolation. The same habit helps Indian floating-rate borrowers and US ARM holders when the introductory period ends.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Build a 24-Row Spreadsheet Mini-Schedule</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Open a spreadsheet. Put opening balance in A2, monthly rate in B1, and EMI in C1. In row 2: interest = A2 × $B$1; principal = $C$1 − interest; closing balance = A2 − principal. Copy down for 24 months. Compare month-12 balance with a lender schedule. If they match within rounding, your inputs are aligned.</p>
+          <p>Next, add an optional extra principal column. Even ₹5,000 or $100 monthly from month one bends the balance curve downward. Watch cumulative interest over two years to see why early extras matter. Confirm with your lender whether extras shorten tenure or periodically reduce EMI—policies differ, and the spreadsheet assumption should match the contract.</p>
+          <p>If your sheet and an online tool diverge, check whether the tool includes escrow. Align definitions before assuming either side is wrong. The <a href="/loan-eligibility-calculator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Loan Eligibility Calculator</a> helps separately when the question is how large a P you can responsibly request, not what M equals for a chosen P.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Where Manual Maths Saves Real Money</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Use the formula when a broker shows two rates that look close but hide different terms or fee structures. Recompute after any rate lock change. Stress-test affordability at a rate 1% higher than today’s quote so a floating reset or failed remortgage does not wreck the budget. Separate P&amp;I from escrow whenever you negotiate or refinance.</p>
+          <p>Manual maths also clarifies biweekly payment marketing. Paying half a monthly EMI every two weeks can create roughly one extra monthly payment per year, but only if the lender applies funds that way. Model the contractual schedule, not the slogan.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Points, Credits, and How They Change Principal</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>In US mortgages, discount points paid upfront can buy a lower note rate, which lowers M in the formula. Lender credits can cover closing costs in exchange for a higher rate, which raises M. Neither magic changes the formula—they change the inputs. Always recompute P&amp;I after the rate changes, then add the cash you must bring to closing so you are not comparing a low payment that required a large cheque you do not have.</p>
+          <p>Indian processing fees and US origination charges sometimes get financed into the loan. Financing fees raises P and therefore M. A quote that looks “zero fee” may simply have buried the fee in a higher principal. Recalculate with the true amount financed, not the sticker property price minus down payment alone.</p>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Calculation Pitfalls That Distort Comparisons</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Borrowers rarely fail the algebra; they fail the inputs. These habits create false comfort or false alarm:</p>
+          <ul class="list-disc pl-6 space-y-3">
+            <li>Feeding the annual rate into the formula as if it were already monthly.</li>
+            <li>Comparing a full escrow payment from Lender A with a P&amp;I-only quote from Lender B.</li>
+            <li>Treating a floating-rate EMI as locked for the entire tenure.</li>
+            <li>Ignoring fees capitalised into principal, which raise both P and M.</li>
+            <li>Assuming the lowest monthly payment is the cheapest loan without checking total interest and exit costs.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">Do I need a financial calculator for the formula?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">A spreadsheet POWER function or any scientific calculator that handles exponents is enough. Phone calculator apps that support (1+r)^n work for a single payment check; a spreadsheet is better when you want a schedule.</p>
+          </details>
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">How do I calculate an interest-only payment?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">Multiply outstanding balance by the monthly rate. That covers interest only; principal stays flat unless you make separate capital repayments. Interest-only products have different risk and refinance assumptions than fully amortising loans.</p>
+          </details>
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">Why is my bank EMI a few rupees different from mine?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">Rounding of intermediate powers, day-count rules, and whether the first period is a stub month can create small gaps. Differences of thousands usually mean wrong principal, rate, or tenure—or charges bundled into the instalment.</p>
+          </details>
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">Does the formula work for adjustable-rate mortgages?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">It describes one fixed rate for one remaining term. When an ARM or floating loan resets, recompute with the new rate and the remaining balance and term (or recompute tenure if EMI is held constant).</p>
+          </details>
+          <details class="pro-card p-5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40">
+            <summary class="font-bold text-slate-900 dark:text-white cursor-pointer">Should property tax be inside the amortisation formula?</summary>
+            <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">No. Compute P&amp;I first, then add tax, insurance, and association dues as separate cash flows—even when a US escrow wraps them into one monthly draft.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="mb-14">
+        <h2 class="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Educational Note on Mortgage Figures</h2>
+        <div class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed space-y-6">
+          <p>Examples in this article are for learning how amortising payments are constructed. Lender contracts, underwriting rules, and local tax or insurance practices control what you actually pay. CalcBase tools are educational aids, not personalised lending advice. Confirm every figure with your lender or adviser before you commit.</p>
+        </div>
+      </section>
+
+      <section class="mt-20 p-12 rounded-[2rem] bg-indigo-50 dark:bg-slate-800/50 border border-indigo-100 dark:border-slate-700 text-center">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Check Your Payment Before You Sign</h2>
+        <p class="text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto">Run principal, rate, and tenure through CalcBase, then stress-test a higher rate so the quote still fits your budget.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/mortgage-calculator/" class="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-500 transition shadow-lg">Open Mortgage Calculator</a>
+          <a href="/emi-calculator/" class="px-8 py-4 bg-white dark:bg-slate-700 text-slate-900 dark:text-white font-bold rounded-xl border border-slate-200 dark:border-slate-600 hover:bg-slate-50 transition">Try EMI Calculator</a>
+        </div>
+      </section>

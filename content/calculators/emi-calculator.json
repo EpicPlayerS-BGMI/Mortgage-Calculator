@@ -1,0 +1,55 @@
+{
+  "title": "EMI Calculator (India, USA, UK) - Monthly EMI, Interest, Total Payment | CalcBase",
+  "description": "Free EMI Calculator for India, USA, and UK users. Calculate monthly EMI, total interest, total payment, and loan breakdown with INR, USD, and GBP support.",
+  "keywords": "emi calculator india usa uk, monthly emi calculator, loan emi calculator, interest breakdown calculator, inr usd gbp calculator",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/emi-calculator/",
+  "ogTitle": "EMI Calculator (India, USA, UK) | CalcBase",
+  "ogDescription": "Estimate monthly EMI, total interest, and repayment amount instantly with a reusable calculator design.",
+  "ogImage": "https://calcbase.tech/assets/og/mortgage.png",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "EMI Calculator - CalcBase",
+      "url": "https://calcbase.tech/emi-calculator/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "EMI calculator for India, USA, and UK with monthly installment and total interest breakdown."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is EMI in loan calculations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EMI is the fixed monthly payment made toward a loan that includes both interest and principal portions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I reduce my EMI amount?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can reduce EMI by choosing longer tenure, negotiating a lower interest rate, or increasing down payment where applicable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is EMI formula same in India, USA, and UK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The reducing-balance EMI formula is the same, but lender policies, fees, taxes, and product structures differ by country."
+          }
+        }
+      ]
+    }
+  ]
+}

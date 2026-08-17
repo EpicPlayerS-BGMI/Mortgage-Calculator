@@ -1,0 +1,62 @@
+{
+  "title": "Mortgage Calculator (India, USA, UK) - EMI, Interest, and Total Cost Guide | CalcBase",
+  "description": "Use the CalcBase Mortgage Calculator to estimate monthly payment, total interest, and total repayment for India, USA, and UK scenarios. Includes practical mortgage planning guide, examples, FAQs, and country-specific tips.",
+  "keywords": "mortgage calculator india usa uk, home loan emi calculator, monthly mortgage payment calculator, mortgage interest calculation, housing loan planning guide",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/mortgage-calculator/",
+  "ogTitle": "Mortgage Calculator (India, USA, UK) | CalcBase",
+  "ogDescription": "Calculate monthly mortgage payment in INR, USD, or GBP and understand total interest with practical examples and country-specific guidance.",
+  "ogImage": "https://calcbase.tech/assets/og/mortgage.png",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the most important factor in mortgage affordability?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most important factor is your stable monthly cash flow after essential expenses. Interest rate and tenure matter, but cash flow resilience determines long-term affordability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I choose a longer tenure to reduce EMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A longer tenure lowers monthly payment but increases total interest. Choose the shortest tenure you can comfortably manage without harming savings and emergency reserves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I reduce total mortgage interest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Increase down payment, improve credit profile, negotiate a lower rate, and make early prepayments on principal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the mortgage formula same in India, USA, and UK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The reducing-balance mortgage formula is generally the same, but lender policies, fees, taxes, and product structures differ across countries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this calculator include property tax and insurance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This calculator focuses on principal and interest estimates. Property tax, insurance, and local charges should be added separately."
+          }
+        }
+      ]
+    }
+  ]
+}

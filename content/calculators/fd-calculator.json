@@ -1,0 +1,54 @@
+{
+  "title": "FD Calculator | Fixed Deposit Maturity & Interest – CalcBase",
+  "description": "Free Fixed Deposit (FD) Calculator to calculate maturity amount, total interest earned, and guaranteed returns using compound interest. Suitable for USA, UK & India.",
+  "keywords": "fd calculator, fixed deposit calculator, fd maturity calculator, fd interest calculator, term deposit calculator",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/fd-calculator/",
+  "ogTitle": "FD Calculator | Fixed Deposit Returns – CalcBase",
+  "ogDescription": "Calculate FD maturity value and interest earned using compound interest with CalcBase FD Calculator.",
+  "ogImage": "https://calcbase.tech/assets/og/fd-calculator.png",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "FD Calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "url": "https://calcbase.tech/fd-calculator/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Fixed Deposit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Fixed Deposit is a low-risk investment where money is deposited for a fixed period at a guaranteed interest rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is FD maturity calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FD maturity is calculated using compound interest: P × (1 + r/n)^(n×t)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is FD a safe investment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, fixed deposits provide guaranteed returns and are considered one of the safest investment options."
+          }
+        }
+      ]
+    }
+  ]
+}

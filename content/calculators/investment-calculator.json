@@ -1,0 +1,46 @@
+{
+  "title": "Investment Calculator | Calculate Future Returns – CalcBase",
+  "description": "Investment Calculator to estimate future value of lump sum and SIP investments using compound interest. Supports USD, GBP & INR.",
+  "keywords": "",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/investment-calculator/",
+  "ogTitle": "Investment Calculator | Calculate Future Returns – CalcBase",
+  "ogDescription": "Calculate future value of investments with lump sum and monthly SIP using compound interest.",
+  "ogImage": "",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Investment Calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "url": "https://calcbase.tech/investment-calculator/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is SIP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SIP stands for Systematic Investment Plan. It allows you to invest a fixed amount regularly (monthly or quarterly) into mutual funds or other investments, helping you benefit from compounding and rupee cost averaging."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this investment calculator account for inflation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, this calculator shows nominal returns. To estimate real returns, subtract the inflation rate from your expected annual return. For example, if returns are 10% and inflation is 4%, use 6%."
+          }
+        }
+      ]
+    }
+  ]
+}

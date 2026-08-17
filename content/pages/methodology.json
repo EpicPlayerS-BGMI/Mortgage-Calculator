@@ -1,0 +1,23 @@
+{
+  "title": "Methodology | CalcBase",
+  "description": "Learn how CalcBase builds calculators, reviews finance content, handles assumptions, and updates pages for India, USA, and UK users.",
+  "keywords": "",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/methodology/",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "CalcBase Methodology",
+      "url": "https://calcbase.tech/methodology/",
+      "description": "CalcBase methodology for calculators, editorial review, assumptions, and content maintenance."
+    }
+  ]
+}

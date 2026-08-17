@@ -1,0 +1,30 @@
+{
+  "title": "Contact CalcBase | Support, Feedback, and Partnership Inquiries",
+  "description": "Contact CalcBase using our support form or email for calculator feedback, corrections, partnership inquiries, and technical help.",
+  "keywords": "",
+  "robots": "index, follow",
+  "canonical": "https://calcbase.tech/contact/",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "ogType": "website",
+  "twitterTitle": "",
+  "twitterDescription": "",
+  "twitterImage": "",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact CalcBase",
+      "url": "https://calcbase.tech/contact/",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@calcbase.tech",
+        "availableLanguage": [
+          "English"
+        ]
+      }
+    }
+  ]
+}
