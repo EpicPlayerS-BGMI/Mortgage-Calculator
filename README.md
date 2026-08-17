@@ -10,7 +10,23 @@ npm run dev
 npm run build
 npm run start
 npm run lint
+npm run preview   # local Workers runtime
+npm run deploy    # build + deploy to Cloudflare
 ```
+
+## Cloudflare
+
+This app deploys to Cloudflare Workers with OpenNext. Pushes to `main` rebuild the live site after you connect the GitHub repo in the Cloudflare dashboard.
+
+1. Open **Workers & Pages** → **Create** → **Workers** → **Import a repository**.
+2. Select this repo and set the production branch to `main`.
+3. Use these build settings:
+   - **Build command:** `npx opennextjs-cloudflare build`
+   - **Deploy command:** `npx wrangler deploy`
+   - **Non-production / preview deploy:** `npx wrangler versions upload`
+4. After the first successful deploy, add `calcbase.tech` (and `www` if you use it) under **Settings → Domains & Routes**.
+
+If the domain is currently on Cloudflare Pages, remove that custom domain from the Pages project first so the Worker can take over.
 
 ## Layout
 
