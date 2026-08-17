@@ -205,11 +205,23 @@ const EXAMPLES: Record<string, { title: string; body: string[]; table?: [string,
       "The 20% (₹12,000) should leave the salary account on payday. Use SIP or a named FD so it is not ‘available’.",
     ],
   },
+  "intraday-trading-beginner-to-advanced": {
+    title: "Size from the ₹1,000 stop, not from the margin offer",
+    body: [
+      "Trading capital ₹2,00,000. Risk 0.5% = ₹1,000. Entry ₹250, invalidation ₹246, so ₹4 of risk per share. Position = 250 shares, notional ₹62,500. A 1:2 target near ₹258 is about ₹2,000 gross before brokerage and levies.",
+      "If the broker flashes 5× MIS, 1,250 shares would put ₹5,000 at risk on the same stop—2.5% of capital on one idea. That is how a normal losing morning becomes a week you cannot trade. The advanced move is declining the extra leverage.",
+    ],
+    table: [
+      ["Risk cap (0.5%)", "₹1,000"],
+      ["Stop distance", "₹4 (₹250 → ₹246)"],
+      ["Shares allowed", "250"],
+      ["Same stop at 5× ‘because margin’", "₹5,000 risk — refuse it"],
+    ],
+  },
 };
 
 export function ArticleExample({ slug }: { slug: string }) {
   const example = EXAMPLES[slug];
-  const image = blogImage(slug);
   if (!example) return null;
 
   return (
@@ -238,7 +250,7 @@ export function ArticleExample({ slug }: { slug: string }) {
         </div>
       ) : null}
       <p className="mt-4 text-xs text-slate-500">
-        Figures are illustrations using standard EMI and compounding maths. Lender quotes, taxes, and fees will differ.
+        Figures are illustrations for education. Live quotes, taxes, brokerage, and lender terms will differ.
       </p>
     </section>
   );

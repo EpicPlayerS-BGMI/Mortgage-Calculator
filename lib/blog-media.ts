@@ -124,6 +124,12 @@ export const BLOG_MEDIA: Record<
     readMins: 10,
     alt: "Inflation impact on long-term housing costs",
   },
+  "intraday-trading-beginner-to-advanced": {
+    image: "/assets/blog-images/investing-vs-inflation-chart.avif",
+    category: "Trading literacy",
+    readMins: 16,
+    alt: "Market volatility chart used to explain intraday risk versus long-term investing",
+  },
   "mutual-funds-vs-etfs": {
     image: "/assets/blog-images/sip-vs-fd-comparison.avif",
     category: "Investing",

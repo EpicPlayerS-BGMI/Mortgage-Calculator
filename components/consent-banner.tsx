@@ -1,11 +1,7 @@
 "use client";
 
 import { useEffect, useSyncExternalStore } from "react";
-import {
-  ADSENSE_CLIENT,
-  CONSENT_STORAGE_KEY,
-  GA_MEASUREMENT_ID,
-} from "@/lib/site";
+import { CONSENT_STORAGE_KEY, GA_MEASUREMENT_ID } from "@/lib/site";
 
 type ConsentStatus = "accepted" | "rejected" | "unset" | "pending";
 
@@ -120,7 +116,6 @@ export function ConsentBanner() {
   return (
     <div
       id="consent-banner"
-      data-ad-client={ADSENSE_CLIENT}
       className="fixed inset-x-0 bottom-0 z-[70] px-4 pb-4 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-5xl rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl shadow-slate-900/10 dark:border-slate-700 dark:bg-slate-900">

@@ -32,8 +32,8 @@ export default function BlogsIndexPage() {
               Original CalcBase articles
             </h1>
             <p className="max-w-2xl text-xl text-slate-500 dark:text-slate-400">
-              Worked examples, formulas, and planning notes for loans, EMIs, credit, SIP vs FD, and
-              long-term saving — written for India, USA, and UK readers.
+              Worked examples, formulas, and planning notes for loans, EMIs, credit, SIP vs FD,
+              trading literacy, and long-term saving — written for India, USA, and UK readers.
             </p>
           </div>
         </header>

@@ -21,31 +21,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${SITE_URL}/`,
-      lastModified: "2026-08-08",
+      lastModified: "2026-08-17",
       changeFrequency: "daily",
       priority: 1,
     },
     ...calculators.map((slug) => ({
       url: `${SITE_URL}/${slug}/`,
-      lastModified: "2026-08-08",
+      lastModified: "2026-08-17",
       changeFrequency: "weekly" as const,
       priority: 0.9,
     })),
     {
       url: `${SITE_URL}/blogs/`,
-      lastModified: "2026-08-08",
+      lastModified: "2026-08-17",
       changeFrequency: "weekly",
       priority: 0.82,
     },
     ...getBlogSlugs().map((slug) => ({
       url: `${SITE_URL}/blogs/${slug}/`,
-      lastModified: "2026-08-08",
+      lastModified: "2026-08-17",
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
     ...pages.map((slug) => ({
       url: `${SITE_URL}/${slug}/`,
-      lastModified: "2026-08-08",
+      lastModified: "2026-08-17",
       changeFrequency: "yearly" as const,
       priority: 0.5,
     })),
